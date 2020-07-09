@@ -111,5 +111,5 @@ Game
 
 **[Optional]: Existing API endpoints**
 
-RAWG API
-  Base URL -  https://api.rawg.io/api
+**RAWG API**
+* Base URL -  https://api.rawg.io/api
