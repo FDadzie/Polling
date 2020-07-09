@@ -34,6 +34,7 @@ This app allows users to vote on game polls. The games used in the polls are the
 * [ ] User can vote on a poll that was created
 * [ ] User can select their prefered genre of game polls
 * [ ] User can pull to refresh the home view
+* [ ] The "all-time" popular games in the app can be viewed
 * [ ] User can look at a detailed view of games from the "Popular Games" screen
 
 
