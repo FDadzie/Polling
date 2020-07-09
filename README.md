@@ -86,5 +86,6 @@ This app allows users to vote on game polls. The games used in the polls are the
 
 ## Wireframes
 
-<img src=https://github.com/FDadzie/Polling/blob/master/Hall%20of%20Polls%20Images/Hall%20of%20Polls%20(Wireframe).jpg width="600" title="Hall of Polls Wireframe">)  <--Click
+<img src=https://github.com/FDadzie/Polling/blob/master/Hall%20of%20Polls%20Images/Hall%20of%20Polls%20(Wireframe).jpg width="600" title="Hall of Polls Wireframe">
+
 (May edit...)
