@@ -89,3 +89,27 @@ This app allows users to vote on game polls. The games used in the polls are the
 <img src=https://github.com/FDadzie/Polling/blob/master/Hall%20of%20Polls%20Images/Hall%20of%20Polls%20(Wireframe).jpg width="600" title="Hall of Polls Wireframe">
 
 (May edit...)
+
+# Schema
+### Models
+
+Game
+
+| Property       | Type          | Description  |
+| ------------- |:-------------:| -----:|
+| gameId      | string        |unique id for the game|
+| developers  | string        |list of developers that worked on the game |
+| publishers  | array         |list of publishers that released the game  |
+| platforms   | array         |list of platforms that game can be played on |
+| gameDesc    | string        |description of the game      |
+| backgroundImg| file         |background image of the game |
+| genre       | array         |categories that the game belongs in |
+
+
+
+### Networking
+
+**[Optional]: Existing API endpoints**
+
+RAWG API
+  Base URL -  https://api.rawg.io/api
