@@ -85,5 +85,5 @@ This app allows users to vote on game polls. The games used in the polls are the
 
 ## Wireframes
 
-*To be added soon...*
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://imgur.com/a/pw5W0iS" width=600>
+*May edit...*
