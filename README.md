@@ -45,6 +45,7 @@ This app allows users to vote on game polls. The games used in the polls are the
 * [ ] Profiles of other users can be viewed by tapping on their profile image from the homescreen
 * [ ] The games on "Popular Games" can be filtered out based on genre
 * [ ] Messages can be sent privately to other users
+* [ ] Push notifications for the ending of polls you have voted on
 
 ### 2. Screen Archetypes
 
@@ -97,7 +98,7 @@ Game
 
 | Property       | Type          | Description  |
 | ------------- |:-------------:| -----:|
-| gameId      | string        |unique id for the game|
+| gameName      | string        |unique name for the game|
 | developers  | string        |list of developers that worked on the game |
 | publishers  | array         |list of publishers that released the game  |
 | platforms   | array         |list of platforms that game can be played on |
@@ -113,3 +114,15 @@ Game
 
 **RAWG API**
 * Base URL -  https://api.rawg.io/api
+
+| HTTP Verb      | Endpoint         | Description  |
+| ------------- |:-------------:| -----:|
+| GET           | /creator-roles |Get a list of creator positions (jobs)|
+| GET           | /creators      |Get a list of game creators|
+| GET           | /developers    |Get a list of game developers|
+| GET           | /games         |Get a list of games|
+| GET           | /genres        |Get a list of video game genres|
+| GET           | /platforms     |Get a list of video game platforms|
+| GET           | /publishers    |Get a list of video game publishers|
+| GET           | /stores        |Get a list of video game storefronts|
+| GET           | /tags          |Get a list of tags|
