@@ -1,0 +1,745 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19B557D1903D6431CBDDA3DC /* Pods_HallofPolls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCA0DC84261BB1EEEAE199F /* Pods_HallofPolls.framework */; };
+		2C4A16A420287B96940033F0 /* Pods_HallofPolls_HallofPollsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */; };
+		563FC36CAC94448B4499A278 /* Pods_HallofPollsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */; };
+		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
+		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
+		9E7AA2BF24BE06DC00F2DC5F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BE24BE06DC00F2DC5F /* ViewController.m */; };
+		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
+		9E7AA2C424BE06DD00F2DC5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C324BE06DD00F2DC5F /* Assets.xcassets */; };
+		9E7AA2C724BE06DD00F2DC5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C524BE06DD00F2DC5F /* LaunchScreen.storyboard */; };
+		9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C924BE06DD00F2DC5F /* main.m */; };
+		9E7AA2D424BE06DD00F2DC5F /* HallofPollsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2D324BE06DD00F2DC5F /* HallofPollsTests.m */; };
+		9E7AA2DF24BE06DD00F2DC5F /* HallofPollsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9E7AA2D024BE06DD00F2DC5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E7AA2AC24BE06DC00F2DC5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E7AA2B324BE06DC00F2DC5F;
+			remoteInfo = HallofPolls;
+		};
+		9E7AA2DB24BE06DD00F2DC5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E7AA2AC24BE06DC00F2DC5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E7AA2B324BE06DC00F2DC5F;
+			remoteInfo = HallofPolls;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E2BF0354BAE0B58D9C3CB31 /* Pods-HallofPolls.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPolls.release.xcconfig"; path = "Target Support Files/Pods-HallofPolls/Pods-HallofPolls.release.xcconfig"; sourceTree = "<group>"; };
+		12765F5958A4649BB9A9F0C3 /* Pods-HallofPolls-HallofPollsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPolls-HallofPollsUITests.release.xcconfig"; path = "Target Support Files/Pods-HallofPolls-HallofPollsUITests/Pods-HallofPolls-HallofPollsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2DCA0DC84261BB1EEEAE199F /* Pods_HallofPolls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		377ADC0BD84AF3AF3C4626FD /* Pods-HallofPollsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.release.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9E7AA2BA24BE06DC00F2DC5F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		9E7AA2BD24BE06DC00F2DC5F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9E7AA2BE24BE06DC00F2DC5F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9E7AA2C124BE06DC00F2DC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9E7AA2C324BE06DD00F2DC5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E7AA2C624BE06DD00F2DC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E7AA2C824BE06DD00F2DC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E7AA2C924BE06DD00F2DC5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9E7AA2CF24BE06DD00F2DC5F /* HallofPollsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HallofPollsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E7AA2D324BE06DD00F2DC5F /* HallofPollsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HallofPollsTests.m; sourceTree = "<group>"; };
+		9E7AA2D524BE06DD00F2DC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E7AA2DA24BE06DD00F2DC5F /* HallofPollsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HallofPollsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HallofPollsUITests.m; sourceTree = "<group>"; };
+		9E7AA2E024BE06DD00F2DC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.debug.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls_HallofPollsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPollsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B78DC0C028F5ED29656F12 /* Pods-HallofPolls-HallofPollsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPolls-HallofPollsUITests.debug.xcconfig"; path = "Target Support Files/Pods-HallofPolls-HallofPollsUITests/Pods-HallofPolls-HallofPollsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F2587BA5E7A2D963787E2F46 /* Pods-HallofPolls.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPolls.debug.xcconfig"; path = "Target Support Files/Pods-HallofPolls/Pods-HallofPolls.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E7AA2B124BE06DC00F2DC5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19B557D1903D6431CBDDA3DC /* Pods_HallofPolls.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E7AA2CC24BE06DD00F2DC5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				563FC36CAC94448B4499A278 /* Pods_HallofPollsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E7AA2D724BE06DD00F2DC5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C4A16A420287B96940033F0 /* Pods_HallofPolls_HallofPollsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7BFF38A2F744E3FBA9AA16CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA0DC84261BB1EEEAE199F /* Pods_HallofPolls.framework */,
+				C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */,
+				DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E7AA2AB24BE06DC00F2DC5F = {
+			isa = PBXGroup;
+			children = (
+				9E7AA2B624BE06DC00F2DC5F /* HallofPolls */,
+				9E7AA2D224BE06DD00F2DC5F /* HallofPollsTests */,
+				9E7AA2DD24BE06DD00F2DC5F /* HallofPollsUITests */,
+				9E7AA2B524BE06DC00F2DC5F /* Products */,
+				CA5D9FAC5EC07FDBB2ED5AC7 /* Pods */,
+				7BFF38A2F744E3FBA9AA16CC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9E7AA2B524BE06DC00F2DC5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */,
+				9E7AA2CF24BE06DD00F2DC5F /* HallofPollsTests.xctest */,
+				9E7AA2DA24BE06DD00F2DC5F /* HallofPollsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E7AA2B624BE06DC00F2DC5F /* HallofPolls */ = {
+			isa = PBXGroup;
+			children = (
+				9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */,
+				9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */,
+				9E7AA2BA24BE06DC00F2DC5F /* SceneDelegate.h */,
+				9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */,
+				9E7AA2BD24BE06DC00F2DC5F /* ViewController.h */,
+				9E7AA2BE24BE06DC00F2DC5F /* ViewController.m */,
+				9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */,
+				9E7AA2C324BE06DD00F2DC5F /* Assets.xcassets */,
+				9E7AA2C524BE06DD00F2DC5F /* LaunchScreen.storyboard */,
+				9E7AA2C824BE06DD00F2DC5F /* Info.plist */,
+				9E7AA2C924BE06DD00F2DC5F /* main.m */,
+			);
+			path = HallofPolls;
+			sourceTree = "<group>";
+		};
+		9E7AA2D224BE06DD00F2DC5F /* HallofPollsTests */ = {
+			isa = PBXGroup;
+			children = (
+				9E7AA2D324BE06DD00F2DC5F /* HallofPollsTests.m */,
+				9E7AA2D524BE06DD00F2DC5F /* Info.plist */,
+			);
+			path = HallofPollsTests;
+			sourceTree = "<group>";
+		};
+		9E7AA2DD24BE06DD00F2DC5F /* HallofPollsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */,
+				9E7AA2E024BE06DD00F2DC5F /* Info.plist */,
+			);
+			path = HallofPollsUITests;
+			sourceTree = "<group>";
+		};
+		CA5D9FAC5EC07FDBB2ED5AC7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2587BA5E7A2D963787E2F46 /* Pods-HallofPolls.debug.xcconfig */,
+				0E2BF0354BAE0B58D9C3CB31 /* Pods-HallofPolls.release.xcconfig */,
+				E9B78DC0C028F5ED29656F12 /* Pods-HallofPolls-HallofPollsUITests.debug.xcconfig */,
+				12765F5958A4649BB9A9F0C3 /* Pods-HallofPolls-HallofPollsUITests.release.xcconfig */,
+				BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */,
+				377ADC0BD84AF3AF3C4626FD /* Pods-HallofPollsTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E7AA2B324BE06DC00F2DC5F /* HallofPolls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E7AA2E324BE06DD00F2DC5F /* Build configuration list for PBXNativeTarget "HallofPolls" */;
+			buildPhases = (
+				0F50C4CDB9B20314E0029D5C /* [CP] Check Pods Manifest.lock */,
+				9E7AA2B024BE06DC00F2DC5F /* Sources */,
+				9E7AA2B124BE06DC00F2DC5F /* Frameworks */,
+				9E7AA2B224BE06DC00F2DC5F /* Resources */,
+				E87EDF25C4102BF780650A3F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HallofPolls;
+			productName = HallofPolls;
+			productReference = 9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9E7AA2CE24BE06DD00F2DC5F /* HallofPollsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E7AA2E624BE06DD00F2DC5F /* Build configuration list for PBXNativeTarget "HallofPollsTests" */;
+			buildPhases = (
+				A12E5F33C7F77AE7FA1BDBA6 /* [CP] Check Pods Manifest.lock */,
+				9E7AA2CB24BE06DD00F2DC5F /* Sources */,
+				9E7AA2CC24BE06DD00F2DC5F /* Frameworks */,
+				9E7AA2CD24BE06DD00F2DC5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E7AA2D124BE06DD00F2DC5F /* PBXTargetDependency */,
+			);
+			name = HallofPollsTests;
+			productName = HallofPollsTests;
+			productReference = 9E7AA2CF24BE06DD00F2DC5F /* HallofPollsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9E7AA2D924BE06DD00F2DC5F /* HallofPollsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E7AA2E924BE06DD00F2DC5F /* Build configuration list for PBXNativeTarget "HallofPollsUITests" */;
+			buildPhases = (
+				480DBACF5F5B2B07907662FC /* [CP] Check Pods Manifest.lock */,
+				9E7AA2D624BE06DD00F2DC5F /* Sources */,
+				9E7AA2D724BE06DD00F2DC5F /* Frameworks */,
+				9E7AA2D824BE06DD00F2DC5F /* Resources */,
+				2D32770298FB078C7CA403E0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E7AA2DC24BE06DD00F2DC5F /* PBXTargetDependency */,
+			);
+			name = HallofPollsUITests;
+			productName = HallofPollsUITests;
+			productReference = 9E7AA2DA24BE06DD00F2DC5F /* HallofPollsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E7AA2AC24BE06DC00F2DC5F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = fdadzie20;
+				TargetAttributes = {
+					9E7AA2B324BE06DC00F2DC5F = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					9E7AA2CE24BE06DD00F2DC5F = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 9E7AA2B324BE06DC00F2DC5F;
+					};
+					9E7AA2D924BE06DD00F2DC5F = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 9E7AA2B324BE06DC00F2DC5F;
+					};
+				};
+			};
+			buildConfigurationList = 9E7AA2AF24BE06DC00F2DC5F /* Build configuration list for PBXProject "HallofPolls" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9E7AA2AB24BE06DC00F2DC5F;
+			productRefGroup = 9E7AA2B524BE06DC00F2DC5F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E7AA2B324BE06DC00F2DC5F /* HallofPolls */,
+				9E7AA2CE24BE06DD00F2DC5F /* HallofPollsTests */,
+				9E7AA2D924BE06DD00F2DC5F /* HallofPollsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E7AA2B224BE06DC00F2DC5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E7AA2C724BE06DD00F2DC5F /* LaunchScreen.storyboard in Resources */,
+				9E7AA2C424BE06DD00F2DC5F /* Assets.xcassets in Resources */,
+				9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E7AA2CD24BE06DD00F2DC5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E7AA2D824BE06DD00F2DC5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F50C4CDB9B20314E0029D5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HallofPolls-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D32770298FB078C7CA403E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HallofPolls-HallofPollsUITests/Pods-HallofPolls-HallofPollsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HallofPolls-HallofPollsUITests/Pods-HallofPolls-HallofPollsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HallofPolls-HallofPollsUITests/Pods-HallofPolls-HallofPollsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		480DBACF5F5B2B07907662FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HallofPolls-HallofPollsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A12E5F33C7F77AE7FA1BDBA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HallofPollsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E87EDF25C4102BF780650A3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HallofPolls/Pods-HallofPolls-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HallofPolls/Pods-HallofPolls-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HallofPolls/Pods-HallofPolls-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E7AA2B024BE06DC00F2DC5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E7AA2BF24BE06DC00F2DC5F /* ViewController.m in Sources */,
+				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
+				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,
+				9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E7AA2CB24BE06DD00F2DC5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E7AA2D424BE06DD00F2DC5F /* HallofPollsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E7AA2D624BE06DD00F2DC5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E7AA2DF24BE06DD00F2DC5F /* HallofPollsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E7AA2D124BE06DD00F2DC5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E7AA2B324BE06DC00F2DC5F /* HallofPolls */;
+			targetProxy = 9E7AA2D024BE06DD00F2DC5F /* PBXContainerItemProxy */;
+		};
+		9E7AA2DC24BE06DD00F2DC5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E7AA2B324BE06DC00F2DC5F /* HallofPolls */;
+			targetProxy = 9E7AA2DB24BE06DD00F2DC5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E7AA2C124BE06DC00F2DC5F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9E7AA2C524BE06DD00F2DC5F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E7AA2C624BE06DD00F2DC5F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9E7AA2E124BE06DD00F2DC5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9E7AA2E224BE06DD00F2DC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E7AA2E424BE06DD00F2DC5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2587BA5E7A2D963787E2F46 /* Pods-HallofPolls.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MKA7LRYDUL;
+				INFOPLIST_FILE = HallofPolls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HallofPolls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E7AA2E524BE06DD00F2DC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E2BF0354BAE0B58D9C3CB31 /* Pods-HallofPolls.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MKA7LRYDUL;
+				INFOPLIST_FILE = HallofPolls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HallofPolls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9E7AA2E724BE06DD00F2DC5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MKA7LRYDUL;
+				INFOPLIST_FILE = HallofPollsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HallofPollsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HallofPolls.app/HallofPolls";
+			};
+			name = Debug;
+		};
+		9E7AA2E824BE06DD00F2DC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 377ADC0BD84AF3AF3C4626FD /* Pods-HallofPollsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MKA7LRYDUL;
+				INFOPLIST_FILE = HallofPollsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HallofPollsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HallofPolls.app/HallofPolls";
+			};
+			name = Release;
+		};
+		9E7AA2EA24BE06DD00F2DC5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9B78DC0C028F5ED29656F12 /* Pods-HallofPolls-HallofPollsUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MKA7LRYDUL;
+				INFOPLIST_FILE = HallofPollsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HallofPollsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HallofPolls;
+			};
+			name = Debug;
+		};
+		9E7AA2EB24BE06DD00F2DC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12765F5958A4649BB9A9F0C3 /* Pods-HallofPolls-HallofPollsUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MKA7LRYDUL;
+				INFOPLIST_FILE = HallofPollsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HallofPollsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HallofPolls;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E7AA2AF24BE06DC00F2DC5F /* Build configuration list for PBXProject "HallofPolls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E7AA2E124BE06DD00F2DC5F /* Debug */,
+				9E7AA2E224BE06DD00F2DC5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E7AA2E324BE06DD00F2DC5F /* Build configuration list for PBXNativeTarget "HallofPolls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E7AA2E424BE06DD00F2DC5F /* Debug */,
+				9E7AA2E524BE06DD00F2DC5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E7AA2E624BE06DD00F2DC5F /* Build configuration list for PBXNativeTarget "HallofPollsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E7AA2E724BE06DD00F2DC5F /* Debug */,
+				9E7AA2E824BE06DD00F2DC5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E7AA2E924BE06DD00F2DC5F /* Build configuration list for PBXNativeTarget "HallofPollsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E7AA2EA24BE06DD00F2DC5F /* Debug */,
+				9E7AA2EB24BE06DD00F2DC5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E7AA2AC24BE06DC00F2DC5F /* Project object */;
+}
