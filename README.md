@@ -29,7 +29,6 @@ This app allows users to vote on game polls. The games used in the polls are the
 
 * [ ] User can sign up to make an account
 * [ ] User is alerted when their account username/password is incorrect
-* [ ] User can log in and log out with their account
 * [ ] User can create a poll to be viewed by others
 * [ ] User can vote on a poll that was created
 * [ ] User can select their prefered genre of game polls
@@ -46,6 +45,8 @@ This app allows users to vote on game polls. The games used in the polls are the
 * [ ] The games on "Popular Games" can be filtered out based on genre
 * [ ] Messages can be sent privately to other users
 * [ ] Push notifications for the ending of polls you have voted on
+* [ ] User can send messages to a group to be view by other users
+* [ ] Polls in 'Home' can be filtered out based on genre
 
 ### 2. Screen Archetypes
 
@@ -97,15 +98,19 @@ This app allows users to vote on game polls. The games used in the polls are the
 Game
 
 | Property       | Type          | Description  |
-| ------------- |:-------------:| -----:|
-| gameName      | string        |unique name for the game|
-| developers  | string        |list of developers that worked on the game |
+| ------------- |:-------------:| -----|
+| name        | string        |unique name for the game|
+| developers  | array         |list of developers that worked on the game |
 | publishers  | array         |list of publishers that released the game  |
 | platforms   | array         |list of platforms that game can be played on |
-| gameDesc    | string        |description of the game      |
+| desc        | string        |description of the game      |
 | backgroundImg| file         |background image of the game |
 | genre       | array         |categories that the game belongs in |
 
+User
+| Property   | Type           | Description   |
+|------------|:--------------:|:-----------|
+|userName     | string        |             |
 
 
 ### Networking
@@ -116,7 +121,7 @@ Game
 * Base URL -  https://api.rawg.io/api
 
 | HTTP Verb      | Endpoint         | Description  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| -----|
 | GET           | /creator-roles |Get a list of creator positions (jobs)|
 | GET           | /creators      |Get a list of game creators|
 | GET           | /developers    |Get a list of game developers|
