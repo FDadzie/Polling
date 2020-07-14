@@ -110,7 +110,19 @@ Game
 User
 | Property   | Type           | Description   |
 |------------|:--------------:|:-----------|
-|userName     | string        |             |
+|userName    | string        | the name of the current user|
+|favGame     | array         | the favorite game of the user|
+|prefGenre   | array         | preferred genres of the user|
+
+
+Poll
+| Property   | Type           | Description   |
+|------------|:--------------:|:--------------|
+| totalVoteCount| number      | total amount of votes on the given poll|
+| optionCount   | number      | total of given options for users to vote on|
+| isOpen     | boolean        | determines if the poll is still open to votes|
+| option     | string         | a choice that users can vote on|
+| pollQuestion| string        | guiding question of the poll|
 
 
 ### Networking
