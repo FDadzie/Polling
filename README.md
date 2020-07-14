@@ -41,6 +41,7 @@ This app allows users to vote on game polls. The games used in the polls are the
 
 * [ ] User account is persisted when app restarts
 * [ ] Users can like the polls that they see on "Home"
+* [ ] User can implement infinite scrolling
 * [ ] Profiles of other users can be viewed by tapping on their profile image from the homescreen
 * [ ] The games on "Popular Games" can be filtered out based on genre
 * [ ] Messages can be sent privately to other users
