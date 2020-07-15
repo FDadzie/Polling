@@ -114,7 +114,7 @@ User
 | Property   | Type           | Description   |
 |------------|:--------------:|:-----------|
 | userId     | String        | unique Id for the user|
-| polls      | Pointer to Poll| polls that the user has created|
+| polls      | Array (Pointer to Polls)| polls that the user has created|
 | userName   | String        | the name of the current user|
 | favGame    | Array         | the favorite game of the user|
 | prefGenre  | Array         | preferred genres of the user|
@@ -128,7 +128,7 @@ Poll
 | totalVoteCount| Number      | total amount of votes on the given poll|
 | optionCount   | Number      | total of given options for users to vote on|
 | isOpen     | Boolean        | determines if the poll is still open to votes|
-| option     | String         | a choice that users can vote on|
+| options    | Array          | Choices that users can vote on|
 | pollQuestion| String        | guiding question of the poll|
 
 
