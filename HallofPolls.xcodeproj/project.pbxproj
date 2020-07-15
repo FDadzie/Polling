@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C924BE06DD00F2DC5F /* main.m */; };
 		9E7AA2D424BE06DD00F2DC5F /* HallofPollsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2D324BE06DD00F2DC5F /* HallofPollsTests.m */; };
 		9E7AA2DF24BE06DD00F2DC5F /* HallofPollsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */; };
+		9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2EF24BE704300F2DC5F /* Poll.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		9E7AA2DA24BE06DD00F2DC5F /* HallofPollsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HallofPollsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HallofPollsUITests.m; sourceTree = "<group>"; };
 		9E7AA2E024BE06DD00F2DC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E7AA2EE24BE704300F2DC5F /* Poll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Poll.h; sourceTree = "<group>"; };
+		9E7AA2EF24BE704300F2DC5F /* Poll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Poll.m; sourceTree = "<group>"; };
 		BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.debug.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls_HallofPollsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPollsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +134,8 @@
 		9E7AA2B624BE06DC00F2DC5F /* HallofPolls */ = {
 			isa = PBXGroup;
 			children = (
+				9E7AA2ED24BE167C00F2DC5F /* Models */,
+				9E7AA2EC24BE166700F2DC5F /* View Controllers */,
 				9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */,
 				9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */,
 				9E7AA2BA24BE06DC00F2DC5F /* SceneDelegate.h */,
@@ -164,6 +169,22 @@
 			path = HallofPollsUITests;
 			sourceTree = "<group>";
 		};
+		9E7AA2EC24BE166700F2DC5F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9E7AA2ED24BE167C00F2DC5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E7AA2EE24BE704300F2DC5F /* Poll.h */,
+				9E7AA2EF24BE704300F2DC5F /* Poll.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CA5D9FAC5EC07FDBB2ED5AC7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +195,6 @@
 				BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */,
 				377ADC0BD84AF3AF3C4626FD /* Pods-HallofPollsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -416,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */,
 				9E7AA2BF24BE06DC00F2DC5F /* ViewController.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
 				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,
