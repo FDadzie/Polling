@@ -100,30 +100,36 @@ Game
 
 | Property       | Type          | Description  |
 | ------------- |:-------------:| -----|
-| name        | string        |unique name for the game|
-| developers  | array         |list of developers that worked on the game |
-| publishers  | array         |list of publishers that released the game  |
-| platforms   | array         |list of platforms that game can be played on |
-| desc        | string        |description of the game      |
-| backgroundImg| file         |background image of the game |
-| genre       | array         |categories that the game belongs in |
+| gameId      | String        |unique Id for the game|
+| poll        | Pointer to poll| polls that the game has been used in|
+| name        | String        |unique name for the game|
+| developers  | Array         |list of developers that worked on the game |
+| publishers  | Array         |list of publishers that released the game  |
+| platforms   | Array         |list of platforms that game can be played on |
+| desc        | String        |description of the game      |
+| backgroundImg| File         |background image of the game |
+| genre       | Array         |categories that the game belongs in |
 
 User
 | Property   | Type           | Description   |
 |------------|:--------------:|:-----------|
-|userName    | string        | the name of the current user|
-|favGame     | array         | the favorite game of the user|
-|prefGenre   | array         | preferred genres of the user|
+| userId     | String        | unique Id for the user|
+| polls      | Pointer to Poll| polls that the user has created|
+| userName   | String        | the name of the current user|
+| favGame    | Array         | the favorite game of the user|
+| prefGenre  | Array         | preferred genres of the user|
 
 
 Poll
 | Property   | Type           | Description   |
 |------------|:--------------:|:--------------|
-| totalVoteCount| number      | total amount of votes on the given poll|
-| optionCount   | number      | total of given options for users to vote on|
-| isOpen     | boolean        | determines if the poll is still open to votes|
-| option     | string         | a choice that users can vote on|
-| pollQuestion| string        | guiding question of the poll|
+| pollId     | String         | unique Id for the poll|
+| user       | Pointer to User| creator of the poll|
+| totalVoteCount| Number      | total amount of votes on the given poll|
+| optionCount   | Number      | total of given options for users to vote on|
+| isOpen     | Boolean        | determines if the poll is still open to votes|
+| option     | String         | a choice that users can vote on|
+| pollQuestion| String        | guiding question of the poll|
 
 
 ### Networking
