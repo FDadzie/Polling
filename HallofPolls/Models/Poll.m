@@ -10,4 +10,14 @@
 
 @implementation Poll
 
+@dynamic totalVoteCount;
+@dynamic optionCount;
+@dynamic isOpen;
+@dynamic options;
+@dynamic pollQuestion;
+
++ (nonnull NSString *)parseClassName {
+    return @"Poll";
+}
+
 @end

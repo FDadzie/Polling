@@ -12,7 +12,6 @@
 		563FC36CAC94448B4499A278 /* Pods_HallofPollsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
-		9E7AA2BF24BE06DC00F2DC5F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BE24BE06DC00F2DC5F /* ViewController.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
 		9E7AA2C424BE06DD00F2DC5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C324BE06DD00F2DC5F /* Assets.xcassets */; };
 		9E7AA2C724BE06DD00F2DC5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C524BE06DD00F2DC5F /* LaunchScreen.storyboard */; };
@@ -20,6 +19,9 @@
 		9E7AA2D424BE06DD00F2DC5F /* HallofPollsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2D324BE06DD00F2DC5F /* HallofPollsTests.m */; };
 		9E7AA2DF24BE06DD00F2DC5F /* HallofPollsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */; };
 		9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2EF24BE704300F2DC5F /* Poll.m */; };
+		9E83895124C109E300CC0B4C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895024C109E300CC0B4C /* User.m */; };
+		9E83895424C10A0000CC0B4C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895324C10A0000CC0B4C /* Game.m */; };
+		9E83895724C11DA500CC0B4C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895624C11DA500CC0B4C /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +51,6 @@
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9E7AA2BA24BE06DC00F2DC5F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		9E7AA2BD24BE06DC00F2DC5F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9E7AA2BE24BE06DC00F2DC5F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9E7AA2C124BE06DC00F2DC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E7AA2C324BE06DD00F2DC5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E7AA2C624BE06DD00F2DC5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +64,12 @@
 		9E7AA2E024BE06DD00F2DC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E7AA2EE24BE704300F2DC5F /* Poll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Poll.h; sourceTree = "<group>"; };
 		9E7AA2EF24BE704300F2DC5F /* Poll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Poll.m; sourceTree = "<group>"; };
+		9E83894F24C109E300CC0B4C /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9E83895024C109E300CC0B4C /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9E83895224C10A0000CC0B4C /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		9E83895324C10A0000CC0B4C /* Game.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		9E83895524C11DA500CC0B4C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		9E83895624C11DA500CC0B4C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.debug.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls_HallofPollsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPollsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,8 +146,6 @@
 				9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */,
 				9E7AA2BA24BE06DC00F2DC5F /* SceneDelegate.h */,
 				9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */,
-				9E7AA2BD24BE06DC00F2DC5F /* ViewController.h */,
-				9E7AA2BE24BE06DC00F2DC5F /* ViewController.m */,
 				9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */,
 				9E7AA2C324BE06DD00F2DC5F /* Assets.xcassets */,
 				9E7AA2C524BE06DD00F2DC5F /* LaunchScreen.storyboard */,
@@ -172,6 +176,8 @@
 		9E7AA2EC24BE166700F2DC5F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E83895524C11DA500CC0B4C /* LoginViewController.h */,
+				9E83895624C11DA500CC0B4C /* LoginViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -181,6 +187,10 @@
 			children = (
 				9E7AA2EE24BE704300F2DC5F /* Poll.h */,
 				9E7AA2EF24BE704300F2DC5F /* Poll.m */,
+				9E83894F24C109E300CC0B4C /* User.h */,
+				9E83895024C109E300CC0B4C /* User.m */,
+				9E83895224C10A0000CC0B4C /* Game.h */,
+				9E83895324C10A0000CC0B4C /* Game.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -436,10 +446,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E83895724C11DA500CC0B4C /* LoginViewController.m in Sources */,
 				9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */,
-				9E7AA2BF24BE06DC00F2DC5F /* ViewController.m in Sources */,
+				9E83895124C109E300CC0B4C /* User.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
 				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,
+				9E83895424C10A0000CC0B4C /* Game.m in Sources */,
 				9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

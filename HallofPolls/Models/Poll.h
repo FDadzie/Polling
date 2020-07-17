@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *totalVoteCount;
 @property (nonatomic, strong) NSNumber *optionCount;
 @property (nonatomic) Boolean *isOpen;
-@property (nonatomic, strong) NSString *option;
+@property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSString *pollQuestion;
 
 @end
