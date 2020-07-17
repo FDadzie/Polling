@@ -5,8 +5,9 @@
 //  Created by fdadzie20 on 7/14/20.
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+@class UserModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,9 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSNumber *totalVoteCount;
 @property (nonatomic, strong) NSNumber *optionCount;
-@property (nonatomic) Boolean *isOpen;
+@property (nonatomic) BOOL *isOpen;
 @property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSString *pollQuestion;
+@property (nonatomic, strong) UserModel *user;
 
 @end
 

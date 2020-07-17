@@ -18,7 +18,7 @@
 @dynamic desc;
 @dynamic backgroundImg;
 @dynamic genres;
-
+@dynamic poll;
 + (nonnull NSString *)parseClassName {
     return @"Game";
 }

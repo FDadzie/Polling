@@ -5,7 +5,7 @@
 //  Created by fdadzie20 on 7/16/20.
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
-
+#import "Poll.h"
 #import <Parse/Parse.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *desc;
 @property (nonatomic, strong) PFFileObject *backgroundImg;
 @property (nonatomic, strong) NSArray *genres;
-
+@property (nonatomic, strong) Poll *poll;
 @end
 
 NS_ASSUME_NONNULL_END

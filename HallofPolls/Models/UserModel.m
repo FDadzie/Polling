@@ -6,15 +6,15 @@
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
 
-#import "User.h"
+#import "UserModel.h"
 
-@implementation User
+@implementation UserModel
 
 @dynamic userId;
 @dynamic userName;
 @dynamic favGame;
 @dynamic prefGenre;
-
+@dynamic polls;
 
 + (nonnull NSString *)parseClassName {
     return @"PollUser";

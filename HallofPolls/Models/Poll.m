@@ -15,6 +15,7 @@
 @dynamic isOpen;
 @dynamic options;
 @dynamic pollQuestion;
+@dynamic user;
 
 + (nonnull NSString *)parseClassName {
     return @"Poll";
