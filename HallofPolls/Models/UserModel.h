@@ -7,6 +7,7 @@
 //
 #import <Parse/Parse.h>
 @class Poll;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserModel : PFObject<PFSubclassing>

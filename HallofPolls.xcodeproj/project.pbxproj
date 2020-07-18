@@ -22,6 +22,10 @@
 		9E83895124C109E300CC0B4C /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895024C109E300CC0B4C /* UserModel.m */; };
 		9E83895424C10A0000CC0B4C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895324C10A0000CC0B4C /* Game.m */; };
 		9E83895724C11DA500CC0B4C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895624C11DA500CC0B4C /* LoginViewController.m */; };
+		9E83895A24C2288900CC0B4C /* PollCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895924C2288900CC0B4C /* PollCreationViewController.m */; };
+		9E83895E24C266DC00CC0B4C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895D24C266DC00CC0B4C /* HomeViewController.m */; };
+		9E83896124C271F700CC0B4C /* GamePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896024C271F700CC0B4C /* GamePickerViewController.m */; };
+		9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896824C2750700CC0B4C /* GamePickerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,14 @@
 		9E83895324C10A0000CC0B4C /* Game.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		9E83895524C11DA500CC0B4C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9E83895624C11DA500CC0B4C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9E83895824C2288900CC0B4C /* PollCreationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PollCreationViewController.h; sourceTree = "<group>"; };
+		9E83895924C2288900CC0B4C /* PollCreationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollCreationViewController.m; sourceTree = "<group>"; };
+		9E83895C24C266DC00CC0B4C /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		9E83895D24C266DC00CC0B4C /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		9E83895F24C271F700CC0B4C /* GamePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamePickerViewController.h; sourceTree = "<group>"; };
+		9E83896024C271F700CC0B4C /* GamePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamePickerViewController.m; sourceTree = "<group>"; };
+		9E83896724C2750700CC0B4C /* GamePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamePickerCell.h; sourceTree = "<group>"; };
+		9E83896824C2750700CC0B4C /* GamePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamePickerCell.m; sourceTree = "<group>"; };
 		BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.debug.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls_HallofPollsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPollsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +152,8 @@
 		9E7AA2B624BE06DC00F2DC5F /* HallofPolls */ = {
 			isa = PBXGroup;
 			children = (
+				9E83896324C274B500CC0B4C /* Views (Cells) */,
+				9E83895B24C2609C00CC0B4C /* API */,
 				9E7AA2ED24BE167C00F2DC5F /* Models */,
 				9E7AA2EC24BE166700F2DC5F /* View Controllers */,
 				9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */,
@@ -178,6 +192,13 @@
 			children = (
 				9E83895524C11DA500CC0B4C /* LoginViewController.h */,
 				9E83895624C11DA500CC0B4C /* LoginViewController.m */,
+				9E83895C24C266DC00CC0B4C /* HomeViewController.h */,
+				9E83895D24C266DC00CC0B4C /* HomeViewController.m */,
+				9E83895824C2288900CC0B4C /* PollCreationViewController.h */,
+				9E83895924C2288900CC0B4C /* PollCreationViewController.m */,
+				9E83895F24C271F700CC0B4C /* GamePickerViewController.h */,
+				9E83896024C271F700CC0B4C /* GamePickerViewController.m */,
+				9E83896224C271FD00CC0B4C /* Extra */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -193,6 +214,29 @@
 				9E83895324C10A0000CC0B4C /* Game.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9E83895B24C2609C00CC0B4C /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		9E83896224C271FD00CC0B4C /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		9E83896324C274B500CC0B4C /* Views (Cells) */ = {
+			isa = PBXGroup;
+			children = (
+				9E83896724C2750700CC0B4C /* GamePickerCell.h */,
+				9E83896824C2750700CC0B4C /* GamePickerCell.m */,
+			);
+			path = "Views (Cells)";
 			sourceTree = "<group>";
 		};
 		CA5D9FAC5EC07FDBB2ED5AC7 /* Pods */ = {
@@ -448,8 +492,12 @@
 			files = (
 				9E83895724C11DA500CC0B4C /* LoginViewController.m in Sources */,
 				9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */,
+				9E83895A24C2288900CC0B4C /* PollCreationViewController.m in Sources */,
+				9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */,
 				9E83895124C109E300CC0B4C /* UserModel.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
+				9E83895E24C266DC00CC0B4C /* HomeViewController.m in Sources */,
+				9E83896124C271F700CC0B4C /* GamePickerViewController.m in Sources */,
 				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,
 				9E83895424C10A0000CC0B4C /* Game.m in Sources */,
 				9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */,
