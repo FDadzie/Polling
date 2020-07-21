@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuestionPreviewCell.h"
+#import "OptionsPreviewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PollCreationViewController : UIViewController
+
+@property (nonatomic, strong) QuestionPreviewCell *askQuestion;
+
 
 @end
 

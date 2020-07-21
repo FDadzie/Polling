@@ -15,10 +15,21 @@
 @dynamic isOpen;
 @dynamic options;
 @dynamic pollQuestion;
-@dynamic user;
+@dynamic pollCreator;
 
 + (nonnull NSString *)parseClassName {
     return @"Poll";
 }
 
++ (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable )question withCompletion: (PFBooleanResultBlock _Nullable)completion {
+    
+    Poll *newPoll = [Poll new];
+    newPoll.totalVoteCount = @(0);
+//  newPoll.optionCount = [pollOptions count];
+    newPoll.pollQuestion = question;
+    newPoll.pollCreator = [PFUser currentUser];
+    
+    
+    [newPoll saveInBackgroundWithBlock:completion];
+}
 @end

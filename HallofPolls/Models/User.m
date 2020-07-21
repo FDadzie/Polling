@@ -6,9 +6,9 @@
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
 
-#import "UserModel.h"
+#import "User.h"
 
-@implementation UserModel
+@implementation User
 
 @dynamic userId;
 @dynamic userName;

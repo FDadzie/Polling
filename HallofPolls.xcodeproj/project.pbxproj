@@ -19,13 +19,15 @@
 		9E7AA2D424BE06DD00F2DC5F /* HallofPollsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2D324BE06DD00F2DC5F /* HallofPollsTests.m */; };
 		9E7AA2DF24BE06DD00F2DC5F /* HallofPollsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */; };
 		9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2EF24BE704300F2DC5F /* Poll.m */; };
-		9E83895124C109E300CC0B4C /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895024C109E300CC0B4C /* UserModel.m */; };
+		9E83895124C109E300CC0B4C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895024C109E300CC0B4C /* User.m */; };
 		9E83895424C10A0000CC0B4C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895324C10A0000CC0B4C /* Game.m */; };
 		9E83895724C11DA500CC0B4C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895624C11DA500CC0B4C /* LoginViewController.m */; };
 		9E83895A24C2288900CC0B4C /* PollCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895924C2288900CC0B4C /* PollCreationViewController.m */; };
 		9E83895E24C266DC00CC0B4C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895D24C266DC00CC0B4C /* HomeViewController.m */; };
 		9E83896124C271F700CC0B4C /* GamePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896024C271F700CC0B4C /* GamePickerViewController.m */; };
 		9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896824C2750700CC0B4C /* GamePickerCell.m */; };
+		9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */; };
+		9E83896F24C6455900CC0B4C /* OptionsPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +70,8 @@
 		9E7AA2E024BE06DD00F2DC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E7AA2EE24BE704300F2DC5F /* Poll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Poll.h; sourceTree = "<group>"; };
 		9E7AA2EF24BE704300F2DC5F /* Poll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Poll.m; sourceTree = "<group>"; };
-		9E83894F24C109E300CC0B4C /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
-		9E83895024C109E300CC0B4C /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		9E83894F24C109E300CC0B4C /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9E83895024C109E300CC0B4C /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		9E83895224C10A0000CC0B4C /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		9E83895324C10A0000CC0B4C /* Game.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		9E83895524C11DA500CC0B4C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -82,6 +84,10 @@
 		9E83896024C271F700CC0B4C /* GamePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamePickerViewController.m; sourceTree = "<group>"; };
 		9E83896724C2750700CC0B4C /* GamePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamePickerCell.h; sourceTree = "<group>"; };
 		9E83896824C2750700CC0B4C /* GamePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamePickerCell.m; sourceTree = "<group>"; };
+		9E83896A24C6453D00CC0B4C /* QuestionPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionPreviewCell.h; sourceTree = "<group>"; };
+		9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionPreviewCell.m; sourceTree = "<group>"; };
+		9E83896D24C6455900CC0B4C /* OptionsPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionsPreviewCell.h; sourceTree = "<group>"; };
+		9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionsPreviewCell.m; sourceTree = "<group>"; };
 		BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.debug.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls_HallofPollsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPollsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +158,7 @@
 		9E7AA2B624BE06DC00F2DC5F /* HallofPolls */ = {
 			isa = PBXGroup;
 			children = (
-				9E83896324C274B500CC0B4C /* Views (Cells) */,
+				9E83896324C274B500CC0B4C /* Views */,
 				9E83895B24C2609C00CC0B4C /* API */,
 				9E7AA2ED24BE167C00F2DC5F /* Models */,
 				9E7AA2EC24BE166700F2DC5F /* View Controllers */,
@@ -198,7 +204,6 @@
 				9E83895924C2288900CC0B4C /* PollCreationViewController.m */,
 				9E83895F24C271F700CC0B4C /* GamePickerViewController.h */,
 				9E83896024C271F700CC0B4C /* GamePickerViewController.m */,
-				9E83896224C271FD00CC0B4C /* Extra */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -208,8 +213,8 @@
 			children = (
 				9E7AA2EE24BE704300F2DC5F /* Poll.h */,
 				9E7AA2EF24BE704300F2DC5F /* Poll.m */,
-				9E83894F24C109E300CC0B4C /* UserModel.h */,
-				9E83895024C109E300CC0B4C /* UserModel.m */,
+				9E83894F24C109E300CC0B4C /* User.h */,
+				9E83895024C109E300CC0B4C /* User.m */,
 				9E83895224C10A0000CC0B4C /* Game.h */,
 				9E83895324C10A0000CC0B4C /* Game.m */,
 			);
@@ -223,20 +228,17 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		9E83896224C271FD00CC0B4C /* Extra */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extra;
-			sourceTree = "<group>";
-		};
-		9E83896324C274B500CC0B4C /* Views (Cells) */ = {
+		9E83896324C274B500CC0B4C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				9E83896724C2750700CC0B4C /* GamePickerCell.h */,
 				9E83896824C2750700CC0B4C /* GamePickerCell.m */,
+				9E83896A24C6453D00CC0B4C /* QuestionPreviewCell.h */,
+				9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */,
+				9E83896D24C6455900CC0B4C /* OptionsPreviewCell.h */,
+				9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */,
 			);
-			path = "Views (Cells)";
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CA5D9FAC5EC07FDBB2ED5AC7 /* Pods */ = {
@@ -494,8 +496,10 @@
 				9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */,
 				9E83895A24C2288900CC0B4C /* PollCreationViewController.m in Sources */,
 				9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */,
-				9E83895124C109E300CC0B4C /* UserModel.m in Sources */,
+				9E83895124C109E300CC0B4C /* User.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
+				9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */,
+				9E83896F24C6455900CC0B4C /* OptionsPreviewCell.m in Sources */,
 				9E83895E24C266DC00CC0B4C /* HomeViewController.m in Sources */,
 				9E83896124C271F700CC0B4C /* GamePickerViewController.m in Sources */,
 				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,

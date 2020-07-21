@@ -10,13 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserModel : PFObject<PFSubclassing>
+@interface User : PFObject<PFSubclassing>
 
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSArray *favGame;
-@property (nonatomic, strong) NSArray *prefGenre;
-@property (nonatomic, strong) Poll *polls;
+@property (nonatomic, strong) NSMutableArray *prefGenre;
+@property (nonatomic, strong) NSMutableArray *polls;
 
 @end
 

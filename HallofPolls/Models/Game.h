@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *desc;
 @property (nonatomic, strong) PFFileObject *backgroundImg;
 @property (nonatomic, strong) NSArray *genres;
-@property (nonatomic, strong) Poll *poll;
+@property (nonatomic, strong) NSMutableArray *poll;
 
 //@property (nonatomic, strong) NSArray *incPolls;
 
@@ -31,9 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 // + (instancetype)shared;
 
 + (void)storeGames;
-/*
-- (void) initApiWithCompletionBlock:(void(^)(BOOL completed))completion;
-*/
+
+// - (void) initApiWithCompletionBlock:(void(^)(BOOL completed))completion;
+
 @end
 
 

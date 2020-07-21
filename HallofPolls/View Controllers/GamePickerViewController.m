@@ -6,14 +6,16 @@
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
 
-#import "GamePickerViewController.h"
 #import <Parse/Parse.h>
+#import "GamePickerViewController.h"
+#import "Poll.h"
 #import "GamePickerCell.h"
 #import "Game.h"
+#import "PollCreationViewController.h"
 
 @interface GamePickerViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) NSArray<Game *> *fetchedGames;
 @property (strong, nonatomic) NSDictionary *game;
 
@@ -25,26 +27,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.table.delegate = self;
+    self.table.dataSource = self;
     
     [self initApiWithCompletionBlock:^(BOOL completed) {
-    }];
-    
-    PFQuery *postQuery = [Game query];
-    [postQuery orderByDescending:@"name"];
-    postQuery.limit = 20;
-
-    // fetch data asynchronously
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Game *> * _Nullable games, NSError * _Nullable error) {
-        if (!error) {
-            // do something with the data fetched
-            self.fetchedGames = games;
-            
-        }
-        else {
-            // handle error
-        }
     }];
 }
 
@@ -64,7 +50,7 @@
         for (self->_game in self.fetchedGames) {
             NSLog(@"%@", self->_game[@"name"]);
             }
-            [self.tableView reloadData];
+            [self.table reloadData];
         }
         
     }];
@@ -74,7 +60,7 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_fetchedGames count];
 }
-
+    
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     GamePickerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PickerCell"];
@@ -83,6 +69,13 @@
     cell.name.text = tester[@"name"];
     
     return cell;
+}
+
+// pass selected cell's game name to array
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GamePickerCell *cell = (GamePickerCell *)[tableView cellForRowAtIndexPath:(indexPath)];
+    [_choices addObject:cell.name.text];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
