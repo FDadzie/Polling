@@ -26,7 +26,7 @@
 + (nonnull NSString *)parseClassName {
     return @"Game";
 }
-
+/*
 + (void)storeGames {
     
     Game *newGame = [Game new];
@@ -40,6 +40,8 @@
     
 
 }
+*/
+
 /*
 + (instancetype)shared {
     static Game *sharedManager = nil;

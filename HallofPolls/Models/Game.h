@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // + (instancetype)shared;
 
-+ (void)storeGames;
+// + (void)storeGames;
 
 // - (void) initApiWithCompletionBlock:(void(^)(BOOL completed))completion;
 

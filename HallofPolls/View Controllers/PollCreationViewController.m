@@ -15,7 +15,7 @@
 #import "GamePickerViewController.h"
 
 
-@interface PollCreationViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PollCreationViewController () <UITableViewDelegate, UITableViewDataSource, GamePickerViewControllerDelegate>
 
 @property (strong,nonatomic) NSMutableArray *voteOptions;
 
@@ -28,21 +28,26 @@
     // Do any additional setup after loading the view.
     self.voteOptions = [NSMutableArray array];
     
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
     [self.tableView reloadData];
 }
 - (void)viewDidAppear:(BOOL)animated {
-    [self.tableView reloadData];
+    
+    NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];
+    [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"showPicker"]) {
-         
+        
+        [self.tableView reloadData];
+        
         // Get destination view
         GamePickerViewController *vc = [segue destinationViewController];
-        
+        vc.delegate = self;
         vc.choices = self.voteOptions;
     }
 }
@@ -52,7 +57,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.voteOptions count] + 1;
+    return 1;
 }
 
 
@@ -69,6 +74,7 @@
     } else if(indexPath.section == 2){
     OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
         
+        options.optionsPreview.text = @"Test Game Name";
         return options;
     }
     return question;

@@ -25,7 +25,7 @@
     
     Poll *newPoll = [Poll new];
     newPoll.totalVoteCount = @(0);
-//  newPoll.optionCount = [pollOptions count];
+    newPoll.optionCount = [pollOptions count];
     newPoll.pollQuestion = question;
     newPoll.pollCreator = [PFUser currentUser];
     

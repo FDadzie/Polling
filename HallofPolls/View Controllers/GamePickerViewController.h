@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GamePickerViewController;
 
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GamePickerViewControllerDelegate <NSObject>
+
+- (void)gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game;
+
+@end
+
 @interface GamePickerViewController : UIViewController
 
 @property (strong, nonatomic) NSMutableArray * choices;
-
+@property (nonatomic, weak) id<GamePickerViewControllerDelegate> delegate;
 
 @end
 

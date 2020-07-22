@@ -366,6 +366,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="W1M-Zs-dP4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="FZm-dI-pD7"/>
                     <connections>
                         <outlet property="tableView" destination="AEy-HH-W7X" id="n20-lf-Pv9"/>
                     </connections>

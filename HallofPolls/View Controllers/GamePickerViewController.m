@@ -74,7 +74,7 @@
 // pass selected cell's game name to array
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GamePickerCell *cell = (GamePickerCell *)[tableView cellForRowAtIndexPath:(indexPath)];
-    [_choices addObject:cell.name.text];
+    [self.choices addObject:cell.name.text];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -83,6 +83,9 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    PollCreationViewController *creationView = [segue destinationViewController];
+    NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 3)];
+    [creationView.tableView reloadSections: refSection  withRowAnimation:UITableViewRowAnimationNone];
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }

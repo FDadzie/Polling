@@ -13,11 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GamePickerViewControllerDelegate <NSObject>
-
-- (void)gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game;
-
-@end
 @interface PollCreationViewController : UIViewController
 
 @property (nonatomic, strong) QuestionPreviewCell *askQuestion;
