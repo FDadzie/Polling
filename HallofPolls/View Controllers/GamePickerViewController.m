@@ -15,7 +15,7 @@
 
 @interface GamePickerViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *table;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<Game *> *fetchedGames;
 @property (strong, nonatomic) NSDictionary *game;
 
@@ -27,8 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.table.delegate = self;
-    self.table.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     [self initApiWithCompletionBlock:^(BOOL completed) {
     }];
@@ -50,7 +50,7 @@
         for (self->_game in self.fetchedGames) {
             NSLog(@"%@", self->_game[@"name"]);
             }
-            [self.table reloadData];
+            [self.tableView reloadData];
         }
         
     }];

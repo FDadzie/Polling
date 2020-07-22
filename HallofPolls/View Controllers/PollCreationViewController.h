@@ -9,12 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "QuestionPreviewCell.h"
 #import "OptionsPreviewCell.h"
+#import "GamePickerViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GamePickerViewControllerDelegate <NSObject>
+
+- (void)gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game;
+
+@end
 @interface PollCreationViewController : UIViewController
 
 @property (nonatomic, strong) QuestionPreviewCell *askQuestion;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end

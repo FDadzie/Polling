@@ -28,6 +28,7 @@
 		9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896824C2750700CC0B4C /* GamePickerCell.m */; };
 		9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */; };
 		9E83896F24C6455900CC0B4C /* OptionsPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */; };
+		9EA3E02E24C79C5A00D95C39 /* AddOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3E02D24C79C5A00D95C39 /* AddOptionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionPreviewCell.m; sourceTree = "<group>"; };
 		9E83896D24C6455900CC0B4C /* OptionsPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionsPreviewCell.h; sourceTree = "<group>"; };
 		9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionsPreviewCell.m; sourceTree = "<group>"; };
+		9EA3E02C24C79C5A00D95C39 /* AddOptionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddOptionCell.h; sourceTree = "<group>"; };
+		9EA3E02D24C79C5A00D95C39 /* AddOptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddOptionCell.m; sourceTree = "<group>"; };
 		BEC5093AE6C22862617F8034 /* Pods-HallofPollsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.debug.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls_HallofPollsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPollsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +240,8 @@
 				9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */,
 				9E83896D24C6455900CC0B4C /* OptionsPreviewCell.h */,
 				9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */,
+				9EA3E02C24C79C5A00D95C39 /* AddOptionCell.h */,
+				9EA3E02D24C79C5A00D95C39 /* AddOptionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */,
 				9E83895124C109E300CC0B4C /* User.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
+				9EA3E02E24C79C5A00D95C39 /* AddOptionCell.m in Sources */,
 				9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */,
 				9E83896F24C6455900CC0B4C /* OptionsPreviewCell.m in Sources */,
 				9E83895E24C266DC00CC0B4C /* HomeViewController.m in Sources */,

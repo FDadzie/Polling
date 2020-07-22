@@ -10,12 +10,13 @@
 #import "Poll.h"
 #import "QuestionPreviewCell.h"
 #import "OptionsPreviewCell.h"
+#import "AddOptionCell.h"
 #import <Parse/Parse.h>
 #import "GamePickerViewController.h"
 
-@interface PollCreationViewController () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
 
-@property (strong,nonatomic) UITableView *tableView;
+@interface PollCreationViewController () <UITableViewDelegate, UITableViewDataSource>
+
 @property (strong,nonatomic) NSMutableArray *voteOptions;
 
 @end
@@ -25,16 +26,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.voteOptions = [NSMutableArray array];
     
-    self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    [self.tableView reloadData];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [self.tableView reloadData];
-}
-- (IBAction)tapAddOption:(id)sender {
-    
-    [self performSegueWithIdentifier:@"showPicker" sender:nil];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -43,25 +43,37 @@
         // Get destination view
         GamePickerViewController *vc = [segue destinationViewController];
         
-        [vc setChoices:_voteOptions];
+        vc.choices = self.voteOptions;
     }
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
 }
 
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.voteOptions count] + 1;
+}
+
+
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    QuestionPreviewCell *question = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
-    question.questionPreview.delegate = self;
     
-    if(indexPath.row > 0){
-    OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell"];
-        options.optionsPreview.text = [_voteOptions objectAtIndex:0];
+    QuestionPreviewCell *question = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
+    
+    if(indexPath.section == 1) {
+        AddOptionCell *add = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell" forIndexPath:indexPath];
+        add.addOption.tag = indexPath.row;
+        return add;
+        
+    } else if(indexPath.section == 2){
+    OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
+        
         return options;
     }
     return question;
 }
+
 - (IBAction)didTapPost:(id)sender {
     NSString *prepareQuestion = [[_askQuestion textLabel] text];
     [Poll postPoll:_voteOptions withQuestion:prepareQuestion withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
@@ -75,6 +87,11 @@
     
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 1){
+     [self performSegueWithIdentifier:@"showPicker" sender:nil];
+    }
+}
 /*
 #pragma mark - Navigation
 
