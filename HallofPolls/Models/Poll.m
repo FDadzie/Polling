@@ -28,6 +28,7 @@
     newPoll.optionCount = [pollOptions count];
     newPoll.pollQuestion = question;
     newPoll.pollCreator = [PFUser currentUser];
+    newPoll.options = pollOptions;
     
     
     [newPoll saveInBackgroundWithBlock:completion];

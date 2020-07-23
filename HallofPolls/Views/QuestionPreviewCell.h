@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QuestionPreviewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *questionPreview;
 
+
+
+
 @end
+
 
 NS_ASSUME_NONNULL_END

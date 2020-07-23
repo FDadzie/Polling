@@ -21,8 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFUser *pollCreator;
 
 
-- (void)addOption;
-
 + (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable)question withCompletion :(PFBooleanResultBlock _Nullable)completion ;
 
 @end

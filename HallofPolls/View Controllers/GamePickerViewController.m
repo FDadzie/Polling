@@ -49,9 +49,9 @@
         
         for (self->_game in self.fetchedGames) {
             NSLog(@"%@", self->_game[@"name"]);
-            }
-            [self.tableView reloadData];
         }
+            [self.tableView reloadData];
+    }
         
     }];
     [task resume];
@@ -75,6 +75,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GamePickerCell *cell = (GamePickerCell *)[tableView cellForRowAtIndexPath:(indexPath)];
     [self.choices addObject:cell.name.text];
+    [self.delegate gamePicker:self didPickItem:cell.name.text];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

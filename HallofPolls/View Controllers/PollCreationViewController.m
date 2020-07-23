@@ -23,21 +23,17 @@
 
 @implementation PollCreationViewController
 
+@synthesize askQuestion;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.voteOptions = [NSMutableArray array];
     
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
     [self.tableView reloadData];
-}
-- (void)viewDidAppear:(BOOL)animated {
-    
-    NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];
-    [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -57,6 +53,9 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(section == 2) {
+    return [self.voteOptions count];
+    }
     return 1;
 }
 
@@ -64,7 +63,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    QuestionPreviewCell *question = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
+    self.askQuestion = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
     
     if(indexPath.section == 1) {
         AddOptionCell *add = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell" forIndexPath:indexPath];
@@ -74,15 +73,14 @@
     } else if(indexPath.section == 2){
     OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
         
-        options.optionsPreview.text = @"Test Game Name";
+        options.optionsPreview.text = [self.voteOptions objectAtIndex:indexPath.row];
         return options;
     }
-    return question;
+    return self.askQuestion;
 }
 
 - (IBAction)didTapPost:(id)sender {
-    NSString *prepareQuestion = [[_askQuestion textLabel] text];
-    [Poll postPoll:_voteOptions withQuestion:prepareQuestion withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Poll postPoll:_voteOptions withQuestion:self.askQuestion.questionPreview.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(!error){
             NSLog(@"Poll was successfully posted");
         } else {
@@ -109,5 +107,10 @@
 
 
  */
+
+- (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game{
+    NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];
+    [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationNone];
+}
 
 @end
