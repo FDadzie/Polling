@@ -57,7 +57,6 @@
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
     [self.homeTableView reloadData];
-    
     [refreshControl endRefreshing];
 }
 /*
@@ -115,6 +114,7 @@
         //Do something here
         //Make sure vote counts are seperate and
     }
+    // Tap cell again to remove vote?
 }
 
 @end
