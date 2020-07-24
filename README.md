@@ -33,21 +33,24 @@ This app allows users to vote on game polls. The games used in the polls are the
 * [ ] User can vote on a poll that was created
 * [ ] User can select their prefered genre of game polls
 * [ ] User can pull to refresh the home view
-* [ ] The "all-time" popular games in the app can be viewed
+* [ ] "All-time" popular games in the app can be viewed
 * [ ] User can look at a detailed view of games from the "Popular Games" screen
+* [ ] User can long press a cell to look at a detailed view of a game from the "Popular Games" screen
+* [ ] User can adjust ther profile page in Settings
 
 
 **Optional Nice-to-have Stories**
 
 * [ ] User account is persisted when app restarts
 * [ ] Users can like the polls that they see on "Home"
-* [ ] User can implement infinite scrolling
+* [ ] User can infinitely scroll home page and Game picker
 * [ ] Profiles of other users can be viewed by tapping on their profile image from the homescreen
 * [ ] The games on "Popular Games" can be filtered out based on genre
 * [ ] Messages can be sent privately to other users
-* [ ] Push notifications for the ending of polls you have voted on
+* [ ] Push notifications for the ending of polls you have voted created and chatroom messages
 * [ ] User can send messages to a group to be view by other users
 * [ ] Polls in 'Home' can be filtered out based on genre
+* [ ] User can adjust notification settings in Settings
 
 ### 2. Screen Archetypes
 
@@ -62,8 +65,10 @@ This app allows users to vote on game polls. The games used in the polls are the
    * Allows the user to look at their created polls and how others have voted on them
 * Poll Creation
     * User can create their own poll
+* Game Picker
+    * User can pick a game from a list of names
 * Messaging
-    * Chat rooms based on game genres can be viewed and allow for interaction between users
+    * Chat room that can be viewed by all and allows for interaction between users
 * Profile
     * User can look at their current genre preferences
 * Settings
@@ -82,8 +87,10 @@ This app allows users to vote on game polls. The games used in the polls are the
 
 * Home
     * Popular Games
+      * Game Detail View
 * Poll View
-   * Poll Creation  
+   * Poll Creation 
+      * Game Picker
 * Profile
    * Settings
 
@@ -108,7 +115,7 @@ Game
 | platforms   | Array         |list of platforms that game can be played on |
 | desc        | String        |description of the game      |
 | backgroundImg| File         |background image of the game |
-| genre       | Array         |categories that the game belongs in |
+| genres       | Array         |categories that the game belongs in |
 
 User
 | Property   | Type           | Description   |
@@ -124,12 +131,13 @@ Poll
 | Property   | Type           | Description   |
 |------------|:--------------:|:--------------|
 | pollId     | String         | unique Id for the poll|
-| user       | Pointer to User| creator of the poll|
+| pollCreator| Pointer to User| creator of the poll|
 | totalVoteCount| Number      | total amount of votes on the given poll|
 | optionCount   | Number      | total of given options for users to vote on|
 | isOpen     | Boolean        | determines if the poll is still open to votes|
 | options    | Array          | Choices that users can vote on|
 | pollQuestion| String        | guiding question of the poll|
+
 
 
 ### Networking
