@@ -80,8 +80,12 @@
 }
 
 - (IBAction)didTapPost:(id)sender {
-    [Poll postPoll:_voteOptions withQuestion:self.askQuestion.questionPreview.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    UITextField *enteredText = askQuestion.questionPreview;
+    NSString *properText = [enteredText text];
+    
+    [Poll postPoll:_voteOptions withQuestion:properText withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(!error){
+            
             NSLog(@"Poll was successfully posted");
         } else {
             NSLog(@"Error posting poll");

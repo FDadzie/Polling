@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QuestionPreviewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *questionPreview;
 
-
-
+// - (void)synthesizeText:(NSString * _Nonnull) properText;
 
 @end
 

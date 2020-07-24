@@ -15,13 +15,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
 
-}
-/*
-- (void)synthesizeText:(NSString * _Nonnull) properText {
-    properText = questionPreview.text;
-}
-*/
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

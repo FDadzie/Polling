@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *optionVotes;
 @property (weak, nonatomic) IBOutlet UILabel *optionName;
 
+@property (weak, nonatomic) IBOutlet UILabel *myOptionName;
+@property (weak, nonatomic) IBOutlet UILabel *myOptionVotes;
+
 @end
 
 NS_ASSUME_NONNULL_END

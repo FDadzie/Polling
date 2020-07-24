@@ -51,9 +51,11 @@
         }
     }];
 }
+
 - (void)viewDidAppear:(BOOL)animated{
     [self.homeTableView reloadData];
 }
+
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
     [self.homeTableView reloadData];
@@ -74,45 +76,45 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    Poll *accessPoll = self.polls[indexPath.row];
-    // LOOK AT THIS TOMORROW
+    Poll *accessPoll = self.polls[indexPath.section];
     
      PollQuestionCell *question = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeQuestion"];
      question.homeQuestion.text = accessPoll.pollQuestion;
     
     question.selectionStyle = UITableViewCellSelectionStyleNone;
     if(indexPath.row == 1){
-        AuthorCell *author = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeAuthor" forIndexPath:indexPath];
+        AuthorCell *author = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeAuthor"];
         author.pollCreator.text = accessPoll.pollCreator.username;
         
         author.selectionStyle = UITableViewCellSelectionStyleNone;
         return author;
         
     } else if(indexPath.row > 1) {
-        OptionsPreviewCell *options = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeOption" forIndexPath:indexPath];
+        self.voteOption = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeOption"];
         
-        options.optionName.text = accessPoll.options[indexPath.row];
-        // LOOK AT THIS TOMORROW
-        return options;
+        self.voteOption.optionName.text = [accessPoll.options objectAtIndex:indexPath.section];
+        // RETURNING ONLY ONE OPTION NAME (NOT INTENTIONAL)
+        return self.voteOption;
     }
     
     return question;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Do something with table view to be able to access indexPath?
-    Poll *refPoll = [self.polls lastObject];
-    // STILL NEEDS TO BE LOOKED AT
+    Poll *refPoll = self.polls[section];
     
     return refPoll.optionCount + 2;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Poll *exPoll = self.polls[indexPath.row];
+    Poll *exPoll = self.polls[indexPath.section];
+    
     // USER CAN ONLY VOTE FOR ONE OPTION
     if(indexPath.row > 1 || indexPath.row < exPoll.optionCount){
-        //Do something here
-        //Make sure vote counts are seperate and
+        // self.voteOption.optionVotes.text;
+        
+        // Do something here
+        // Make sure vote counts are seperate and
     }
     // Tap cell again to remove vote?
 }
