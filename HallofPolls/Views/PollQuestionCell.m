@@ -1,21 +1,18 @@
 //
-//  OptionsPreviewCell.m
+//  MyPollsTableViewCell.m
 //  HallofPolls
 //
-//  Created by fdadzie20 on 7/20/20.
+//  Created by fdadzie20 on 7/23/20.
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
 
-#import "OptionsPreviewCell.h"
+#import "PollQuestionCell.h"
 
-@implementation OptionsPreviewCell
+@implementation PollQuestionCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-}
-- (IBAction)didTapOption:(id)sender {
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

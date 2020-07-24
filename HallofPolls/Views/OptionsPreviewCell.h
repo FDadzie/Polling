@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OptionsPreviewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *optionsPreview;
+@property (weak, nonatomic) IBOutlet UILabel *optionVotes;
+@property (weak, nonatomic) IBOutlet UILabel *optionName;
 
 @end
 

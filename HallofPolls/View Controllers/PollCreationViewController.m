@@ -67,11 +67,11 @@
     
     if(indexPath.section == 1) {
         AddOptionCell *add = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell" forIndexPath:indexPath];
-        add.addOption.tag = indexPath.row;
+        
         return add;
         
     } else if(indexPath.section == 2){
-    OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
+        OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
         
         options.optionsPreview.text = [self.voteOptions objectAtIndex:indexPath.row];
         return options;
@@ -86,14 +86,18 @@
         } else {
             NSLog(@"Error posting poll");
         }
-        [self dismissViewControllerAnimated:YES completion:nil];
     }];
-    
+    // Moves back to Poll View
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 1){
      [self performSegueWithIdentifier:@"showPicker" sender:nil];
+    }
+    if(indexPath.section == 2){
+       // Delete cell if tapped
+       // Maybe utilize an edit mode?
     }
 }
 /*
