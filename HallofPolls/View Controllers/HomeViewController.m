@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
 
+
 @end
 
 @implementation HomeViewController
@@ -78,11 +79,13 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     Poll *accessPoll = self.polls[indexPath.section];
     
-     PollQuestionCell *question = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeQuestion"];
-     question.homeQuestion.text = accessPoll.pollQuestion;
-    
-    question.selectionStyle = UITableViewCellSelectionStyleNone;
-    if(indexPath.row == 1){
+    if(indexPath.row == 0){
+        
+        self.question = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeQuestion"];
+        self.question.homeQuestion.text = accessPoll.pollQuestion;
+        self.question.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    } else if(indexPath.row == 1){
         AuthorCell *author = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeAuthor"];
         author.pollCreator.text = accessPoll.pollCreator.username;
         
@@ -90,14 +93,15 @@
         return author;
         
     } else if(indexPath.row > 1) {
-        self.voteOption = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeOption"];
-        
-        self.voteOption.optionName.text = [accessPoll.options objectAtIndex:indexPath.section];
+        OptionsPreviewCell *voteOption = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeOption"];
+        NSArray *optionArray = [accessPoll.options objectAtIndex:indexPath.section];
+        //voteOption.optionName.text = [accessPoll.options objectAtIndex:indexPath.section];
+        NSLog(@"%@", [optionArray objectAtIndex:indexPath.row]);
         // RETURNING ONLY ONE OPTION NAME (NOT INTENTIONAL)
-        return self.voteOption;
+        return voteOption;
     }
     
-    return question;
+    return self.question;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -111,7 +115,7 @@
     
     // USER CAN ONLY VOTE FOR ONE OPTION
     if(indexPath.row > 1 || indexPath.row < exPoll.optionCount){
-        // self.voteOption.optionVotes.text;
+        
         
         // Do something here
         // Make sure vote counts are seperate and

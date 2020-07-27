@@ -74,7 +74,6 @@
 // pass selected cell's game name to array
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GamePickerCell *cell = (GamePickerCell *)[tableView cellForRowAtIndexPath:(indexPath)];
-    [self.choices addObject:cell.name.text];
     [self.delegate gamePicker:self didPickItem:cell.name.text];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -23,7 +23,6 @@
 
 @implementation PollCreationViewController
 
-@synthesize askQuestion;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,7 +43,6 @@
         // Get destination view
         GamePickerViewController *vc = [segue destinationViewController];
         vc.delegate = self;
-        vc.choices = self.voteOptions;
     }
 }
 
@@ -62,10 +60,12 @@
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    QuestionPreviewCell *askQuestion;
     
-    self.askQuestion = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
-    
-    if(indexPath.section == 1) {
+    if(indexPath.section == 0){
+        askQuestion = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
+        
+    } else if(indexPath.section == 1) {
         AddOptionCell *add = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell" forIndexPath:indexPath];
         
         return add;
@@ -76,16 +76,17 @@
         options.optionsPreview.text = [self.voteOptions objectAtIndex:indexPath.row];
         return options;
     }
-    return self.askQuestion;
+    return askQuestion;
 }
 
 - (IBAction)didTapPost:(id)sender {
-    UITextField *enteredText = askQuestion.questionPreview;
+    QuestionPreviewCell *pullQuestion = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    UITextField *enteredText = pullQuestion.questionPreview;
     NSString *properText = [enteredText text];
     
     [Poll postPoll:_voteOptions withQuestion:properText withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(!error){
-            
             NSLog(@"Poll was successfully posted");
         } else {
             NSLog(@"Error posting poll");
@@ -101,7 +102,8 @@
     }
     if(indexPath.section == 2){
        // Delete cell if tapped
-       // Maybe utilize an edit mode?
+        [self.voteOptions removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
     }
 }
 /*
@@ -118,7 +120,9 @@
 
 - (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game{
     NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];
+    [self.voteOptions addObject:game];
     [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 
 @end

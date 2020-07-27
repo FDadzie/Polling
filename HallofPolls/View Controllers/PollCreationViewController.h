@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PollCreationViewController : UIViewController
 
-@property (nonatomic, strong) QuestionPreviewCell *askQuestion;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 

@@ -26,6 +26,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KPI-V2-sll">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KPI-V2-sll" id="kM1-Lj-aWb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -129,6 +139,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="createdQuestion" destination="TSS-FK-UtD" id="TtN-Rl-b9z"/>
+                                            <outlet property="totalVotes" destination="7oQ-Df-uVd" id="gdN-jc-Euf"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPollsOptionsCell" rowHeight="49" id="aRK-ww-oRU" customClass="OptionsPreviewCell">
                                         <rect key="frame" x="0.0" y="129" width="414" height="49"/>
@@ -153,6 +167,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myOptionName" destination="P0O-sK-g5K" id="FKF-Xc-lNi"/>
+                                            <outlet property="myOptionVotes" destination="IcK-eC-vIj" id="smD-xS-YyK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
