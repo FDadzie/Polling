@@ -34,25 +34,11 @@
     }];
 }
 
-/*
+
 - (IBAction)didTapSignUp:(id)sender {
-    PFUser *newAcc = [PFUser user];
-    
-    newAcc.username = self.userTextfield.text;
-    newAcc.password = self.passTextfield.text;
-    
-    [newAcc signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil){
-            NSLog(@"Error: %@", error.localizedDescription);
-        } else {
-            NSLog(@"User registered successfully");
-            [self performSegueWithIdentifier:@"showHome" sender:(nil)];
-            // manual segue
-        }
-    }];
-    
+    [self performSegueWithIdentifier:@"showSignUp" sender:(nil)];
 }
-*/
+
 
 /*
 #pragma mark - Navigation

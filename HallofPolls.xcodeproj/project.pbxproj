@@ -12,6 +12,7 @@
 		563FC36CAC94448B4499A278 /* Pods_HallofPollsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */; };
 		9E0DECAD24CF5F3E00D8002C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECAC24CF5F3E00D8002C /* ProfileViewController.m */; };
 		9E0DECB024CF7D9B00D8002C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECAF24CF7D9B00D8002C /* SettingsViewController.m */; };
+		9E0DECB324D0863B00D8002C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECB224D0863B00D8002C /* SignUpViewController.m */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
@@ -62,6 +63,8 @@
 		9E0DECAC24CF5F3E00D8002C /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9E0DECAE24CF7D9B00D8002C /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9E0DECAF24CF7D9B00D8002C /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9E0DECB124D0863B00D8002C /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		9E0DECB224D0863B00D8002C /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 			children = (
 				9E83895524C11DA500CC0B4C /* LoginViewController.h */,
 				9E83895624C11DA500CC0B4C /* LoginViewController.m */,
+				9E0DECB124D0863B00D8002C /* SignUpViewController.h */,
+				9E0DECB224D0863B00D8002C /* SignUpViewController.m */,
 				9E83895C24C266DC00CC0B4C /* HomeViewController.h */,
 				9E83895D24C266DC00CC0B4C /* HomeViewController.m */,
 				9EAFA3FA24C9E7B400AC6764 /* MyPollsTableViewController.h */,
@@ -528,6 +533,7 @@
 				9E83895A24C2288900CC0B4C /* PollCreationViewController.m in Sources */,
 				9EAFA3FC24C9E7B400AC6764 /* MyPollsTableViewController.m in Sources */,
 				9EAFA3FF24C9E8B000AC6764 /* PollQuestionCell.m in Sources */,
+				9E0DECB324D0863B00D8002C /* SignUpViewController.m in Sources */,
 				9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */,
 				9E83895124C109E300CC0B4C /* User.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
