@@ -7,8 +7,14 @@
 //
 
 #import "MyPollsTableViewController.h"
+#import "Poll.h"
+#import "PollQuestionCell.h"
+#import "OptionsPreviewCell.h"
 
-@interface MyPollsTableViewController ()
+@interface MyPollsTableViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSArray<Poll *> *myPolls;
+@property (strong, nonatomic) UIRefreshControl *refresher;
 
 @end
 
@@ -17,7 +23,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pollTableView.delegate = self;
+    self.pollTableView.dataSource = self;
     
+    [self beginRefresh:(UIRefreshControl *)_refresher];
+    self.refresher = [[UIRefreshControl alloc] init];
+    [self.refresher addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.pollTableView insertSubview: self.refresher atIndex:0];
+    
+    // NSPredicate *predicate = [NSPredicate predicateWithFormat:@""];
+    //What would the predicate format be?
+    PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"pollCreator"];
+    query.limit = 20;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray<Poll *> * _Nullable fetchedPolls, NSError * _Nullable error) {
+        if(!error){
+            // do something with data fetched
+            self.myPolls = fetchedPolls;
+            [self.pollTableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+            // handle errors
+        }
+    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -25,27 +55,45 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+    [self.pollTableView reloadData];
+    [refreshControl endRefreshing];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return [self.myPolls count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    Poll *refPoll = self.myPolls[section];
+    
+    return refPoll.optionCount + 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    Poll *accessPoll = self.myPolls[indexPath.section];
+    PollQuestionCell *cell;
     
-    // Configure the cell...
+    if(indexPath.row == 0){
+        
+        cell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsCell" forIndexPath:indexPath];
+        cell.createdQuestion.text = accessPoll.pollQuestion;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.totalVotes.text = @"50";
+        
+    } else if(indexPath.row > 0){
+        OptionsPreviewCell *optionCell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsOptionsCell" forIndexPath:indexPath];
+        
+        return optionCell;
+        
+    }
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

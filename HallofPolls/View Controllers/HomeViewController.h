@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) PollQuestionCell *question;
-
+@property (strong, nonatomic) NSMutableDictionary *selectionData;
 @end
 
 NS_ASSUME_NONNULL_END

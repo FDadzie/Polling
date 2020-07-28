@@ -20,8 +20,7 @@
 
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
-
-
+@property (nonatomic) NSUInteger counter;
 @end
 
 @implementation HomeViewController
@@ -29,9 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.selectionData = [[NSMutableDictionary alloc]init];
     
     self.homeTableView.delegate = self;
     self.homeTableView.dataSource = self;
+    
     
     [self beginRefresh:(UIRefreshControl *)_refresh];
        self.refresh = [[UIRefreshControl alloc] init];
@@ -59,8 +60,22 @@
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
-    [self.homeTableView reloadData];
     [refreshControl endRefreshing];
+    PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"pollCreator"];
+    query.limit = 20;
+    [query findObjectsInBackgroundWithBlock:^(NSArray<Poll *> * _Nullable fetchedPolls, NSError * _Nullable error) {
+        if(!error){
+            // do something with data fetched
+            self.polls = fetchedPolls;
+            [self.homeTableView reloadData];
+        } else {
+            // handle errors
+        }
+    }];
+    [self.homeTableView reloadData];
+   
 }
 /*
 #pragma mark - Navigation
@@ -93,10 +108,17 @@
         return author;
         
     } else if(indexPath.row > 1) {
+        
         OptionsPreviewCell *voteOption = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeOption"];
-        NSArray *optionArray = [accessPoll.options objectAtIndex:indexPath.section];
-        //voteOption.optionName.text = [accessPoll.options objectAtIndex:indexPath.section];
-        NSLog(@"%@", [optionArray objectAtIndex:indexPath.row]);
+        NSArray *optionArray = accessPoll.options;
+        if(_counter >= optionArray.count){
+            [self resetCounter];
+        }
+        voteOption.optionName.text = [optionArray objectAtIndex:self.counter];
+        self.counter +=1;
+       
+        
+        //NSLog(@"%@", [optionArray objectAtIndex:counter]);
         // RETURNING ONLY ONE OPTION NAME (NOT INTENTIONAL)
         return voteOption;
     }
@@ -104,6 +126,9 @@
     return self.question;
 }
 
+-(void)resetCounter{
+    self.counter = 0;
+}
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     Poll *refPoll = self.polls[section];
     
@@ -111,16 +136,35 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Poll *exPoll = self.polls[indexPath.section];
     
-    // USER CAN ONLY VOTE FOR ONE OPTION
-    if(indexPath.row > 1 || indexPath.row < exPoll.optionCount){
-        
-        
-        // Do something here
-        // Make sure vote counts are seperate and
-    }
-    // Tap cell again to remove vote?
+    [self handlePollVotingInSection:indexPath.section atRow:indexPath.row];
+    //[self.homeTableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    [self.homeTableView reloadData];
 }
 
+-(void)handlePollVotingInSection:(NSInteger )sectionIndex atRow:(NSInteger )rowIndex{
+    
+    if([self.selectionData objectForKey:[NSString stringWithFormat:@"%ld",(long)sectionIndex] ] != nil){
+        
+        NSMutableArray *sectionData = [[self.selectionData objectForKey:[NSString stringWithFormat:@"%ld",(long)sectionIndex]] mutableCopy];
+        
+        if (![sectionData containsObject:[NSNumber numberWithLong:(long)rowIndex]]) {
+            //removes the previously selected rows
+            [sectionData removeAllObjects];
+            [sectionData addObject:[NSNumber numberWithLong:(long)rowIndex]];
+            
+            [self.selectionData setObject:sectionData forKey:[NSString stringWithFormat:@"%ld",(long)sectionIndex]];
+        } else {
+            //cell tapped is already selected
+            [sectionData removeObject:[NSNumber numberWithLong:(long)rowIndex]];
+        }
+    } else {
+        //section key was not available so it needs to be created
+        NSMutableArray *sectionData = [[NSMutableArray alloc]init];
+        [sectionData addObject:[NSNumber numberWithLong:(long)rowIndex]];
+        
+        [self.selectionData setObject:sectionData forKey:[NSString stringWithFormat:@"%ld",(long)sectionIndex]];
+    }
+    NSLog(@"All Selection : %@", self.selectionData);
+}
 @end

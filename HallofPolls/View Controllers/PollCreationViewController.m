@@ -35,16 +35,7 @@
     [self.tableView reloadData];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([[segue identifier] isEqualToString:@"showPicker"]) {
-        
-        [self.tableView reloadData];
-        
-        // Get destination view
-        GamePickerViewController *vc = [segue destinationViewController];
-        vc.delegate = self;
-    }
-}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
@@ -106,17 +97,19 @@
         [self.tableView reloadData];
     }
 }
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
-
- */
+ - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ if([[segue identifier] isEqualToString:@"showPicker"]) {
+ 
+ [self.tableView reloadData];
+ 
+ // Get destination view
+ GamePickerViewController *vc = [segue destinationViewController];
+ vc.delegate = self;
+    }
+ }
 
 - (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game{
     NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];

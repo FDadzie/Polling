@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MyPollsTableViewController : UITableViewController
+@interface MyPollsTableViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *pollTableView;
 

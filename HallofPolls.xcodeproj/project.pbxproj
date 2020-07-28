@@ -10,6 +10,8 @@
 		19B557D1903D6431CBDDA3DC /* Pods_HallofPolls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCA0DC84261BB1EEEAE199F /* Pods_HallofPolls.framework */; };
 		2C4A16A420287B96940033F0 /* Pods_HallofPolls_HallofPollsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */; };
 		563FC36CAC94448B4499A278 /* Pods_HallofPollsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */; };
+		9E0DECAD24CF5F3E00D8002C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECAC24CF5F3E00D8002C /* ProfileViewController.m */; };
+		9E0DECB024CF7D9B00D8002C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECAF24CF7D9B00D8002C /* SettingsViewController.m */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
@@ -56,6 +58,10 @@
 		12765F5958A4649BB9A9F0C3 /* Pods-HallofPolls-HallofPollsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPolls-HallofPollsUITests.release.xcconfig"; path = "Target Support Files/Pods-HallofPolls-HallofPollsUITests/Pods-HallofPolls-HallofPollsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2DCA0DC84261BB1EEEAE199F /* Pods_HallofPolls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HallofPolls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		377ADC0BD84AF3AF3C4626FD /* Pods-HallofPollsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HallofPollsTests.release.xcconfig"; path = "Target Support Files/Pods-HallofPollsTests/Pods-HallofPollsTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E0DECAB24CF5F3E00D8002C /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9E0DECAC24CF5F3E00D8002C /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		9E0DECAE24CF7D9B00D8002C /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9E0DECAF24CF7D9B00D8002C /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -212,12 +218,16 @@
 				9E83895624C11DA500CC0B4C /* LoginViewController.m */,
 				9E83895C24C266DC00CC0B4C /* HomeViewController.h */,
 				9E83895D24C266DC00CC0B4C /* HomeViewController.m */,
+				9EAFA3FA24C9E7B400AC6764 /* MyPollsTableViewController.h */,
+				9EAFA3FB24C9E7B400AC6764 /* MyPollsTableViewController.m */,
 				9E83895824C2288900CC0B4C /* PollCreationViewController.h */,
 				9E83895924C2288900CC0B4C /* PollCreationViewController.m */,
 				9E83895F24C271F700CC0B4C /* GamePickerViewController.h */,
 				9E83896024C271F700CC0B4C /* GamePickerViewController.m */,
-				9EAFA3FA24C9E7B400AC6764 /* MyPollsTableViewController.h */,
-				9EAFA3FB24C9E7B400AC6764 /* MyPollsTableViewController.m */,
+				9E0DECAB24CF5F3E00D8002C /* ProfileViewController.h */,
+				9E0DECAC24CF5F3E00D8002C /* ProfileViewController.m */,
+				9E0DECAE24CF7D9B00D8002C /* SettingsViewController.h */,
+				9E0DECAF24CF7D9B00D8002C /* SettingsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -522,6 +532,8 @@
 				9E83895124C109E300CC0B4C /* User.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
 				9EA3E02E24C79C5A00D95C39 /* AddOptionCell.m in Sources */,
+				9E0DECAD24CF5F3E00D8002C /* ProfileViewController.m in Sources */,
+				9E0DECB024CF7D9B00D8002C /* SettingsViewController.m in Sources */,
 				9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */,
 				9E83896F24C6455900CC0B4C /* OptionsPreviewCell.m in Sources */,
 				9E83895E24C266DC00CC0B4C /* HomeViewController.m in Sources */,
