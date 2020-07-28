@@ -39,19 +39,8 @@
        [self.refresh addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
        [self.homeTableView insertSubview: self.refresh atIndex:0];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
-    [query orderByDescending:@"createdAt"];
-    [query includeKey:@"pollCreator"];
-    query.limit = 20;
-    [query findObjectsInBackgroundWithBlock:^(NSArray<Poll *> * _Nullable fetchedPolls, NSError * _Nullable error) {
-        if(!error){
-            // do something with data fetched
-            self.polls = fetchedPolls;
-            [self.homeTableView reloadData];
-        } else {
-            // handle errors
-        }
-    }];
+    [self makeQuery];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -60,7 +49,12 @@
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
+    [self makeQuery];
+    [self.homeTableView reloadData];
     [refreshControl endRefreshing];
+}
+
+-(void) makeQuery{
     PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"pollCreator"];
@@ -74,8 +68,6 @@
             // handle errors
         }
     }];
-    [self.homeTableView reloadData];
-   
 }
 /*
 #pragma mark - Navigation
@@ -129,6 +121,7 @@
 -(void)resetCounter{
     self.counter = 0;
 }
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     Poll *refPoll = self.polls[section];
     
@@ -138,7 +131,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [self handlePollVotingInSection:indexPath.section atRow:indexPath.row];
-    //[self.homeTableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    [self.homeTableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     [self.homeTableView reloadData];
 }
 

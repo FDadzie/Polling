@@ -1,30 +1,25 @@
 //
-//  ProfileViewController.m
+//  PopularGamesViewController.m
 //  HallofPolls
 //
-//  Created by fdadzie20 on 7/27/20.
+//  Created by fdadzie20 on 7/28/20.
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
 
-#import "ProfileViewController.h"
-#import "SettingsViewController.h"
-#import "GamePickerViewController.h"
+#import "PopularGamesViewController.h"
+#import "PopularGameCell.h"
+#import <Parse/Parse.h>
 
-@interface ProfileViewController () <GamePickerViewControllerDelegate>
+@interface PopularGamesViewController ()
 
 @end
 
-@implementation ProfileViewController
+@implementation PopularGamesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
 }
-
-
-
-
 
 /*
 #pragma mark - Navigation
@@ -35,9 +30,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (void)gamePicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull NSString *)game {
-    self.favGame.text = game;
-}
 
 @end

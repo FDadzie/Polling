@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSString *pollQuestion;
 @property (nonatomic, strong) PFUser *pollCreator;
+@property (nonatomic, strong) NSMutableArray *voteArray;
 
 
 + (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable)question withCompletion :(PFBooleanResultBlock _Nullable)completion ;

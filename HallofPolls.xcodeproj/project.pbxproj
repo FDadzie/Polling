@@ -13,6 +13,8 @@
 		9E0DECAD24CF5F3E00D8002C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECAC24CF5F3E00D8002C /* ProfileViewController.m */; };
 		9E0DECB024CF7D9B00D8002C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECAF24CF7D9B00D8002C /* SettingsViewController.m */; };
 		9E0DECB324D0863B00D8002C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECB224D0863B00D8002C /* SignUpViewController.m */; };
+		9E0DECB624D0C66400D8002C /* PopularGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECB524D0C66400D8002C /* PopularGamesViewController.m */; };
+		9E0DECB924D0CA7700D8002C /* PopularGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECB824D0CA7700D8002C /* PopularGameCell.m */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
@@ -65,6 +67,10 @@
 		9E0DECAF24CF7D9B00D8002C /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		9E0DECB124D0863B00D8002C /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		9E0DECB224D0863B00D8002C /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		9E0DECB424D0C66400D8002C /* PopularGamesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopularGamesViewController.h; sourceTree = "<group>"; };
+		9E0DECB524D0C66400D8002C /* PopularGamesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularGamesViewController.m; sourceTree = "<group>"; };
+		9E0DECB724D0CA7700D8002C /* PopularGameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopularGameCell.h; sourceTree = "<group>"; };
+		9E0DECB824D0CA7700D8002C /* PopularGameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularGameCell.m; sourceTree = "<group>"; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -223,6 +229,8 @@
 				9E0DECB224D0863B00D8002C /* SignUpViewController.m */,
 				9E83895C24C266DC00CC0B4C /* HomeViewController.h */,
 				9E83895D24C266DC00CC0B4C /* HomeViewController.m */,
+				9E0DECB424D0C66400D8002C /* PopularGamesViewController.h */,
+				9E0DECB524D0C66400D8002C /* PopularGamesViewController.m */,
 				9EAFA3FA24C9E7B400AC6764 /* MyPollsTableViewController.h */,
 				9EAFA3FB24C9E7B400AC6764 /* MyPollsTableViewController.m */,
 				9E83895824C2288900CC0B4C /* PollCreationViewController.h */,
@@ -272,6 +280,8 @@
 				9EAFA3FE24C9E8B000AC6764 /* PollQuestionCell.m */,
 				9EAFA40124CA285200AC6764 /* AuthorCell.h */,
 				9EAFA40224CA285200AC6764 /* AuthorCell.m */,
+				9E0DECB724D0CA7700D8002C /* PopularGameCell.h */,
+				9E0DECB824D0CA7700D8002C /* PopularGameCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -534,6 +544,7 @@
 				9EAFA3FC24C9E7B400AC6764 /* MyPollsTableViewController.m in Sources */,
 				9EAFA3FF24C9E8B000AC6764 /* PollQuestionCell.m in Sources */,
 				9E0DECB324D0863B00D8002C /* SignUpViewController.m in Sources */,
+				9E0DECB924D0CA7700D8002C /* PopularGameCell.m in Sources */,
 				9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */,
 				9E83895124C109E300CC0B4C /* User.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
@@ -542,6 +553,7 @@
 				9E0DECB024CF7D9B00D8002C /* SettingsViewController.m in Sources */,
 				9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */,
 				9E83896F24C6455900CC0B4C /* OptionsPreviewCell.m in Sources */,
+				9E0DECB624D0C66400D8002C /* PopularGamesViewController.m in Sources */,
 				9E83895E24C266DC00CC0B4C /* HomeViewController.m in Sources */,
 				9E83896124C271F700CC0B4C /* GamePickerViewController.m in Sources */,
 				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,

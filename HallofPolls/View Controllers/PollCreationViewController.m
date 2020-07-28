@@ -65,6 +65,7 @@
         OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
         
         options.optionsPreview.text = [self.voteOptions objectAtIndex:indexPath.row];
+        
         return options;
     }
     return askQuestion;

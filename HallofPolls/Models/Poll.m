@@ -16,6 +16,7 @@
 @dynamic options;
 @dynamic pollQuestion;
 @dynamic pollCreator;
+@dynamic voteArray;
 
 + (nonnull NSString *)parseClassName {
     return @"Poll";
@@ -29,6 +30,7 @@
     newPoll.pollQuestion = question;
     newPoll.pollCreator = [PFUser currentUser];
     newPoll.options = pollOptions;
+    newPoll.voteArray = [[NSMutableArray alloc] init];
     
     
     [newPoll saveInBackgroundWithBlock:completion];

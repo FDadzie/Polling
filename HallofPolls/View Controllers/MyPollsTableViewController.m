@@ -61,7 +61,7 @@
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator = [c] %@",[PFUser currentUser]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator == %@",[PFUser currentUser]];
     PFQuery *query = [PFQuery queryWithClassName:@"Poll" predicate:predicate];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"pollCreator"];

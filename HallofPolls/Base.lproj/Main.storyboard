@@ -62,11 +62,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fpm-zK-KiG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fpm-zK-KiG">
                                 <rect key="frame" x="0.0" y="88" width="414" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YFH-2v-ls0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YFH-2v-ls0">
                                 <rect key="frame" x="117" y="134" width="180" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20Y-gl-bBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2388" y="1692"/>
+            <point key="canvasLocation" x="-1436" y="2411"/>
         </scene>
         <!--Poll Creation View Controller-->
         <scene sceneID="XfC-7u-hRK">
@@ -608,7 +608,7 @@
         <!--Popular Game View-->
         <scene sceneID="QbW-7A-rwD">
             <objects>
-                <viewController title="Popular Game View" id="rqy-9o-afJ" sceneMemberID="viewController">
+                <viewController title="Popular Game View" id="rqy-9o-afJ" customClass="PopularGamesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TCQ-GC-pUF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,23 +618,52 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="135" id="AFd-NH-Yb4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="135" id="AFd-NH-Yb4" customClass="PopularGameCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AFd-NH-Yb4" id="J9t-c0-Kx3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kT0-jy-6Dy">
+                                                    <rect key="frame" x="20" y="3" width="100" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="Qk5-wS-lGC"/>
+                                                        <constraint firstAttribute="height" constant="130.5" id="z93-3Q-Qtt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M86-pb-Mnf">
+                                                    <rect key="frame" x="128" y="3" width="266" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04b-Ix-CGJ">
+                                                    <rect key="frame" x="128" y="32" width="266" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="M86-pb-Mnf" secondAttribute="trailing" constant="20" id="451-DS-xm6"/>
+                                                <constraint firstItem="M86-pb-Mnf" firstAttribute="top" secondItem="J9t-c0-Kx3" secondAttribute="top" constant="3" id="9f7-VU-lS3"/>
+                                                <constraint firstItem="04b-Ix-CGJ" firstAttribute="leading" secondItem="kT0-jy-6Dy" secondAttribute="trailing" constant="8" id="Dgq-QM-U0l"/>
+                                                <constraint firstItem="kT0-jy-6Dy" firstAttribute="leading" secondItem="J9t-c0-Kx3" secondAttribute="leading" constant="20" id="TGq-du-sQj"/>
+                                                <constraint firstItem="kT0-jy-6Dy" firstAttribute="top" secondItem="J9t-c0-Kx3" secondAttribute="top" constant="2" id="hMO-bJ-zPL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="04b-Ix-CGJ" secondAttribute="trailing" id="ngz-64-fQj"/>
+                                                <constraint firstItem="04b-Ix-CGJ" firstAttribute="top" secondItem="M86-pb-Mnf" secondAttribute="bottom" constant="8" id="wO7-UF-gmh"/>
+                                                <constraint firstItem="M86-pb-Mnf" firstAttribute="leading" secondItem="kT0-jy-6Dy" secondAttribute="trailing" constant="8" id="xNN-yg-w26"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="game" destination="M86-pb-Mnf" id="vr1-iQ-BzA"/>
+                                            <outlet property="gameImage" destination="kT0-jy-6Dy" id="yo7-RA-D3X"/>
+                                            <outlet property="popularDesc" destination="04b-Ix-CGJ" id="OJa-mZ-MtP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is the Popular Game View" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGn-i2-FdZ">
-                                <rect key="frame" x="20" y="349" width="374" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="X5u-u7-nlb"/>
@@ -646,7 +675,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgV-zy-WSq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2388" y="882"/>
+            <point key="canvasLocation" x="-1436.2318840579712" y="1691.5178571428571"/>
         </scene>
         <!--Home View-->
         <scene sceneID="tne-QT-ifu">
@@ -868,7 +897,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPv-3q-oYq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2388" y="138"/>
+            <point key="canvasLocation" x="-2307" y="1692"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gLI-n6-FYT">
@@ -890,9 +919,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kCM-uF-Kqr"/>
+        <segue reference="qPj-1f-vZ5"/>
         <segue reference="8S2-eI-5G4"/>
-        <segue reference="VNE-47-Ira"/>
+        <segue reference="Y4w-UL-6zO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gamecontroller.fill" catalog="system" width="128" height="82"/>
