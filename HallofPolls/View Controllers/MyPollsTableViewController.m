@@ -34,11 +34,12 @@
     [self.refresher addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.pollTableView insertSubview: self.refresher atIndex:0];
     
-    // NSPredicate *predicate = [NSPredicate predicateWithFormat:@" == [PFUser currentUser]"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator = [c] %@",[PFUser currentUser]];
     //What would the predicate format be?
-    PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Poll" predicate:predicate];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"pollCreator"];
+    
     query.limit = 20;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray<Poll *> * _Nullable fetchedPolls, NSError * _Nullable error) {
@@ -59,7 +60,9 @@
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-    PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator = [c] %@",[PFUser currentUser]];
+    PFQuery *query = [PFQuery queryWithClassName:@"Poll" predicate:predicate];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"pollCreator"];
     query.limit = 20;
