@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSArray<Poll *> *myPolls;
 @property (strong, nonatomic) UIRefreshControl *refresher;
+@property (nonatomic) NSUInteger counter;
 
 @end
 
@@ -25,6 +26,8 @@
     
     self.pollTableView.delegate = self;
     self.pollTableView.dataSource = self;
+    
+    [self resetCounter];
     
     [self beginRefresh:(UIRefreshControl *)_refresher];
     self.refresher = [[UIRefreshControl alloc] init];
@@ -86,7 +89,13 @@
         
     } else if(indexPath.row > 0){
         OptionsPreviewCell *optionCell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsOptionsCell" forIndexPath:indexPath];
+        NSArray *accessArray = accessPoll.options;
+        if(_counter >= accessArray.count){
+            [self resetCounter];
+        }
         
+        optionCell.myOptionName.text = [accessArray objectAtIndex:_counter];
+        _counter += 1;
         return optionCell;
         
     }
@@ -94,6 +103,9 @@
     return cell;
 }
 
+-(void)resetCounter{
+    self.counter = 0;
+}
 
 /*
 // Override to support conditional editing of the table view.
