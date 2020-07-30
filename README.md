@@ -35,7 +35,6 @@ This app allows users to vote on game polls. The games used in the polls are the
 * [ ] User can pull to refresh the home view
 * [ ] "All-time" popular games in the app can be viewed
 * [ ] User can look at a detailed view of games from the "Popular Games" screen
-* [ ] User can long press a cell to look at a detailed view of a game from the "Popular Games" screen
 * [ ] User can adjust ther profile page in Settings
 
 
@@ -98,7 +97,7 @@ This app allows users to vote on game polls. The games used in the polls are the
 
 <img src=https://github.com/FDadzie/Polling/blob/master/Hall%20of%20Polls%20Images/Hall%20of%20Polls%20(Wireframe).jpg width="600" title="Hall of Polls Wireframe">
 
-(May edit...)
+(Will change...)
 
 # Schema
 ### Models
@@ -117,7 +116,7 @@ Game
 | backgroundImg| File         |background image of the game |
 | genres       | Array         |categories that the game belongs in |
 
-User
+Profile
 | Property   | Type           | Description   |
 |------------|:--------------:|:-----------|
 | userId     | String        | unique Id for the user|
