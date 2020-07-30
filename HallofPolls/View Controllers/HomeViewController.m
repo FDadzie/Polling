@@ -12,7 +12,8 @@
 #import <Parse/Parse.h>
 #import "PollQuestionCell.h"
 #import "OptionsPreviewCell.h"
-#import "AuthorCell.h"
+#import "PollDescriptionCell.h"
+#import "PollDetailViewController.h"
 
 
 
@@ -20,7 +21,7 @@
 
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
-@property (nonatomic) NSUInteger counter;
+
 @end
 
 @implementation HomeViewController
@@ -70,15 +71,22 @@
         }
     }];
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    PollDetailViewController *details = [segue destinationViewController];
+    NSIndexPath *index = [self.homeTableView indexPathForSelectedRow];
+    Poll *selectedPoll = self.polls[index.section];
+    details.chosen = selectedPoll;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 124;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [self.polls count];
@@ -87,20 +95,22 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     Poll *accessPoll = self.polls[indexPath.section];
     
+    
     if(indexPath.row == 0){
         
-        self.question = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeQuestion"];
-        self.question.homeQuestion.text = accessPoll.pollQuestion;
-        self.question.selectionStyle = UITableViewCellSelectionStyleNone;
+        PollQuestionCell *question = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeQuestion"];
+        question.homeQuestion.text = accessPoll.pollQuestion;
+        question.pollAuthor.text = accessPoll.pollCreator.username;
 
-    } else if(indexPath.row == 1){
-        AuthorCell *author = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeAuthor"];
-        author.pollCreator.text = accessPoll.pollCreator.username;
+        return question;
+    } else {
         
-        author.selectionStyle = UITableViewCellSelectionStyleNone;
-        return author;
-        
-    } else if(indexPath.row > 1) {
+        PollDescriptionCell *describe = [self.homeTableView dequeueReusableCellWithIdentifier:@"PollDescription"];
+        //set properties
+        return describe;
+    }
+    /*
+    else if(indexPath.row > 0) {
         
         OptionsPreviewCell *voteOption = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeOption"];
         NSArray *optionArray = accessPoll.options;
@@ -115,28 +125,18 @@
         // RETURNING ONLY ONE OPTION NAME (NOT INTENTIONAL)
         return voteOption;
     }
-    
-    return self.question;
-}
-
--(void)resetCounter{
-    self.counter = 0;
+    */
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    Poll *refPoll = self.polls[section];
-    
-    return [refPoll.options count] + 2;
+    return 2;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"selected section :%li ---> selected row :%li",indexPath.section, indexPath.row);
-    [self handlePollVotingInSection:indexPath.section atRow:indexPath.row];
-    //[self.homeTableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-    [self.homeTableView reloadData];
+    [self performSegueWithIdentifier:@"showPollDetail" sender:self];
 }
-
+/*
 -(void)handlePollVotingInSection:(NSInteger )sectionIndex atRow:(NSInteger )rowIndex{
     
     if([self.selectionData objectForKey:[NSString stringWithFormat:@"%ld",(long)sectionIndex] ] != nil){
@@ -162,4 +162,5 @@
     }
     NSLog(@"All Selection : %@", self.selectionData);
 }
+*/
 @end

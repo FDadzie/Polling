@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PollDescriptionCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *descPreview;
+@property (weak, nonatomic) IBOutlet UILabel *showcaseDesc;
 
 @end
 
