@@ -7,16 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QuestionPreviewCell.h"
-#import "OptionsPreviewCell.h"
 #import "GamePickerViewController.h"
+#import "MyPollsTableViewController.h"
+@class PollCreationViewController;
 
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol PollCreationViewControllerDelegate <NSObject>
+
+- (void)myPollUpdate: (PollCreationViewController *)pollCreation;
+
+@end
 
 @interface PollCreationViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic, weak) id<PollCreationViewControllerDelegate> pollDelegate;
 
 @end
 

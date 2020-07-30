@@ -10,8 +10,9 @@
 #import "Poll.h"
 #import "PollQuestionCell.h"
 #import "OptionsPreviewCell.h"
+#import "PollCreationViewController.h"
 
-@interface MyPollsTableViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MyPollsTableViewController () <UITableViewDataSource, UITableViewDelegate,PollCreationViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray<Poll *> *myPolls;
 @property (strong, nonatomic) UIRefreshControl *refresher;
@@ -34,6 +35,15 @@
     [self.refresher addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.pollTableView insertSubview: self.refresher atIndex:0];
     
+    [self anotherQuery];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (void)anotherQuery{
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator = [c] %@",[PFUser currentUser]];
     //What would the predicate format be?
     PFQuery *query = [PFQuery queryWithClassName:@"Poll" predicate:predicate];
@@ -52,31 +62,10 @@
             // handle errors
         }
     }];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator == %@",[PFUser currentUser]];
-    PFQuery *query = [PFQuery queryWithClassName:@"Poll" predicate:predicate];
-    [query orderByDescending:@"createdAt"];
-    [query includeKey:@"pollCreator"];
-    query.limit = 20;
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray<Poll *> * _Nullable fetchedPolls, NSError * _Nullable error) {
-        if(!error){
-            // do something with data fetched
-            self.myPolls = fetchedPolls;
-            [self.pollTableView reloadData];
-        } else {
-            NSLog(@"%@", error.localizedDescription);
-            // handle errors
-        }
-    }];
+    [self anotherQuery];
     [self.pollTableView reloadData];
     [refreshControl endRefreshing];
 }
@@ -89,7 +78,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     Poll *refPoll = self.myPolls[section];
     
-    return refPoll.optionCount + 1;
+    return [refPoll.options count] + 1;
 }
 
 
@@ -100,6 +89,7 @@
     if(indexPath.row == 0){
         
         cell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsCell" forIndexPath:indexPath];
+        
         cell.createdQuestion.text = accessPoll.pollQuestion;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.totalVotes.text = @"50";
@@ -122,6 +112,18 @@
 
 -(void)resetCounter{
     self.counter = 0;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row == 0){
+        return 101;
+    }
+    return 49;
+}
+
+- (void)myPollUpdate:(nonnull PollCreationViewController *)pollCreation {
+    [self anotherQuery];
+    [self.pollTableView reloadData];
 }
 
 /*
@@ -158,14 +160,17 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    PollCreationViewController *pc = [segue destinationViewController];
+    pc.pollDelegate = self;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+
 
 @end

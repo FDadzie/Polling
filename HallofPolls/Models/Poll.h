@@ -13,17 +13,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Poll : PFObject<PFSubclassing>
 
-@property (nonatomic, strong) NSNumber *totalVoteCount;
-@property (nonatomic) NSUInteger optionCount;
 @property (nonatomic) BOOL *isOpen;
 @property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSString *pollQuestion;
 @property (nonatomic, strong) PFUser *pollCreator;
 @property (nonatomic, strong) NSMutableArray *voteArray;
+@property (nonatomic, strong) NSString *pollDescription;
 
 
 + (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable)question withCompletion :(PFBooleanResultBlock _Nullable)completion ;
 
+//withDescription: (NSString * _Nullable )description
 @end
 
 NS_ASSUME_NONNULL_END

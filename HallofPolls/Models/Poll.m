@@ -10,13 +10,12 @@
 
 @implementation Poll
 
-@dynamic totalVoteCount;
-@dynamic optionCount;
 @dynamic isOpen;
 @dynamic options;
 @dynamic pollQuestion;
 @dynamic pollCreator;
 @dynamic voteArray;
+@dynamic pollDescription;
 
 + (nonnull NSString *)parseClassName {
     return @"Poll";
@@ -25,12 +24,12 @@
 + (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable )question withCompletion: (PFBooleanResultBlock _Nullable)completion {
     
     Poll *newPoll = [Poll new];
-    newPoll.totalVoteCount = @(0);
-    newPoll.optionCount = [pollOptions count];
     newPoll.pollQuestion = question;
     newPoll.pollCreator = [PFUser currentUser];
     newPoll.options = pollOptions;
     newPoll.voteArray = [[NSMutableArray alloc] init];
+    
+    //newPoll.pollDescription = description;
     
     
     [newPoll saveInBackgroundWithBlock:completion];

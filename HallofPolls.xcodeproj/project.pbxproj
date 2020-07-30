@@ -15,6 +15,8 @@
 		9E0DECB324D0863B00D8002C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECB224D0863B00D8002C /* SignUpViewController.m */; };
 		9E0DECB624D0C66400D8002C /* PopularGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECB524D0C66400D8002C /* PopularGamesViewController.m */; };
 		9E0DECB924D0CA7700D8002C /* PopularGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECB824D0CA7700D8002C /* PopularGameCell.m */; };
+		9E0DECBC24D22AC900D8002C /* PollDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECBB24D22AC900D8002C /* PollDescriptionCell.m */; };
+		9E0DECBF24D2534300D8002C /* InfiniteScrollActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECBE24D2534300D8002C /* InfiniteScrollActivityView.m */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
@@ -24,7 +26,7 @@
 		9E7AA2D424BE06DD00F2DC5F /* HallofPollsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2D324BE06DD00F2DC5F /* HallofPollsTests.m */; };
 		9E7AA2DF24BE06DD00F2DC5F /* HallofPollsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2DE24BE06DD00F2DC5F /* HallofPollsUITests.m */; };
 		9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2EF24BE704300F2DC5F /* Poll.m */; };
-		9E83895124C109E300CC0B4C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895024C109E300CC0B4C /* User.m */; };
+		9E83895124C109E300CC0B4C /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895024C109E300CC0B4C /* Profile.m */; };
 		9E83895424C10A0000CC0B4C /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895324C10A0000CC0B4C /* Game.m */; };
 		9E83895724C11DA500CC0B4C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895624C11DA500CC0B4C /* LoginViewController.m */; };
 		9E83895A24C2288900CC0B4C /* PollCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83895924C2288900CC0B4C /* PollCreationViewController.m */; };
@@ -71,6 +73,10 @@
 		9E0DECB524D0C66400D8002C /* PopularGamesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularGamesViewController.m; sourceTree = "<group>"; };
 		9E0DECB724D0CA7700D8002C /* PopularGameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopularGameCell.h; sourceTree = "<group>"; };
 		9E0DECB824D0CA7700D8002C /* PopularGameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularGameCell.m; sourceTree = "<group>"; };
+		9E0DECBA24D22AC900D8002C /* PollDescriptionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PollDescriptionCell.h; sourceTree = "<group>"; };
+		9E0DECBB24D22AC900D8002C /* PollDescriptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollDescriptionCell.m; sourceTree = "<group>"; };
+		9E0DECBD24D2534300D8002C /* InfiniteScrollActivityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollActivityView.h; sourceTree = "<group>"; };
+		9E0DECBE24D2534300D8002C /* InfiniteScrollActivityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollActivityView.m; sourceTree = "<group>"; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -89,8 +95,8 @@
 		9E7AA2E024BE06DD00F2DC5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E7AA2EE24BE704300F2DC5F /* Poll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Poll.h; sourceTree = "<group>"; };
 		9E7AA2EF24BE704300F2DC5F /* Poll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Poll.m; sourceTree = "<group>"; };
-		9E83894F24C109E300CC0B4C /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		9E83895024C109E300CC0B4C /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9E83894F24C109E300CC0B4C /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		9E83895024C109E300CC0B4C /* Profile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		9E83895224C10A0000CC0B4C /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		9E83895324C10A0000CC0B4C /* Game.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		9E83895524C11DA500CC0B4C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -250,8 +256,8 @@
 			children = (
 				9E7AA2EE24BE704300F2DC5F /* Poll.h */,
 				9E7AA2EF24BE704300F2DC5F /* Poll.m */,
-				9E83894F24C109E300CC0B4C /* User.h */,
-				9E83895024C109E300CC0B4C /* User.m */,
+				9E83894F24C109E300CC0B4C /* Profile.h */,
+				9E83895024C109E300CC0B4C /* Profile.m */,
 				9E83895224C10A0000CC0B4C /* Game.h */,
 				9E83895324C10A0000CC0B4C /* Game.m */,
 			);
@@ -282,6 +288,10 @@
 				9EAFA40224CA285200AC6764 /* AuthorCell.m */,
 				9E0DECB724D0CA7700D8002C /* PopularGameCell.h */,
 				9E0DECB824D0CA7700D8002C /* PopularGameCell.m */,
+				9E0DECBA24D22AC900D8002C /* PollDescriptionCell.h */,
+				9E0DECBB24D22AC900D8002C /* PollDescriptionCell.m */,
+				9E0DECBD24D2534300D8002C /* InfiniteScrollActivityView.h */,
+				9E0DECBE24D2534300D8002C /* InfiniteScrollActivityView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -541,12 +551,14 @@
 				9E83895724C11DA500CC0B4C /* LoginViewController.m in Sources */,
 				9E7AA2F024BE704300F2DC5F /* Poll.m in Sources */,
 				9E83895A24C2288900CC0B4C /* PollCreationViewController.m in Sources */,
+				9E0DECBF24D2534300D8002C /* InfiniteScrollActivityView.m in Sources */,
 				9EAFA3FC24C9E7B400AC6764 /* MyPollsTableViewController.m in Sources */,
 				9EAFA3FF24C9E8B000AC6764 /* PollQuestionCell.m in Sources */,
 				9E0DECB324D0863B00D8002C /* SignUpViewController.m in Sources */,
+				9E0DECBC24D22AC900D8002C /* PollDescriptionCell.m in Sources */,
 				9E0DECB924D0CA7700D8002C /* PopularGameCell.m in Sources */,
 				9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */,
-				9E83895124C109E300CC0B4C /* User.m in Sources */,
+				9E83895124C109E300CC0B4C /* Profile.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
 				9EA3E02E24C79C5A00D95C39 /* AddOptionCell.m in Sources */,
 				9E0DECAD24CF5F3E00D8002C /* ProfileViewController.m in Sources */,

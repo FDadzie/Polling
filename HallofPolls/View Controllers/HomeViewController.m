@@ -40,10 +40,11 @@
        [self.homeTableView insertSubview: self.refresh atIndex:0];
     
     [self makeQuery];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pollCreated:) name:@"PollCreatedNotification" object:nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+-(void)pollCreated:(NSNotification *)notification{
+    [self makeQuery];
     [self.homeTableView reloadData];
 }
 
@@ -125,13 +126,14 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     Poll *refPoll = self.polls[section];
     
-    return refPoll.optionCount + 2;
+    return [refPoll.options count] + 2;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSLog(@"selected section :%li ---> selected row :%li",indexPath.section, indexPath.row);
     [self handlePollVotingInSection:indexPath.section atRow:indexPath.row];
-    [self.homeTableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    //[self.homeTableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     [self.homeTableView reloadData];
 }
 

@@ -15,6 +15,7 @@
 #import "GamePickerViewController.h"
 
 
+
 @interface PollCreationViewController () <UITableViewDelegate, UITableViewDataSource, GamePickerViewControllerDelegate>
 
 @property (strong,nonatomic) NSMutableArray *voteOptions;
@@ -85,7 +86,11 @@
         }
     }];
     // Moves back to Poll View
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PollCreatedNotification" object:self];
+    [self.pollDelegate myPollUpdate:self];
     [self.navigationController popViewControllerAnimated:YES];
+    
+    
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "GamePickerViewController.h"
 #import "SettingsViewController.h"
+#import "Profile.h"
 
 @interface SettingsViewController () <UITableViewDataSource, UITableViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate,GamePickerViewControllerDelegate>
 
@@ -33,7 +34,7 @@
     self.originalImage = originalImage;
     self.editImage = editedImage;
     
-    
+    [self.settingsDelegate profileDataTransfer:self changeImage:self.editImage changeGame:self.pickedFavGame];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - Navigation
@@ -80,7 +81,8 @@
     }
 }
 - (void)gamePicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull NSString *)game {
-    
+    [self.settingsDelegate profileDataTransfer:self changeImage:self.editImage changeGame:self.pickedFavGame];
+    self.pickedFavGame = game;
 }
 
 
