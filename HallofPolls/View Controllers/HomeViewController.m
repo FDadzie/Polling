@@ -17,7 +17,7 @@
 
 
 
-@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, PollDetailViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
@@ -80,6 +80,7 @@
     NSIndexPath *index = [self.homeTableView indexPathForSelectedRow];
     Poll *selectedPoll = self.polls[index.section];
     details.chosenPoll = selectedPoll;
+    details.detailDelegate = self;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
@@ -101,12 +102,14 @@
         PollQuestionCell *question = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeQuestion"];
         question.homeQuestion.text = accessPoll.pollQuestion;
         question.pollAuthor.text = accessPoll.pollCreator.username;
-
+        question.homeTotalVotes.text = @"0";
+        
         return question;
     } else {
         
         PollDescriptionCell *describe = [self.homeTableView dequeueReusableCellWithIdentifier:@"PollDescription"];
-        //set properties
+        
+        describe.showcaseDesc.text = accessPoll.pollDescription;
         return describe;
     }
     /*
@@ -163,4 +166,8 @@
     NSLog(@"All Selection : %@", self.selectionData);
 }
 */
+- (void)optionVoter:(nonnull PollDetailViewController *)pollDetail {
+    
+}
+
 @end

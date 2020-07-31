@@ -24,7 +24,11 @@
     self.detailTableView.dataSource = self;
     
     self.detailTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.chosenPoll.voteArray = [NSMutableArray array];
     // Do any additional setup after loading the view.
+    //NSInteger counter = 0;
+    
 }
 
 /*
@@ -51,12 +55,17 @@
     
     OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
     
+    NSInteger votes = 1;
+    [self.chosenPoll.voteArray insertObject:[NSNumber numberWithInteger:votes] atIndex:indexPath.row];
+
+    
     voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
     return voteOption;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [self.detailDelegate optionVoter:self];
 }
 
 

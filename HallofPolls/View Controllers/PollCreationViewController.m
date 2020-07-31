@@ -13,6 +13,7 @@
 #import "AddOptionCell.h"
 #import <Parse/Parse.h>
 #import "GamePickerViewController.h"
+#import "PollDescriptionCell.h"
 
 
 
@@ -37,9 +38,15 @@
 }
 
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 3){
+        return 230;
+    }
+    return 43.5;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -68,17 +75,22 @@
         options.optionsPreview.text = [self.voteOptions objectAtIndex:indexPath.row];
         
         return options;
+    } else if (indexPath.section == 3){
+        PollDescriptionCell *description = [tableView dequeueReusableCellWithIdentifier:@"DescriptionCell"];
+        
+        return description;
     }
     return askQuestion;
 }
 
 - (IBAction)didTapPost:(id)sender {
     QuestionPreviewCell *pullQuestion = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    PollDescriptionCell *pullDescription = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
     
     UITextField *enteredText = pullQuestion.questionPreview;
     NSString *properText = [enteredText text];
     
-    [Poll postPoll:_voteOptions withQuestion:properText withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Poll postPoll:_voteOptions withQuestion:properText withDescription:pullDescription.descPreview.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(!error){
             NSLog(@"Poll was successfully posted");
         } else {

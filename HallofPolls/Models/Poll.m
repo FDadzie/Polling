@@ -21,15 +21,14 @@
     return @"Poll";
 }
 
-+ (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable )question withCompletion: (PFBooleanResultBlock _Nullable)completion {
++ (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable )question withDescription: (NSString * _Nullable )description withCompletion: (PFBooleanResultBlock _Nullable)completion {
     
     Poll *newPoll = [Poll new];
     newPoll.pollQuestion = question;
     newPoll.pollCreator = [PFUser currentUser];
     newPoll.options = pollOptions;
     newPoll.voteArray = [[NSMutableArray alloc] init];
-    
-    //newPoll.pollDescription = description;
+    newPoll.pollDescription = description;
     
     
     [newPoll saveInBackgroundWithBlock:completion];
