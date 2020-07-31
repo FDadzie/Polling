@@ -79,13 +79,13 @@
     PollDetailViewController *details = [segue destinationViewController];
     NSIndexPath *index = [self.homeTableView indexPathForSelectedRow];
     Poll *selectedPoll = self.polls[index.section];
-    details.chosen = selectedPoll;
+    details.chosenPoll = selectedPoll;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 124;
+    return 152;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

@@ -22,6 +22,8 @@
     
     self.detailTableView.delegate = self;
     self.detailTableView.dataSource = self;
+    
+    self.detailTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     // Do any additional setup after loading the view.
 }
 
@@ -34,22 +36,28 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    Poll *refPoll;
-    // Poll equal to the poll selected from home view
-    
-    return [refPoll.options count];
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 64;
 }
-
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [self.chosenPoll.options count];
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    return self.chosenPoll.pollQuestion;
+}
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    //[self.detailTableView dequeueReusableHeaderFooterViewWithIdentifier:<#(nonnull NSString *)#>];
-    OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"PollDetail"];
+    OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
     
+    voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
     return voteOption;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 @end

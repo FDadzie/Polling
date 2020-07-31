@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PollDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *detailTableView;
-@property (strong, nonatomic) Poll *chosen;
+@property (strong, nonatomic) Poll *chosenPoll;
 @end
 
 NS_ASSUME_NONNULL_END
