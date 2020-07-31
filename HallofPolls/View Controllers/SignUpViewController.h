@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *signUpUsername;
 @property (weak, nonatomic) IBOutlet UITextField *signUpPassword;
 @property (weak, nonatomic) IBOutlet UITextField *signUpEmail;
+@property (weak, nonatomic) IBOutlet UITextField *signUpConfirm;
+
 
 @end
 

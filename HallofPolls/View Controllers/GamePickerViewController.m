@@ -129,6 +129,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GamePickerCell *cell = (GamePickerCell *)[tableView cellForRowAtIndexPath:(indexPath)];
     [self.delegate gamePicker:self didPickItem:cell.name.text];
+    //[self.delegate gameObjectPicker:self didPickItem:<#(nonnull Game *)#>];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

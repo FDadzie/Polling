@@ -14,6 +14,7 @@
 #import "OptionsPreviewCell.h"
 #import "PollDescriptionCell.h"
 #import "PollDetailViewController.h"
+#import "PopularGamesViewController.h"
 
 
 
@@ -76,16 +77,24 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"showPopular"]){
+        PopularGamesViewController *popular = [segue destinationViewController];
+    }
     PollDetailViewController *details = [segue destinationViewController];
     NSIndexPath *index = [self.homeTableView indexPathForSelectedRow];
     Poll *selectedPoll = self.polls[index.section];
     details.chosenPoll = selectedPoll;
     details.detailDelegate = self;
+    
+    //segue to popular
+    
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     return 152;
 }
 

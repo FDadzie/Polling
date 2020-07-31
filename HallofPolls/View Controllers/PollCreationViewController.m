@@ -136,4 +136,7 @@
     
 }
 
+- (void)gameObjectPicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull Game *)game {
+    
+}
 @end

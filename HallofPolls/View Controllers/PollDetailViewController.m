@@ -55,17 +55,22 @@
     
     OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
     
-    NSInteger votes = 1;
+    NSInteger votes = 0;
     [self.chosenPoll.voteArray insertObject:[NSNumber numberWithInteger:votes] atIndex:indexPath.row];
-
+    [self.chosenPoll saveInBackground];
     
     voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
     return voteOption;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    /*
+    if(){
+        
+    }
+    */
     [self.detailDelegate optionVoter:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

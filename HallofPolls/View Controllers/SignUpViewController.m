@@ -21,18 +21,64 @@
 }
 - (IBAction)didTapSignUp:(id)sender {
     PFUser *newAcc = [PFUser user];
-    
     newAcc.username = self.signUpUsername.text;
     newAcc.password = self.signUpPassword.text;
     newAcc.email = self.signUpEmail.text;
     
     [newAcc signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil){
+        
+        if(self.signUpUsername.text.length == 0){
             NSLog(@"Error: %@", error.localizedDescription);
+            UIAlertController *userAlert = [UIAlertController alertControllerWithTitle:@"Sign Up failed" message:@"No Username was given" preferredStyle:(UIAlertControllerStyleAlert)];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // handle response here.
+                [newAcc deleteInBackground];
+            }];
+            [userAlert addAction:okAction];
+            
+            [self presentViewController:userAlert animated:YES completion:^{
+                // optional code for what happens after the alert controller has finished presenting
+                
+                self.signUpConfirm.text = @"";
+            }];
+        } else if(![self.signUpPassword.text isEqualToString:self.signUpConfirm.text]){
+            
+            NSLog(@"Error: %@", error.localizedDescription);
+            UIAlertController *confirmAlert = [UIAlertController alertControllerWithTitle:@"Sign Up failed" message:@"Passwords do not match" preferredStyle:(UIAlertControllerStyleAlert)];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // handle response here.
+                [newAcc deleteInBackground];
+            }];
+            [confirmAlert addAction:okAction];
+            
+            [self presentViewController:confirmAlert animated:YES completion:^{
+                // optional code for what happens after the alert controller has finished presenting
+                self.signUpConfirm.text = @"";
+            }];
+            
+        } else if(self.signUpEmail.text.length == 0){
+            
+            NSLog(@"Error: %@", error.localizedDescription);
+            UIAlertController *emailAlert = [UIAlertController alertControllerWithTitle:@"Sign Up failed" message:@"No Email was entered" preferredStyle:(UIAlertControllerStyleAlert)];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // handle response here.
+                [newAcc deleteInBackground];
+            }];
+            [emailAlert addAction:okAction];
+            
+            [self presentViewController:emailAlert animated:YES completion:^{
+                // optional code for what happens after the alert controller has finished presenting
+                
+                self.signUpConfirm.text = @"";
+            }];
         } else {
             NSLog(@"User registered successfully");
             [self performSegueWithIdentifier:@"presentHome" sender:(nil)];
             // manual segue
+            
         }
     }];
 }
