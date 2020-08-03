@@ -55,7 +55,7 @@
 }
 -(void)loadMoreData{
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.nextAPI] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.nextAPI] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:10.0];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session  = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -79,7 +79,7 @@
 }
 - (void) initApiWithCompletionBlock:(void(^)(BOOL completed))completion {
     NSURL *url = [NSURL URLWithString:@"https://api.rawg.io/api/games?dates=2015-01-01,2020-07-17&ordering=-added"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     if (error != nil) {

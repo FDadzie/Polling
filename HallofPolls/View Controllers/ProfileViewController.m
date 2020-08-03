@@ -18,6 +18,9 @@
 @interface ProfileViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GamePickerViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *genreArray;
+@property (strong, nonatomic) UIImage *bannerCache;
+@property (strong, nonatomic) UIImage *imageCache;
+@property (strong, nonatomic) NSString *favoriteCache;
 
 @end
 
@@ -81,12 +84,13 @@
 }
 */
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-    //ProfilePictureCell *picture = [self.profileTableView cellForRowAtIndexPath:<#(nonnull NSIndexPath *)#>]
     
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
+    self.imageCache = editedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.profileTableView reloadData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -124,6 +128,8 @@
         if(indexPath.row == 0){
             profile = [tableView dequeueReusableCellWithIdentifier:@"Profile Banner"];
             
+            profile.profileBanner.image = self.bannerCache;
+            profile.profileImage.image = self.imageCache;
             return profile;
         } else if(indexPath.row == 1){
             profile = [tableView dequeueReusableCellWithIdentifier:@"Profile User"];
@@ -190,7 +196,9 @@
 }
 
 - (void)gamePicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull NSString *)game itemImage:(nonnull UIImage *)gameimage {
-    
+    self.bannerCache = gameimage;
+    self.favoriteCache = game;
+    [self.profileTableView reloadData];
 }
 
 @end
