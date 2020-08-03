@@ -13,6 +13,8 @@
 
 @interface PollDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic) NSUInteger counter;
+@property (nonatomic) NSInteger *storedIndexPath;
 @end
 
 @implementation PollDetailViewController
@@ -55,23 +57,41 @@
     
     OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
     
-    NSInteger votes = 0;
-    [self.chosenPoll.voteArray insertObject:[NSNumber numberWithInteger:votes] atIndex:indexPath.row];
-    [self.chosenPoll saveInBackground];
+    //NSNumber *otherVotes = [[NSNumber alloc]initWithInteger:0];
+    
+    //STILL NEEDS ATTENTION
+    if(self.chosenPoll.voteArray != nil){
+        NSInteger votes = 53;
+        self.counter++;
+        [self.chosenPoll.voteArray insertObject:[NSNumber numberWithInteger:votes] atIndex:indexPath.row];
+        
+        
+        if(self.counter == [self.chosenPoll.options count]){
+            [self.chosenPoll saveInBackground];
+        }
+    }
+    
+    
     
     voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
+    //voteOption.optionVotes.text = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
     return voteOption;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    /*
-    if(){
-        
+    if(self.storedIndexPath != nil){
+        PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
+        [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
+        [query getObjectInBackgroundWithId:self.chosenPoll.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            
+            [object saveInBackground];
+        }];
     }
-    */
-    [self.detailDelegate optionVoter:self];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)vote:(NSInteger *)indexRow {
+    
+}
 
 @end

@@ -69,21 +69,15 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 0){
-        
-        UIImagePickerController *imagePicker = [UIImagePickerController new];
-        imagePicker.delegate = self;
-        imagePicker.allowsEditing = YES;
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    } else if(indexPath.section == 1){
-        [self performSegueWithIdentifier:@"showPicker2" sender:nil];
-    }
+    
 }
 - (void)gamePicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull NSString *)game {
     [self.settingsDelegate profileDataTransfer:self changeImage:self.editImage changeGame:self.pickedFavGame];
     self.pickedFavGame = game;
 }
 
+- (void)gameObjectPicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull Game *)game {
+    
+}
 
 @end

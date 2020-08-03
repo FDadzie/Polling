@@ -18,7 +18,7 @@
 
 
 
-@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, PollDetailViewControllerDelegate>
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
@@ -78,15 +78,17 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"showPopular"]){
-        PopularGamesViewController *popular = [segue destinationViewController];
-    }
+        PopularGamesViewController *popular;
+        popular = [segue destinationViewController];
+    } else {
+        
     PollDetailViewController *details = [segue destinationViewController];
     NSIndexPath *index = [self.homeTableView indexPathForSelectedRow];
     Poll *selectedPoll = self.polls[index.section];
     details.chosenPoll = selectedPoll;
-    details.detailDelegate = self;
     
-    //segue to popular
+    }
+
     
     
     // Get the new view controller using [segue destinationViewController].
@@ -94,7 +96,9 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if(indexPath.row == 1){
+        return 72;
+    }
     return 152;
 }
 
@@ -118,6 +122,7 @@
         
         PollDescriptionCell *describe = [self.homeTableView dequeueReusableCellWithIdentifier:@"PollDescription"];
         
+        describe.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         describe.showcaseDesc.text = accessPoll.pollDescription;
         return describe;
     }
@@ -175,8 +180,4 @@
     NSLog(@"All Selection : %@", self.selectionData);
 }
 */
-- (void)optionVoter:(nonnull PollDetailViewController *)pollDetail {
-    
-}
-
 @end

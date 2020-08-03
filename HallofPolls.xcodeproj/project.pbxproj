@@ -18,6 +18,8 @@
 		9E0DECBC24D22AC900D8002C /* PollDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECBB24D22AC900D8002C /* PollDescriptionCell.m */; };
 		9E0DECBF24D2534300D8002C /* InfiniteScrollActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECBE24D2534300D8002C /* InfiniteScrollActivityView.m */; };
 		9E0DECC524D342A700D8002C /* PollDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECC424D342A700D8002C /* PollDetailViewController.m */; };
+		9E0DECC824D6F4B300D8002C /* ProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECC724D6F4B300D8002C /* ProfilePictureCell.m */; };
+		9E0DECCB24D7A22400D8002C /* GenrePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
@@ -36,7 +38,6 @@
 		9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896824C2750700CC0B4C /* GamePickerCell.m */; };
 		9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */; };
 		9E83896F24C6455900CC0B4C /* OptionsPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */; };
-		9EA3E02E24C79C5A00D95C39 /* AddOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3E02D24C79C5A00D95C39 /* AddOptionCell.m */; };
 		9EAFA3FC24C9E7B400AC6764 /* MyPollsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EAFA3FB24C9E7B400AC6764 /* MyPollsTableViewController.m */; };
 		9EAFA3FF24C9E8B000AC6764 /* PollQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EAFA3FE24C9E8B000AC6764 /* PollQuestionCell.m */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,10 @@
 		9E0DECBE24D2534300D8002C /* InfiniteScrollActivityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollActivityView.m; sourceTree = "<group>"; };
 		9E0DECC324D342A700D8002C /* PollDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PollDetailViewController.h; sourceTree = "<group>"; };
 		9E0DECC424D342A700D8002C /* PollDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollDetailViewController.m; sourceTree = "<group>"; };
+		9E0DECC624D6F4B300D8002C /* ProfilePictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfilePictureCell.h; sourceTree = "<group>"; };
+		9E0DECC724D6F4B300D8002C /* ProfilePictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfilePictureCell.m; sourceTree = "<group>"; };
+		9E0DECC924D7A22400D8002C /* GenrePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenrePickerCell.h; sourceTree = "<group>"; };
+		9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenrePickerCell.m; sourceTree = "<group>"; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,8 +120,6 @@
 		9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionPreviewCell.m; sourceTree = "<group>"; };
 		9E83896D24C6455900CC0B4C /* OptionsPreviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionsPreviewCell.h; sourceTree = "<group>"; };
 		9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionsPreviewCell.m; sourceTree = "<group>"; };
-		9EA3E02C24C79C5A00D95C39 /* AddOptionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddOptionCell.h; sourceTree = "<group>"; };
-		9EA3E02D24C79C5A00D95C39 /* AddOptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddOptionCell.m; sourceTree = "<group>"; };
 		9EAFA3FA24C9E7B400AC6764 /* MyPollsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPollsTableViewController.h; sourceTree = "<group>"; };
 		9EAFA3FB24C9E7B400AC6764 /* MyPollsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPollsTableViewController.m; sourceTree = "<group>"; };
 		9EAFA3FD24C9E8B000AC6764 /* PollQuestionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PollQuestionCell.h; sourceTree = "<group>"; };
@@ -282,8 +285,6 @@
 				9E83896B24C6453D00CC0B4C /* QuestionPreviewCell.m */,
 				9E83896D24C6455900CC0B4C /* OptionsPreviewCell.h */,
 				9E83896E24C6455900CC0B4C /* OptionsPreviewCell.m */,
-				9EA3E02C24C79C5A00D95C39 /* AddOptionCell.h */,
-				9EA3E02D24C79C5A00D95C39 /* AddOptionCell.m */,
 				9EAFA3FD24C9E8B000AC6764 /* PollQuestionCell.h */,
 				9EAFA3FE24C9E8B000AC6764 /* PollQuestionCell.m */,
 				9E0DECB724D0CA7700D8002C /* PopularGameCell.h */,
@@ -292,6 +293,10 @@
 				9E0DECBB24D22AC900D8002C /* PollDescriptionCell.m */,
 				9E0DECBD24D2534300D8002C /* InfiniteScrollActivityView.h */,
 				9E0DECBE24D2534300D8002C /* InfiniteScrollActivityView.m */,
+				9E0DECC624D6F4B300D8002C /* ProfilePictureCell.h */,
+				9E0DECC724D6F4B300D8002C /* ProfilePictureCell.m */,
+				9E0DECC924D7A22400D8002C /* GenrePickerCell.h */,
+				9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -559,8 +564,8 @@
 				9E0DECB924D0CA7700D8002C /* PopularGameCell.m in Sources */,
 				9E83896924C2750700CC0B4C /* GamePickerCell.m in Sources */,
 				9E83895124C109E300CC0B4C /* Profile.m in Sources */,
+				9E0DECC824D6F4B300D8002C /* ProfilePictureCell.m in Sources */,
 				9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */,
-				9EA3E02E24C79C5A00D95C39 /* AddOptionCell.m in Sources */,
 				9E0DECAD24CF5F3E00D8002C /* ProfileViewController.m in Sources */,
 				9E0DECB024CF7D9B00D8002C /* SettingsViewController.m in Sources */,
 				9E83896C24C6453D00CC0B4C /* QuestionPreviewCell.m in Sources */,
@@ -571,6 +576,7 @@
 				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,
 				9E83895424C10A0000CC0B4C /* Game.m in Sources */,
 				9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */,
+				9E0DECCB24D7A22400D8002C /* GenrePickerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

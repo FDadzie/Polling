@@ -1,14 +1,14 @@
 //
-//  AddOptionCell.m
+//  GenrePickerCell.m
 //  HallofPolls
 //
-//  Created by fdadzie20 on 7/21/20.
+//  Created by fdadzie20 on 8/2/20.
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
 
-#import "AddOptionCell.h"
+#import "GenrePickerCell.h"
 
-@implementation AddOptionCell
+@implementation GenrePickerCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -17,7 +17,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
+
     // Configure the view for the selected state
 }
 

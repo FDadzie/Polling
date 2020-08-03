@@ -1,8 +1,8 @@
 //
-//  AddOptionCell.h
+//  GenrePickerCell.h
 //  HallofPolls
 //
-//  Created by fdadzie20 on 7/21/20.
+//  Created by fdadzie20 on 8/2/20.
 //  Copyright © 2020 fdadzie20. All rights reserved.
 //
 
@@ -10,8 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AddOptionCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *addOption;
+@interface GenrePickerCell : UITableViewCell
 
 @end
 

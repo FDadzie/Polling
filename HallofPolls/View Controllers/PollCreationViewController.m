@@ -10,7 +10,6 @@
 #import "Poll.h"
 #import "QuestionPreviewCell.h"
 #import "OptionsPreviewCell.h"
-#import "AddOptionCell.h"
 #import <Parse/Parse.h>
 #import "GamePickerViewController.h"
 #import "PollDescriptionCell.h"
@@ -61,13 +60,15 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     QuestionPreviewCell *askQuestion;
     
+    UITableViewCell *cell;
+    
     if(indexPath.section == 0){
         askQuestion = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
         
     } else if(indexPath.section == 1) {
-        AddOptionCell *add = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell" forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell" forIndexPath:indexPath];
         
-        return add;
+        return cell;
         
     } else if(indexPath.section == 2){
         OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
@@ -131,6 +132,8 @@
 
 - (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game{
     NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];
+    NSIndexSet *arrayCheck = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.voteOptions count])];
+    //if(self.voteOptions objectsAtIndexes:arr)
     [self.voteOptions addObject:game];
     [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationNone];
     

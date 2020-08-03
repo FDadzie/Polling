@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UIImageView *gameImage;
 
+@property (weak, nonatomic) IBOutlet UILabel *favGame;
 @end
 
 NS_ASSUME_NONNULL_END

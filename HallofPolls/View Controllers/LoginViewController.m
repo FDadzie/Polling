@@ -15,10 +15,7 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+
 - (IBAction)didTapLogin:(id)sender {
     NSString *username = self.userTextfield.text;
     NSString *password = self.passTextfield.text;
