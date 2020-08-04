@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // + (void)storeGames;
 
-// - (void) initApiWithCompletionBlock:(void(^)(BOOL completed))completion;
 
 @end
 

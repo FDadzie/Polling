@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol GamePickerViewControllerDelegate <NSObject>
 
 - (void)gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game itemImage:(UIImage *)gameimage;
-- (void)gameObjectPicker:(GamePickerViewController *)controller didPickItem:(Game *)game;
 
 @end
 

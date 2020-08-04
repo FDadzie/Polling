@@ -7,7 +7,6 @@
 //
 
 #import "ProfileViewController.h"
-#import "SettingsViewController.h"
 #import "GamePickerViewController.h"
 #import "ProfilePictureCell.h"
 #import "GamePickerCell.h"
@@ -90,6 +89,7 @@
 
     self.imageCache = editedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
+    
     [self.profileTableView reloadData];
 }
 
@@ -200,5 +200,6 @@
     self.favoriteCache = game;
     [self.profileTableView reloadData];
 }
+
 
 @end

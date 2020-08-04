@@ -86,13 +86,18 @@
     Poll *accessPoll = self.myPolls[indexPath.section];
     PollQuestionCell *cell;
     
+    NSInteger total = 0;
+    
+    for(int i = 0; i < [accessPoll.options count]; i++){
+        total = total + [[accessPoll.voteArray objectAtIndex:i]intValue];
+    }
     if(indexPath.row == 0){
         
         cell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsCell" forIndexPath:indexPath];
         
         cell.createdQuestion.text = accessPoll.pollQuestion;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.totalVotes.text = @"50";
+        cell.totalVotes.text = [NSString stringWithFormat:@"%ld" , (long)total];
         
     } else if(indexPath.row > 0){
         OptionsPreviewCell *optionCell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsOptionsCell" forIndexPath:indexPath];
@@ -102,6 +107,7 @@
         }
         
         optionCell.myOptionName.text = [accessArray objectAtIndex:_counter];
+        optionCell.myOptionVotes.text = [[accessPoll.voteArray objectAtIndex:_counter]stringValue];
         _counter += 1;
         return optionCell;
         

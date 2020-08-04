@@ -88,21 +88,36 @@
     QuestionPreviewCell *pullQuestion = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     PollDescriptionCell *pullDescription = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
     
-    UITextField *enteredText = pullQuestion.questionPreview;
-    NSString *properText = [enteredText text];
+    if([pullQuestion.questionPreview.text isEqualToString:@""] || [self.voteOptions count] == 0){
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Poll" message:@"Poll is missing question/options" preferredStyle:(UIAlertControllerStyleAlert)];
     
-    [Poll postPoll:_voteOptions withQuestion:properText withDescription:pullDescription.descPreview.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if(!error){
-            NSLog(@"Poll was successfully posted");
-        } else {
-            NSLog(@"Error posting poll");
-        }
-    }];
-    // Moves back to Poll View
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PollCreatedNotification" object:self];
-    [self.pollDelegate myPollUpdate:self];
-    [self.navigationController popViewControllerAnimated:YES];
+    // create an OK action
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // handle response here.
+        }];
+        [alert addAction:okAction];
     
+        [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+        }];
+    
+    } else {
+        
+        UITextField *enteredText = pullQuestion.questionPreview;
+        NSString *properText = [enteredText text];
+    
+        [Poll postPoll:_voteOptions withQuestion:properText withDescription:pullDescription.descPreview.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if(!error){
+                NSLog(@"Poll was successfully posted");
+            } else {
+                NSLog(@"Error posting poll");
+            }
+        }];
+        // Moves back to Poll View
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PollCreatedNotification" object:self];
+        [self.pollDelegate myPollUpdate:self];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 
@@ -130,16 +145,13 @@
     }
  }
 
-- (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game{
+- (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game itemImage:(UIImage *)gameimage{
     NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];
-    NSIndexSet *arrayCheck = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.voteOptions count])];
+    //NSIndexSet *arrayCheck = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.voteOptions count])];
     //if(self.voteOptions objectsAtIndexes:arr)
     [self.voteOptions addObject:game];
     [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationNone];
     
 }
 
-- (void)gameObjectPicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull Game *)game {
-    
-}
 @end

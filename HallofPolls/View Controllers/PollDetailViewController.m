@@ -78,7 +78,7 @@
 
     NSInteger increase = [[self.pendingVotes objectAtIndex:indexPath.row]integerValue];
     
-    //TODO
+    //TODO: Code Below Needs Edit
     if(self.hasVoted == NO){
         increase++;
         [self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
