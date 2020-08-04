@@ -28,12 +28,14 @@
 [Parse initializeWithConfiguration:configuration];
 
 // User Persistence
+
 if (PFUser.currentUser) {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
 }
 
+    
 }
 
 

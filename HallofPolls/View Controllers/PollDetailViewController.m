@@ -86,6 +86,7 @@
         //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
         self.chosenPoll.voteArray = self.pendingVotes;
         [self.chosenPoll saveInBackground];
+        [self setHasVoted:YES];
         
     } else if(self.storedIndexPath != indexPath.row && self.hasVoted == YES){
         NSInteger decrease = [[self.pendingVotes objectAtIndex:self.storedIndexPath]integerValue];
@@ -99,6 +100,7 @@
         self.chosenPoll.voteArray = self.pendingVotes;
         
         [self.chosenPoll saveInBackground];
+        
         [self.detailTableView reloadData];
         
         

@@ -82,12 +82,14 @@
     self.favGame.text = favorite;
 }
 */
+
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
+    ProfilePictureCell *userImage = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
-    self.imageCache = editedImage;
+    userImage.profileImage.image = editedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
     
     [self.profileTableView reloadData];
@@ -128,8 +130,6 @@
         if(indexPath.row == 0){
             profile = [tableView dequeueReusableCellWithIdentifier:@"Profile Banner"];
             
-            profile.profileBanner.image = self.bannerCache;
-            profile.profileImage.image = self.imageCache;
             return profile;
         } else if(indexPath.row == 1){
             profile = [tableView dequeueReusableCellWithIdentifier:@"Profile User"];
@@ -196,8 +196,11 @@
 }
 
 - (void)gamePicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull NSString *)game itemImage:(nonnull UIImage *)gameimage {
-    self.bannerCache = gameimage;
-    self.favoriteCache = game;
+    GamePickerCell *favorite = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    ProfilePictureCell *banner = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    banner.profileBanner.image = gameimage;
+    favorite.favGame.text = game;
     [self.profileTableView reloadData];
 }
 

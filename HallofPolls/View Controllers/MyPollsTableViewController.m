@@ -88,9 +88,12 @@
     
     NSInteger total = 0;
     
-    for(int i = 0; i < [accessPoll.options count]; i++){
-        total = total + [[accessPoll.voteArray objectAtIndex:i]intValue];
-    }
+        for(int i = 0; i < [accessPoll.options count]; i++){
+            if([accessPoll.voteArray count] > i){
+                total = total + [[accessPoll.voteArray objectAtIndex:i]intValue];
+            }
+        }
+    
     if(indexPath.row == 0){
         
         cell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsCell" forIndexPath:indexPath];

@@ -20,6 +20,7 @@
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
 
@@ -110,10 +111,11 @@
     
     NSInteger total = 0;
     
-    for(int i = 0; i < [accessPoll.options count]; i++){
-        total = total + [[accessPoll.voteArray objectAtIndex:i]intValue];
+        for(int i = 0; i < [accessPoll.options count]; i++){
+            if([accessPoll.voteArray count] > i){
+                total = total + [[accessPoll.voteArray objectAtIndex:i]intValue];
+            }
     }
-    
     if(indexPath.row == 0){
         
         PollQuestionCell *question = [self.homeTableView dequeueReusableCellWithIdentifier:@"HomeQuestion"];

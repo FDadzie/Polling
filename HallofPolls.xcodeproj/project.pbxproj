@@ -81,6 +81,7 @@
 		9E0DECC724D6F4B300D8002C /* ProfilePictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfilePictureCell.m; sourceTree = "<group>"; };
 		9E0DECC924D7A22400D8002C /* GenrePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenrePickerCell.h; sourceTree = "<group>"; };
 		9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenrePickerCell.m; sourceTree = "<group>"; };
+		9E0DECCC24D9DCD200D8002C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -159,6 +160,7 @@
 		7BFF38A2F744E3FBA9AA16CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E0DECCC24D9DCD200D8002C /* CoreImage.framework */,
 				2DCA0DC84261BB1EEEAE199F /* Pods_HallofPolls.framework */,
 				C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */,
 				DDDD31099E71601E5F209D12 /* Pods_HallofPollsTests.framework */,

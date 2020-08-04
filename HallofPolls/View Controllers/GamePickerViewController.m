@@ -15,7 +15,7 @@
 #import "InfiniteScrollActivityView.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface GamePickerViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface GamePickerViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<Game *> *bufferingGames;
@@ -24,6 +24,9 @@
 @property (assign, nonatomic) BOOL isMoreDataLoading;
 @property (strong, nonatomic) NSString *nextAPI;
 @property (strong, nonatomic) InfiniteScrollActivityView *loadingView;
+
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSArray<Game *> *filteredGames;
 
 @end
 
@@ -35,9 +38,12 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+//    self.searchBar.delegate = self;
     
     [self initApiWithCompletionBlock:^(BOOL completed) {
     }];
+    
+//    self.filteredGames = self.fetchedGames;
 }
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     if(!self.isMoreDataLoading){
@@ -53,6 +59,8 @@
         }
     }
 }
+
+
 -(void)loadMoreData{
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.nextAPI] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:10.0];
@@ -97,18 +105,20 @@
         }
          */
         
-            [self.tableView reloadData];
+        [self.tableView reloadData];
     }
         
     }];
     [task resume];
 }
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 110;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_fetchedGames count];
+    return [self.fetchedGames count];
 }
     
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -132,6 +142,39 @@
     //[self.delegate gameObjectPicker:self didPickItem:<#(nonnull Game *)#>];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+/*
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject containsString:searchText];
+        }];
+        self.filteredGames = [self.fetchedGames filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredGames);
+        
+    }
+    else {
+        self.filteredGames = self.fetchedGames;
+    }
+    
+    [self.tableView reloadData];
+ 
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.text = @"";
+    [self.searchBar resignFirstResponder];
+}
+*/
 
 /*
 #pragma mark - Navigation

@@ -38,7 +38,7 @@
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section == 3){
+    if(indexPath.section == 1){
         return 230;
     }
     return 43.5;
@@ -49,7 +49,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 2) {
+    if(section == 3) {
     return [self.voteOptions count];
     }
     return 1;
@@ -65,18 +65,18 @@
     if(indexPath.section == 0){
         askQuestion = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell"];
         
-    } else if(indexPath.section == 1) {
+    } else if(indexPath.section == 2) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell" forIndexPath:indexPath];
         
         return cell;
         
-    } else if(indexPath.section == 2){
+    } else if(indexPath.section == 3){
         OptionsPreviewCell *options = [tableView dequeueReusableCellWithIdentifier:@"OptionCell" forIndexPath:indexPath];
         
         options.optionsPreview.text = [self.voteOptions objectAtIndex:indexPath.row];
         
         return options;
-    } else if (indexPath.section == 3){
+    } else if (indexPath.section == 1){
         PollDescriptionCell *description = [tableView dequeueReusableCellWithIdentifier:@"DescriptionCell"];
         
         return description;
@@ -86,7 +86,7 @@
 
 - (IBAction)didTapPost:(id)sender {
     QuestionPreviewCell *pullQuestion = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    PollDescriptionCell *pullDescription = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+    PollDescriptionCell *pullDescription = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     
     if([pullQuestion.questionPreview.text isEqualToString:@""] || [self.voteOptions count] == 0){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Poll" message:@"Poll is missing question/options" preferredStyle:(UIAlertControllerStyleAlert)];
@@ -122,10 +122,10 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 1){
+    if(indexPath.section == 2){
      [self performSegueWithIdentifier:@"showPicker" sender:nil];
     }
-    if(indexPath.section == 2){
+    if(indexPath.section == 3){
        // Delete cell if tapped
         [self.voteOptions removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
@@ -146,7 +146,7 @@
  }
 
 - (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game itemImage:(UIImage *)gameimage{
-    NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)];
+    NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 3)];
     //NSIndexSet *arrayCheck = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.voteOptions count])];
     //if(self.voteOptions objectsAtIndexes:arr)
     [self.voteOptions addObject:game];
