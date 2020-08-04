@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Poll : PFObject<PFSubclassing>
 
-@property (nonatomic) BOOL *isOpen;
 @property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSString *pollQuestion;
 @property (nonatomic, strong) PFUser *pollCreator;

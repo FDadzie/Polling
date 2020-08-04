@@ -10,7 +10,6 @@
 
 @implementation Poll
 
-@dynamic isOpen;
 @dynamic options;
 @dynamic pollQuestion;
 @dynamic pollCreator;

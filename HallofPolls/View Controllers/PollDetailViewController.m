@@ -13,8 +13,10 @@
 
 @interface PollDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic) NSUInteger counter;
-@property (nonatomic) NSInteger *storedIndexPath;
+@property (nonatomic, assign) NSInteger storedIndexPath;
+@property (nonatomic, strong) NSMutableArray *pendingVotes;
+@property (nonatomic, assign) BOOL hasVoted;
+
 @end
 
 @implementation PollDetailViewController
@@ -27,9 +29,10 @@
     
     self.detailTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    self.chosenPoll.voteArray = [NSMutableArray array];
-    // Do any additional setup after loading the view.
-    //NSInteger counter = 0;
+    
+    self.pendingVotes = self.chosenPoll.voteArray;
+    
+    [self setHasVoted:YES];
     
 }
 
@@ -45,6 +48,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 64;
 }
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.chosenPoll.options count];
@@ -57,41 +61,47 @@
     
     OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
     
-    //NSNumber *otherVotes = [[NSNumber alloc]initWithInteger:0];
-    
-    //STILL NEEDS ATTENTION
-    if(self.chosenPoll.voteArray != nil){
-        NSInteger votes = 53;
-        self.counter++;
+    if([self.chosenPoll.voteArray count] != [self.chosenPoll.options count]){
+        NSInteger votes = 0;
         [self.chosenPoll.voteArray insertObject:[NSNumber numberWithInteger:votes] atIndex:indexPath.row];
-        
-        
-        if(self.counter == [self.chosenPoll.options count]){
-            [self.chosenPoll saveInBackground];
-        }
+        [self.chosenPoll saveInBackground];
     }
     
-    
-    
     voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
-    //voteOption.optionVotes.text = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
+    voteOption.optionVotes.text = [[self.chosenPoll.voteArray objectAtIndex:indexPath.row]stringValue];
     return voteOption;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(self.storedIndexPath != nil){
-        PFQuery *query = [PFQuery queryWithClassName:@"Poll"];
-        [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
-        [query getObjectInBackgroundWithId:self.chosenPoll.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
-            
-            [object saveInBackground];
-        }];
+   // OptionsPreviewCell *currentCell = [self.detailTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
+   // OptionsPreviewCell *previousCell = [self.detailTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.storedIndexPath inSection:0]];
+
+    NSInteger increase = [[self.pendingVotes objectAtIndex:indexPath.row]integerValue];
+    
+    if(self.hasVoted == NO){
+        increase++;
+        [self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
+        self.storedIndexPath = indexPath.row;
+        //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.chosenPoll.voteArray = self.pendingVotes;
+        [self.chosenPoll saveInBackground];
+        
+    } else if(self.storedIndexPath != indexPath.row && self.hasVoted == YES){
+        NSInteger decrease = [[self.pendingVotes objectAtIndex:self.storedIndexPath]integerValue];
+        decrease--;
+        increase++;
+        [self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
+        [self.pendingVotes replaceObjectAtIndex:self.storedIndexPath withObject:[NSNumber numberWithInteger:decrease]];
+        //previousCell.accessoryType = UITableViewCellAccessoryNone;
+        //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.storedIndexPath = indexPath.row;
+        self.chosenPoll.voteArray = self.pendingVotes;
+        
+        [self.chosenPoll saveInBackground];
+        [self.detailTableView reloadData];
+        
+        
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
-
--(void)vote:(NSInteger *)indexRow {
-    
-}
-
 @end
