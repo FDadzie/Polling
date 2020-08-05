@@ -89,7 +89,7 @@
     PollDescriptionCell *pullDescription = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     
     if([pullQuestion.questionPreview.text isEqualToString:@""] || [self.voteOptions count] == 0){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Poll" message:@"Poll is missing question/options" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Poll" message:@"Poll is missing Question and/or Options" preferredStyle:(UIAlertControllerStyleAlert)];
     
     // create an OK action
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -128,7 +128,8 @@
     if(indexPath.section == 3){
        // Delete cell if tapped
         [self.voteOptions removeObjectAtIndex:indexPath.row];
-        [self.tableView reloadData];
+        
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -146,11 +147,13 @@
  }
 
 - (void) gamePicker:(GamePickerViewController *)controller didPickItem:(NSString *)game itemImage:(UIImage *)gameimage{
-    NSIndexSet *refSection = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 3)];
+   
+    NSIndexSet *refSection = [NSIndexSet indexSetWithIndex:3];
     //NSIndexSet *arrayCheck = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.voteOptions count])];
-    //if(self.voteOptions objectsAtIndexes:arr)
-    [self.voteOptions addObject:game];
-    [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationNone];
+    if(![self.voteOptions containsObject:game]){
+        [self.voteOptions addObject:game];
+    }
+    [self.tableView reloadSections:refSection withRowAnimation:UITableViewRowAnimationFade];
     
 }
 

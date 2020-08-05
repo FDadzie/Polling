@@ -71,6 +71,9 @@
 }
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 30;
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self.myPolls count];
 }
@@ -90,7 +93,8 @@
     
         for(int i = 0; i < [accessPoll.options count]; i++){
             if([accessPoll.voteArray count] > i){
-                total = total + [[accessPoll.voteArray objectAtIndex:i]intValue];
+                NSArray *temp = [accessPoll.voteArray objectAtIndex:i];
+                total = total + [temp count];
             }
         }
     
@@ -110,7 +114,7 @@
         }
         
         optionCell.myOptionName.text = [accessArray objectAtIndex:_counter];
-        optionCell.myOptionVotes.text = [[accessPoll.voteArray objectAtIndex:_counter]stringValue];
+        //optionCell.myOptionVotes.text = [NSString stringWithFormat:@"%ld", (long)[voters count]];
         _counter += 1;
         return optionCell;
         

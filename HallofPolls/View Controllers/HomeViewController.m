@@ -17,7 +17,6 @@
 #import "PopularGamesViewController.h"
 
 
-
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
@@ -43,6 +42,8 @@
     
     [self makeQuery];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pollCreated:) name:@"PollCreatedNotification" object:nil];
+    
+    [self.homeTableView reloadData];
 }
 
 -(void)pollCreated:(NSNotification *)notification{
@@ -95,11 +96,17 @@
     // Pass the selected object to the new view controller.
 }
 
+#pragma mark - Table View Data Source
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 50;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row == 1){
-        return 72;
+        return 92;
     }
-    return 152;
+    return 105;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -113,7 +120,8 @@
     
         for(int i = 0; i < [accessPoll.options count]; i++){
             if([accessPoll.voteArray count] > i){
-                total = total + [[accessPoll.voteArray objectAtIndex:i]intValue];
+                NSArray *temp = [accessPoll.voteArray objectAtIndex:i];
+                total = total + [temp count];
             }
     }
     if(indexPath.row == 0){

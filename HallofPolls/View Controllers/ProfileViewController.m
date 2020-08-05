@@ -21,6 +21,7 @@
 @property (strong, nonatomic) UIImage *imageCache;
 @property (strong, nonatomic) NSString *favoriteCache;
 
+
 @end
 
 @implementation ProfileViewController
@@ -32,25 +33,24 @@
     self.profileTableView.delegate = self;
     self.profileTableView.dataSource = self;
     
+    [self makeUserQuery];
+    
 }
 
 -(void) makeUserQuery{
-    /*
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Profile"];
-    query.limit = 1;
-    [query findObjectsInBackgroundWithBlock:^( fetchedProfile, NSError * _Nullable error) {
-        if(!error){
-            // do something with data fetched
-        } else {
-            // handle errors
-        }
-    }];
-     */
+    
+    [query getObjectInBackgroundWithId:[PFUser currentUser].objectId];
+    
 }
 
-/*
+
 - (IBAction)didTapSave:(id)sender {
-    [Profile saveUserData:self.profileUser.text withFavorite:self.favGame.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    ProfilePictureCell *profileImages = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    GamePickerCell *game = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    [Profile saveUserData:[PFUser currentUser].username withFavorite:game.favGame.text withImage:profileImages.profileImage.image withBanner:profileImages.profileBanner.image withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(!error){
             NSLog(@"User data was successfully saved");
         } else {
@@ -58,8 +58,19 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Saved User" message:@"User profile was saved" preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // handle response here.
+    }];
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
 }
-*/
+
 
 
 

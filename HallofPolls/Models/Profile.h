@@ -17,10 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *favGame;
 @property (nonatomic, strong) NSMutableArray *prefGenre;
 @property (nonatomic, strong) NSMutableArray *polls;
-@property (nonatomic, strong) UIImage *userImage;
-@property (nonatomic, strong) UIImage *userBanner;
+@property (nonatomic, strong) PFFileObject *userImage;
+@property (nonatomic, strong) PFFileObject *userBanner;
 
-+(void)saveUserData: (NSString * _Nullable)user withFavorite: (NSString * _Nullable)userGame withCompletion: (PFBooleanResultBlock _Nullable)completed;
++(void)saveUserData: (NSString * _Nullable)user withFavorite: (NSString * _Nullable)userGame withImage: (UIImage * _Nullable)image withBanner: (UIImage * _Nullable)banner withCompletion: (PFBooleanResultBlock _Nullable)completed;
 
 @end
 

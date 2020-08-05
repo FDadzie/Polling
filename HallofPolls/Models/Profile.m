@@ -15,16 +15,38 @@
 @dynamic favGame;
 @dynamic prefGenre;
 @dynamic polls;
+@dynamic userImage;
+@dynamic userBanner;
 
 + (nonnull NSString *)parseClassName {
-    return @"PollUser";
+    return @"Profile";
 }
 
-+ (void) saveUserData:(NSString *)user withFavorite:(NSString *)userGame withCompletion: (PFBooleanResultBlock _Nullable)completed{
++ (void)saveUserData: (NSString * _Nullable)user withFavorite: (NSString * _Nullable)userGame withImage: (UIImage * _Nullable)image withBanner: (UIImage * _Nullable)banner withCompletion: (PFBooleanResultBlock _Nullable)completed{
     Profile *profileData = [Profile new];
     profileData.favGame = userGame;
     profileData.userName = [PFUser currentUser].username;
+    profileData.userImage = [self getPFFileFromImage:image];
+    profileData.userBanner = [self getPFFileFromImage:banner];
     
     [profileData saveInBackgroundWithBlock:completed];
 }
+
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+ 
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+}
+
+
 @end

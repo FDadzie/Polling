@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Profile.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *profileTableView;
+@property (strong, nonatomic) Profile *currentUser;
 
 @end
 

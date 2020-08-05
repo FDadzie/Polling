@@ -15,7 +15,6 @@
 
 @property (nonatomic, assign) NSInteger storedIndexPath;
 @property (nonatomic, strong) NSMutableArray *pendingVotes;
-@property (nonatomic, assign) BOOL hasVoted;
 
 @end
 
@@ -32,8 +31,6 @@
     
     self.pendingVotes = self.chosenPoll.voteArray;
     
-    [self setHasVoted:YES];
-    
 }
 
 /*
@@ -45,7 +42,9 @@
     // Pass the selected object to the new view controller.
 }
 */
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+#pragma mark - Table View Data Sources
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 64;
 }
 
@@ -53,58 +52,88 @@
     
     return [self.chosenPoll.options count];
 }
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     return self.chosenPoll.pollQuestion;
 }
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
     
-    if([self.chosenPoll.voteArray count] != [self.chosenPoll.options count]){
-        NSInteger votes = 0;
-        [self.chosenPoll.voteArray insertObject:[NSNumber numberWithInteger:votes] atIndex:indexPath.row];
-        [self.chosenPoll saveInBackground];
-    }
+    NSArray *voters = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
     
     voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
-    voteOption.optionVotes.text = [[self.chosenPoll.voteArray objectAtIndex:indexPath.row]stringValue];
+    voteOption.optionVotes.text = [NSString stringWithFormat:@"%ld", (long)[voters count]];
     return voteOption;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    // OptionsPreviewCell *currentCell = [self.detailTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
    // OptionsPreviewCell *previousCell = [self.detailTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.storedIndexPath inSection:0]];
-
-    NSInteger increase = [[self.pendingVotes objectAtIndex:indexPath.row]integerValue];
     
-    //TODO: Code Below Needs Edit
-    if(self.hasVoted == NO){
-        increase++;
-        [self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
-        self.storedIndexPath = indexPath.row;
-        //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.chosenPoll.voteArray = self.pendingVotes;
-        [self.chosenPoll saveInBackground];
-        [self setHasVoted:YES];
-        
-    } else if(self.storedIndexPath != indexPath.row && self.hasVoted == YES){
-        NSInteger decrease = [[self.pendingVotes objectAtIndex:self.storedIndexPath]integerValue];
-        decrease--;
-        increase++;
-        [self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
-        [self.pendingVotes replaceObjectAtIndex:self.storedIndexPath withObject:[NSNumber numberWithInteger:decrease]];
-        //previousCell.accessoryType = UITableViewCellAccessoryNone;
-        //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.storedIndexPath = indexPath.row;
-        self.chosenPoll.voteArray = self.pendingVotes;
-        
-        [self.chosenPoll saveInBackground];
-        
-        [self.detailTableView reloadData];
-        
+    
+    NSMutableArray *roll = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
+    
+    for(int i = 0; i < [self.chosenPoll.voteArray count]; i++){
+        if(indexPath.row == i){
+            if(![roll containsObject:[PFUser currentUser].objectId]){
+                [roll addObject:[PFUser currentUser].objectId];
+            }
+        } else if(indexPath.row != i){
+            NSMutableArray *other = [self.chosenPoll.voteArray objectAtIndex:i];
+            if([other containsObject:[PFUser currentUser].objectId]){
+                [other removeObject:[PFUser currentUser].objectId];
+            }
+        }
         
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.chosenPoll.voteArray replaceObjectAtIndex:indexPath.row withObject:roll];
+    [self.chosenPoll saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(!error){
+            //something
+        } else{
+            //something
+        }
+    }];
+    //[self.chosenPoll.voteArray replaceObjectAtIndex:<#(NSUInteger)#> withObject:<#(nonnull id)#>];
+    
+    [tableView reloadData];
+
+    //TODO: CHANGE FROM RELOAD DATA API
+    
+    
+    //[tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 @end
+
+/*
+ NSInteger increase = [[self.pendingVotes objectAtIndex:indexPath.row]integerValue];
+ 
+ //TODO: Code Below Needs Edit
+ if(![roll containsObject:[PFUser currentUser].objectId]){
+ //[self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
+ //self.storedIndexPath = indexPath.row;
+ //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
+ //self.chosenPoll.voteArray = self.pendingVotes;
+ [self.chosenPoll saveInBackground];
+ [self.detailTableView reloadData];
+ 
+ 
+ } else if(self.storedIndexPath != indexPath.row && self.hasVoted == YES){
+ NSInteger decrease = [[self.pendingVotes objectAtIndex:self.storedIndexPath]integerValue];
+ decrease--;
+ increase++;
+ [self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
+ [self.pendingVotes replaceObjectAtIndex:self.storedIndexPath withObject:[NSNumber numberWithInteger:decrease]];
+ //previousCell.accessoryType = UITableViewCellAccessoryNone;
+ //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
+ self.storedIndexPath = indexPath.row;
+ self.chosenPoll.voteArray = self.pendingVotes;
+ 
+ [self.chosenPoll saveInBackground];
+ 
+ [self.detailTableView reloadData];
+ */
