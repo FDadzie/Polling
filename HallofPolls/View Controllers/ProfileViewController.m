@@ -41,6 +41,9 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Profile"];
     
+    // INCORRECT CALL
+    // Query Profile
+    // Use NSPredicate
     [query getObjectInBackgroundWithId:[PFUser currentUser].objectId];
     
 }
@@ -49,23 +52,26 @@
 - (IBAction)didTapSave:(id)sender {
     ProfilePictureCell *profileImages = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     GamePickerCell *game = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    
-    [Profile saveUserData:[PFUser currentUser].username withFavorite:game.favGame.text withImage:profileImages.profileImage.image withBanner:profileImages.profileBanner.image withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if(!error){
-            NSLog(@"User data was successfully saved");
-        } else {
-            NSLog(@"Error saving user data");
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
-    
+    //if(){
+        [Profile saveUserData:[PFUser currentUser].username withFavorite:game.favGame.text withImage:profileImages.profileImage.image withBanner:profileImages.profileBanner.image withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if(!error){
+                NSLog(@"User data was successfully saved");
+            } else {
+                NSLog(@"Error saving user data");
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+    //} else {
+        
+   // }
+        
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Saved User" message:@"User profile was saved" preferredStyle:(UIAlertControllerStyleAlert)];
-    
+        
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // handle response here.
     }];
     [alert addAction:okAction];
-    
+        
     [self presentViewController:alert animated:YES completion:^{
         // optional code for what happens after the alert controller has finished presenting
     }];
@@ -140,6 +146,10 @@
     if(indexPath.section == 0){
         if(indexPath.row == 0){
             profile = [tableView dequeueReusableCellWithIdentifier:@"Profile Banner"];
+            
+            profile.profileImage.layer.cornerRadius = profile.profileImage.frame.size.height/2;
+            profile.profileImage.layer.masksToBounds = YES;
+            profile.profileImage.layer.borderWidth = 0;
             
             return profile;
         } else if(indexPath.row == 1){

@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
+@property (strong, nonatomic) NSIndexSet *targetSection;
 
 @end
 
@@ -30,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
     
     self.homeTableView.delegate = self;
     self.homeTableView.dataSource = self;
@@ -44,9 +47,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pollCreated:) name:@"PollCreatedNotification" object:nil];
     
     [self.homeTableView reloadData];
+    
+    
 }
 
--(void)pollCreated:(NSNotification *)notification{
+- (void) viewWillAppear:(BOOL)animated {
+   // [self.homeTableView reloadSections:<#(nonnull NSIndexSet *)#> withRowAnimation:UITableViewRowAnimationFade]
+}
+- (void)pollCreated:(NSNotification *)notification{
     [self makeQuery];
     [self.homeTableView reloadData];
 }
@@ -97,6 +105,7 @@
 }
 
 #pragma mark - Table View Data Source
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 50;

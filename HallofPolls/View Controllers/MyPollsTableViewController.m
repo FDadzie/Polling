@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) NSArray<Poll *> *myPolls;
 @property (strong, nonatomic) UIRefreshControl *refresher;
-@property (nonatomic) NSUInteger counter;
 
 @end
 
@@ -27,8 +26,6 @@
     
     self.pollTableView.delegate = self;
     self.pollTableView.dataSource = self;
-    
-    [self resetCounter];
     
     [self beginRefresh:(UIRefreshControl *)_refresher];
     self.refresher = [[UIRefreshControl alloc] init];
@@ -109,22 +106,17 @@
     } else if(indexPath.row > 0){
         OptionsPreviewCell *optionCell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsOptionsCell" forIndexPath:indexPath];
         NSArray *accessArray = accessPoll.options;
-        if(_counter >= accessArray.count){
-            [self resetCounter];
-        }
         
-        optionCell.myOptionName.text = [accessArray objectAtIndex:_counter];
-        //optionCell.myOptionVotes.text = [NSString stringWithFormat:@"%ld", (long)[voters count]];
-        _counter += 1;
+        if(indexPath.row <= accessArray.count){
+        NSArray *accessVotes = [accessPoll.voteArray objectAtIndex:indexPath.row - 1];
+            optionCell.myOptionName.text = [accessArray objectAtIndex:indexPath.row - 1];
+            optionCell.myOptionVotes.text = [NSString stringWithFormat:@"%ld", (long)[accessVotes count]];
+        }
         return optionCell;
         
     }
     
     return cell;
-}
-
--(void)resetCounter{
-    self.counter = 0;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

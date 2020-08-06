@@ -59,7 +59,7 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+    UITableViewCell *description;
     OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
     
     NSArray *voters = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
@@ -74,28 +74,33 @@
    // OptionsPreviewCell *previousCell = [self.detailTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.storedIndexPath inSection:0]];
     
     
-    NSMutableArray *roll = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:self.chosenPoll.voteArray];
+    
+    
     
     for(int i = 0; i < [self.chosenPoll.voteArray count]; i++){
         if(indexPath.row == i){
+            NSMutableArray *roll = [NSMutableArray arrayWithArray:[array objectAtIndex:i]];
             if(![roll containsObject:[PFUser currentUser].objectId]){
                 [roll addObject:[PFUser currentUser].objectId];
             }
+            [array replaceObjectAtIndex:i withObject:roll];
         } else if(indexPath.row != i){
-            NSMutableArray *other = [self.chosenPoll.voteArray objectAtIndex:i];
+            NSMutableArray *other = [NSMutableArray arrayWithArray:[array objectAtIndex:i]];
             if([other containsObject:[PFUser currentUser].objectId]){
                 [other removeObject:[PFUser currentUser].objectId];
             }
+            [array replaceObjectAtIndex:i withObject:other];
         }
         
     }
+    self.chosenPoll.voteArray = array;
     
-    [self.chosenPoll.voteArray replaceObjectAtIndex:indexPath.row withObject:roll];
     [self.chosenPoll saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if(!error){
-            //something
+        if(succeeded){
+            // something
         } else{
-            //something
+            // something
         }
     }];
     //[self.chosenPoll.voteArray replaceObjectAtIndex:<#(NSUInteger)#> withObject:<#(nonnull id)#>];

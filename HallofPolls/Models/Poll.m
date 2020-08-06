@@ -26,13 +26,14 @@
     newPoll.pollQuestion = question;
     newPoll.pollCreator = [PFUser currentUser];
     newPoll.options = pollOptions;
-    newPoll.voteArray = [[NSMutableArray alloc] initWithCapacity:[pollOptions count]];
+    NSMutableArray *voteArray = [[NSMutableArray alloc] initWithCapacity:[pollOptions count]];
     newPoll.pollDescription = description;
     
     for(int i = 0; i < [newPoll.options count]; i++){
         [newPoll.voteArray insertObject:[NSMutableArray array] atIndex:i];
     }
     
+    newPoll.voteArray = voteArray;
     [newPoll saveInBackgroundWithBlock:completion];
         
 }

@@ -20,12 +20,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<Game *> *bufferingGames;
 @property (strong, nonatomic) NSMutableArray<Game *> *fetchedGames;
-@property (strong, nonatomic) NSDictionary *game;
 @property (assign, nonatomic) BOOL isMoreDataLoading;
 @property (strong, nonatomic) NSString *nextAPI;
 @property (strong, nonatomic) InfiniteScrollActivityView *loadingView;
 
-//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray<Game *> *filteredGames;
 
 @end
@@ -38,7 +37,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.searchBar.delegate = self;
+    self.searchBar.delegate = self;
     
     [self initApiWithCompletionBlock:^(BOOL completed) {
     }];
@@ -97,6 +96,7 @@
     NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
         self.fetchedGames = dataDictionary[@"results"];
+        self.filteredGames = self.fetchedGames;
         self.nextAPI = dataDictionary[@"next"];
         
         /*
@@ -118,14 +118,14 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fetchedGames count];
+    return [self.filteredGames count];
 }
     
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     GamePickerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PickerCell"];
     
-    Game *tester = self.fetchedGames[indexPath.row];
+    Game *tester = self.filteredGames[indexPath.row];
     cell.name.text = tester[@"name"];
     
     NSString *imageURL = tester[@"background_image"];
@@ -139,22 +139,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GamePickerCell *cell = (GamePickerCell *)[tableView cellForRowAtIndexPath:(indexPath)];
     [self.delegate gamePicker:self didPickItem:cell.name.text itemImage:cell.gameImage.image];
-    //[self.delegate gameObjectPicker:self didPickItem:<#(nonnull Game *)#>];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
-/*
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length != 0) {
         
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
-            return [evaluatedObject containsString:searchText];
-        }];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS [c] %@", searchText];
         self.filteredGames = [self.fetchedGames filteredArrayUsingPredicate:predicate];
-        
-        NSLog(@"%@", self.filteredGames);
         
     }
     else {
@@ -165,6 +160,7 @@
  
 }
 
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.searchBar.showsCancelButton = YES;
 }
@@ -174,7 +170,7 @@
     self.searchBar.text = @"";
     [self.searchBar resignFirstResponder];
 }
-*/
+
 
 /*
 #pragma mark - Navigation

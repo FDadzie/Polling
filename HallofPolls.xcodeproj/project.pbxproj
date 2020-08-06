@@ -19,6 +19,7 @@
 		9E0DECC524D342A700D8002C /* PollDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECC424D342A700D8002C /* PollDetailViewController.m */; };
 		9E0DECC824D6F4B300D8002C /* ProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECC724D6F4B300D8002C /* ProfilePictureCell.m */; };
 		9E0DECCB24D7A22400D8002C /* GenrePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */; };
+		9E0DECCF24DB8A5F00D8002C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0DECCE24DB8A5F00D8002C /* QuartzCore.framework */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 		9E0DECC924D7A22400D8002C /* GenrePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenrePickerCell.h; sourceTree = "<group>"; };
 		9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenrePickerCell.m; sourceTree = "<group>"; };
 		9E0DECCC24D9DCD200D8002C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		9E0DECCE24DB8A5F00D8002C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E0DECCF24DB8A5F00D8002C /* QuartzCore.framework in Frameworks */,
 				19B557D1903D6431CBDDA3DC /* Pods_HallofPolls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +163,7 @@
 		7BFF38A2F744E3FBA9AA16CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E0DECCE24DB8A5F00D8002C /* QuartzCore.framework */,
 				9E0DECCC24D9DCD200D8002C /* CoreImage.framework */,
 				2DCA0DC84261BB1EEEAE199F /* Pods_HallofPolls.framework */,
 				C36D0727C70D1A2C2DB0B434 /* Pods_HallofPolls_HallofPollsUITests.framework */,
