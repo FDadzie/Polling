@@ -23,6 +23,10 @@
 @property (assign, nonatomic) BOOL isMoreDataLoading;
 @property (strong, nonatomic) NSString *nextAPI;
 @property (strong, nonatomic) InfiniteScrollActivityView *loadingView;
+@property (class, nonatomic, readonly) CGFloat defaultHeight;
+
+-(void)startAnimating;
+-(void)stopAnimating;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray<Game *> *filteredGames;
@@ -44,6 +48,16 @@
     
 //    self.filteredGames = self.fetchedGames;
 }
+#pragma mark - Infinite Scrolling
+/*
+UIActivityIndicatorView* activityIndicatorView;
+static CGFloat _defaultHeight = 60.0;
+
++ (CGFloat)defaultHeight{
+    return _defaultHeight;
+}
+*/
+
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
     if(!self.isMoreDataLoading){
          // Calculate the position of one screen length before the bottom of the results
@@ -58,7 +72,18 @@
         }
     }
 }
+/*
+-(void)stopAnimating{
+    [activityIndicatorView stopAnimating];
+    self.hidden = true;
+}
 
+-(void)startAnimating{
+    self.hidden = false;
+    [activityIndicatorView startAnimating];
+}
+*/
+#pragma mark - RAWG API CALLS
 
 -(void)loadMoreData{
     
@@ -112,6 +137,7 @@
     [task resume];
 }
 
+#pragma mark - Table View Data Source
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 110;
@@ -142,7 +168,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+#pragma mark - SEARCH BAR
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     

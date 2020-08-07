@@ -9,6 +9,7 @@
 #import "PollDetailViewController.h"
 #import "OptionsPreviewCell.h"
 #import "Poll.h"
+#import "PollDetailDescriptionCell.h"
 #import <Parse/Parse.h>
 
 @interface PollDetailViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -31,6 +32,7 @@
     
     self.pendingVotes = self.chosenPoll.voteArray;
     
+    
 }
 
 /*
@@ -44,13 +46,20 @@
 */
 
 #pragma mark - Table View Data Sources
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(indexPath.row == [self.chosenPoll.options count]){
+        return 230;
+    }
+    
     return 64;
 }
 
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.chosenPoll.options count];
+    return [self.chosenPoll.options count] + 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -59,21 +68,33 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *description;
-    OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
+    PollDetailDescriptionCell *description;
     
-    NSArray *voters = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
+    if(indexPath.row == [self.chosenPoll.options count]){
+        
+        description = [self.detailTableView dequeueReusableCellWithIdentifier:@"Detail Description"];
+        
+        description.detailDescription.text = [self.chosenPoll pollDescription];
+        [description.detailDescription sizeToFit];
+        return description;
+    } else {
+        OptionsPreviewCell *voteOption = [self.detailTableView dequeueReusableCellWithIdentifier:@"OptionDetail"];
+        
+        if(indexPath.row < [self.chosenPoll.voteArray count]){
+            NSArray *voters = [self.chosenPoll.voteArray objectAtIndex:indexPath.row];
+            
+            voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
+            voteOption.optionVotes.text = [NSString stringWithFormat:@"%ld", (long)[voters count]];
+        }
+        
+        return voteOption;
+    }
     
-    voteOption.optionName.text = [self.chosenPoll.options objectAtIndex:indexPath.row];
-    voteOption.optionVotes.text = [NSString stringWithFormat:@"%ld", (long)[voters count]];
-    return voteOption;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   // OptionsPreviewCell *currentCell = [self.detailTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
-   // OptionsPreviewCell *previousCell = [self.detailTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.storedIndexPath inSection:0]];
     
-    
+    if(indexPath.row < [self.chosenPoll.options count]){
     NSMutableArray *array = [NSMutableArray arrayWithArray:self.chosenPoll.voteArray];
     
     
@@ -103,42 +124,13 @@
             // something
         }
     }];
-    //[self.chosenPoll.voteArray replaceObjectAtIndex:<#(NSUInteger)#> withObject:<#(nonnull id)#>];
     
     [tableView reloadData];
-
+    }
     //TODO: CHANGE FROM RELOAD DATA API
     
     
     //[tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
-@end
 
-/*
- NSInteger increase = [[self.pendingVotes objectAtIndex:indexPath.row]integerValue];
- 
- //TODO: Code Below Needs Edit
- if(![roll containsObject:[PFUser currentUser].objectId]){
- //[self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
- //self.storedIndexPath = indexPath.row;
- //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
- //self.chosenPoll.voteArray = self.pendingVotes;
- [self.chosenPoll saveInBackground];
- [self.detailTableView reloadData];
- 
- 
- } else if(self.storedIndexPath != indexPath.row && self.hasVoted == YES){
- NSInteger decrease = [[self.pendingVotes objectAtIndex:self.storedIndexPath]integerValue];
- decrease--;
- increase++;
- [self.pendingVotes replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:increase]];
- [self.pendingVotes replaceObjectAtIndex:self.storedIndexPath withObject:[NSNumber numberWithInteger:decrease]];
- //previousCell.accessoryType = UITableViewCellAccessoryNone;
- //currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
- self.storedIndexPath = indexPath.row;
- self.chosenPoll.voteArray = self.pendingVotes;
- 
- [self.chosenPoll saveInBackground];
- 
- [self.detailTableView reloadData];
- */
+@end

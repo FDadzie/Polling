@@ -15,9 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d6n-zg-1j1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d6n-zg-1j1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Profile Banner" rowHeight="171" id="iuh-gC-ozK" customClass="ProfilePictureCell">
@@ -33,7 +32,7 @@
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YFH-2v-ls0">
-                                                    <rect key="frame" x="20" y="61.5" width="117" height="97"/>
+                                                    <rect key="frame" x="20" y="61.5" width="97" height="97"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -162,10 +161,16 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="d6n-zg-1j1" firstAttribute="top" secondItem="RK1-rF-5oZ" secondAttribute="top" id="XbA-sl-Avo"/>
+                            <constraint firstAttribute="bottom" secondItem="d6n-zg-1j1" secondAttribute="bottom" id="dZ4-ES-yO4"/>
+                            <constraint firstItem="d6n-zg-1j1" firstAttribute="trailing" secondItem="wgV-OK-wSx" secondAttribute="trailing" id="rQ1-44-DIr"/>
+                            <constraint firstItem="d6n-zg-1j1" firstAttribute="leading" secondItem="wgV-OK-wSx" secondAttribute="leading" id="s08-Px-C2m"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wgV-OK-wSx"/>
                     </view>
                     <navigationItem key="navigationItem" id="ODD-WS-tMo">
-                        <barButtonItem key="rightBarButtonItem" title="Save" image="square.and.arrow.down" catalog="system" id="MLN-pN-ARn">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="MLN-pN-ARn">
                             <connections>
                                 <action selector="didTapSave:" destination="PIC-YO-DfV" id="9g2-kp-hzv"/>
                             </connections>
@@ -781,6 +786,38 @@
                                             <outlet property="optionVotes" destination="ZkY-1r-bSO" id="ksG-WW-p5Y"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail Description" rowHeight="213" id="Tb6-3j-bCr" customClass="PollDetailDescriptionCell">
+                                        <rect key="frame" x="0.0" y="90" width="414" height="213"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tb6-3j-bCr" id="BHz-On-GtC">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfu-81-RO4">
+                                                    <rect key="frame" x="20" y="11" width="374" height="202"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                        <bool key="isElement" value="NO"/>
+                                                    </accessibility>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dfu-81-RO4" firstAttribute="leading" secondItem="BHz-On-GtC" secondAttribute="leadingMargin" id="1QD-TU-apb"/>
+                                                <constraint firstAttribute="bottom" secondItem="dfu-81-RO4" secondAttribute="bottom" id="65s-Q7-lKZ"/>
+                                                <constraint firstItem="dfu-81-RO4" firstAttribute="trailing" secondItem="BHz-On-GtC" secondAttribute="trailingMargin" id="MkU-21-136"/>
+                                                <constraint firstItem="dfu-81-RO4" firstAttribute="top" secondItem="BHz-On-GtC" secondAttribute="topMargin" id="rIY-jn-MtU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <outlet property="detailDescription" destination="dfu-81-RO4" id="Ikk-rU-qlI"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -800,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJH-vW-bDR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1387" y="882"/>
+            <point key="canvasLocation" x="-1388.4057971014495" y="881.91964285714278"/>
         </scene>
         <!--Home View-->
         <scene sceneID="tne-QT-ifu">
@@ -1018,7 +1055,6 @@
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
-        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
     </resources>

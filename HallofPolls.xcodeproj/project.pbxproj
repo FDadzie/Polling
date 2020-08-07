@@ -20,6 +20,7 @@
 		9E0DECC824D6F4B300D8002C /* ProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECC724D6F4B300D8002C /* ProfilePictureCell.m */; };
 		9E0DECCB24D7A22400D8002C /* GenrePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */; };
 		9E0DECCF24DB8A5F00D8002C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0DECCE24DB8A5F00D8002C /* QuartzCore.framework */; };
+		9E0DECD224DCC0A700D8002C /* PollDetailDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0DECD124DCC0A700D8002C /* PollDetailDescriptionCell.m */; };
 		9E7AA2B924BE06DC00F2DC5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */; };
 		9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AA2BB24BE06DC00F2DC5F /* SceneDelegate.m */; };
 		9E7AA2C224BE06DC00F2DC5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AA2C024BE06DC00F2DC5F /* Main.storyboard */; };
@@ -84,6 +85,8 @@
 		9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenrePickerCell.m; sourceTree = "<group>"; };
 		9E0DECCC24D9DCD200D8002C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9E0DECCE24DB8A5F00D8002C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9E0DECD024DCC0A700D8002C /* PollDetailDescriptionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PollDetailDescriptionCell.h; sourceTree = "<group>"; };
+		9E0DECD124DCC0A700D8002C /* PollDetailDescriptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollDetailDescriptionCell.m; sourceTree = "<group>"; };
 		9E7AA2B424BE06DC00F2DC5F /* HallofPolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HallofPolls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7AA2B724BE06DC00F2DC5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E7AA2B824BE06DC00F2DC5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				9E0DECC724D6F4B300D8002C /* ProfilePictureCell.m */,
 				9E0DECC924D7A22400D8002C /* GenrePickerCell.h */,
 				9E0DECCA24D7A22400D8002C /* GenrePickerCell.m */,
+				9E0DECD024DCC0A700D8002C /* PollDetailDescriptionCell.h */,
+				9E0DECD124DCC0A700D8002C /* PollDetailDescriptionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				9E7AA2CA24BE06DD00F2DC5F /* main.m in Sources */,
 				9E83895424C10A0000CC0B4C /* Game.m in Sources */,
 				9E7AA2BC24BE06DC00F2DC5F /* SceneDelegate.m in Sources */,
+				9E0DECD224DCC0A700D8002C /* PollDetailDescriptionCell.m in Sources */,
 				9E0DECCB24D7A22400D8002C /* GenrePickerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
