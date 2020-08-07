@@ -49,9 +49,11 @@
     [self.homeTableView reloadData];
     
     
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [self.homeTableView reloadData];
    // [self.homeTableView reloadSections:<#(nonnull NSIndexSet *)#> withRowAnimation:UITableViewRowAnimationFade]
 }
 - (void)pollCreated:(NSNotification *)notification{

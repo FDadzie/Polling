@@ -23,10 +23,10 @@
 @property (assign, nonatomic) BOOL isMoreDataLoading;
 @property (strong, nonatomic) NSString *nextAPI;
 @property (strong, nonatomic) InfiniteScrollActivityView *loadingView;
-@property (class, nonatomic, readonly) CGFloat defaultHeight;
+//@property (class, nonatomic, readonly) CGFloat defaultHeight;
 
--(void)startAnimating;
--(void)stopAnimating;
+//-(void)startAnimating;
+//-(void)stopAnimating;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray<Game *> *filteredGames;
@@ -110,7 +110,7 @@ static CGFloat _defaultHeight = 60.0;
     [task resume];
 }
 - (void) initApiWithCompletionBlock:(void(^)(BOOL completed))completion {
-    NSURL *url = [NSURL URLWithString:@"https://api.rawg.io/api/games?dates=2015-01-01,2020-07-17&ordering=-added"];
+    NSURL *url = [NSURL URLWithString:@"https://rawg.io/api/games"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

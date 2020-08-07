@@ -33,26 +33,46 @@
     self.profileTableView.delegate = self;
     self.profileTableView.dataSource = self;
     
-    [self makeUserQuery];
-    
+  //  [self makeUserQuery];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId = [c] %@",[PFUser currentUser].objectId];
+    PFQuery *query = [PFQuery queryWithClassName:@"Profile" predicate:predicate];
+    [query includeKey:@"userId"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if(!error){
+            ProfilePictureCell *picture = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            GamePickerCell *game = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+            self.currentUser = (Profile *)object;
+            
+            [self.currentUser.userImage getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                picture.profileImage.image = [UIImage imageWithData:data];
+            }];
+            
+            [self.currentUser.userBanner getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                if(!error){
+                    picture.profileBanner.image = [UIImage imageWithData:data];
+                }
+            }];
+            
+            game.favGame.text = self.currentUser.favGame;
+        }
+        
+    }];
 }
 
 -(void) makeUserQuery{
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Profile"];
-    
-    // INCORRECT CALL
-    // Query Profile
-    // Use NSPredicate
-    [query getObjectInBackgroundWithId:[PFUser currentUser].objectId];
-    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId = [c] %@",[PFUser currentUser].objectId];
+    PFQuery *query = [PFQuery queryWithClassName:@"Profile" predicate:predicate];
+    [query includeKey:@"userId"];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        self.currentUser = (Profile *)object;
+    }];
 }
 
 
 - (IBAction)didTapSave:(id)sender {
     ProfilePictureCell *profileImages = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    GamePickerCell *game = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    //if(){
+    GamePickerCell *game = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    if(self.currentUser == nil){
         [Profile saveUserData:[PFUser currentUser].username withFavorite:game.favGame.text withImage:profileImages.profileImage.image withBanner:profileImages.profileBanner.image withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(!error){
                 NSLog(@"User data was successfully saved");
@@ -61,9 +81,9 @@
                 NSLog(@"%@", error.localizedDescription);
             }
         }];
-    //} else {
-        
-   // }
+    } else {
+        //update the object instead
+    }
         
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Saved User" message:@"User profile was saved" preferredStyle:(UIAlertControllerStyleAlert)];
         
@@ -119,7 +139,7 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
         if(indexPath.row == 0){
-            return 171;
+            return 220;
         }
     }
     return 43.5;
@@ -150,18 +170,13 @@
             profile.profileImage.layer.cornerRadius = profile.profileImage.frame.size.height/2;
             profile.profileImage.layer.masksToBounds = YES;
             profile.profileImage.layer.borderWidth = 0;
-            
-            return profile;
-        } else if(indexPath.row == 1){
-            profile = [tableView dequeueReusableCellWithIdentifier:@"Profile User"];
-            
             profile.profileUser.text = [PFUser currentUser].username;
             return profile;
-        } else if(indexPath.row == 2){
+        } else if(indexPath.row == 1){
             game = [tableView dequeueReusableCellWithIdentifier:@"Favorite Game"];
             
             return game;
-        } else if (indexPath.row == 3){
+        } else if (indexPath.row == 2){
             cell = [tableView dequeueReusableCellWithIdentifier:@"AddGenre"];
             
             return cell;
@@ -187,7 +202,7 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0){
-        return 4;
+        return 3;
     } else if(section == 1){
         return 1;
         //[self.genreArray count];
@@ -198,7 +213,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
-        if(indexPath.row == 2){
+        if(indexPath.row == 1){
             [self performSegueWithIdentifier:@"showPicker2" sender:nil];
         }
     } else if(indexPath.section == 1){
@@ -217,7 +232,7 @@
 }
 
 - (void)gamePicker:(nonnull GamePickerViewController *)controller didPickItem:(nonnull NSString *)game itemImage:(nonnull UIImage *)gameimage {
-    GamePickerCell *favorite = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    GamePickerCell *favorite = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     ProfilePictureCell *banner = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
     banner.profileBanner.image = gameimage;

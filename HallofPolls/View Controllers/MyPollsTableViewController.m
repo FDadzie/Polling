@@ -41,7 +41,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 - (void)anotherQuery{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator = [c] %@",[PFUser currentUser]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pollCreator == %@",[PFUser currentUser]];
     //What would the predicate format be?
     PFQuery *query = [PFQuery queryWithClassName:@"Poll" predicate:predicate];
     [query orderByDescending:@"createdAt"];
