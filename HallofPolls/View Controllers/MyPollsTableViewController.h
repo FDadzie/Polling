@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyPollsTableViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *pollTableView;
+//@property (strong, nonatomic) NSArray<Game *> *gameList;
 
 @end
 

@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GamePickerViewController : UIViewController
 
 @property (nonatomic, weak) id<GamePickerViewControllerDelegate> delegate;
+@property (strong, nonatomic) NSMutableArray<Game *> *fetchedGames;
 
 @end
 

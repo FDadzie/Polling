@@ -122,12 +122,15 @@
     [self.chosenPoll saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(succeeded){
             // something
+            
         } else{
             // something
         }
     }];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"VotingNotification" object:self];
     [tableView reloadData];
+    
     }
     //TODO: CHANGE FROM RELOAD DATA API
     

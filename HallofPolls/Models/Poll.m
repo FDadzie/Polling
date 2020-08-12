@@ -15,6 +15,7 @@
 @dynamic pollCreator;
 @dynamic voteArray;
 @dynamic pollDescription;
+@dynamic authorId;
 
 + (nonnull NSString *)parseClassName {
     return @"Poll";
@@ -25,6 +26,7 @@
     Poll *newPoll = [Poll new];
     newPoll.pollQuestion = question;
     newPoll.pollCreator = [PFUser currentUser];
+    newPoll.authorId = [PFUser currentUser].objectId;
     newPoll.options = pollOptions;
     NSMutableArray *voteArray = [[NSMutableArray alloc] initWithCapacity:[pollOptions count]];
     newPoll.pollDescription = description;

@@ -20,12 +20,12 @@
 @dynamic genres;
 @dynamic poll;
 
-// @dynamic incPolls;
 
 
 + (nonnull NSString *)parseClassName {
     return @"Game";
 }
+
 /*
 + (void)storeGames {
     
@@ -42,24 +42,5 @@
 }
 */
 
-/*
-+ (instancetype)shared {
-    static Game *sharedManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
-    });
-    return sharedManager;
-}
-
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
-    if (self){
-        
-    }
-    return self;
-}
-*/
 
 @end

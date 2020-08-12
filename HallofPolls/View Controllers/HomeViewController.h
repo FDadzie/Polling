@@ -9,11 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "OptionsPreviewCell.h"
 #import "PollQuestionCell.h"
+#import "Game.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableArray<Game *> *gameArray;
+@property (strong, nonatomic) NSArray<Game *> *queuedGames;
+@property (strong, nonatomic) NSString *nextPage;
+@property (nonatomic) BOOL isDataLoading;
 
 @end
 

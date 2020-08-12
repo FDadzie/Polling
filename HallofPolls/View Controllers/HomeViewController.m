@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "Profile.h"
 #import "Game.h"
 #import "Poll.h"
 #import <Parse/Parse.h>
@@ -15,6 +16,7 @@
 #import "PollDescriptionCell.h"
 #import "PollDetailViewController.h"
 #import "PopularGamesViewController.h"
+#import "PollCreationViewController.h"
 
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -23,6 +25,11 @@
 @property (strong, nonatomic) NSArray<Poll *> *polls;
 @property (strong, nonatomic) UIRefreshControl *refresh;
 @property (strong, nonatomic) NSIndexSet *targetSection;
+@property (strong, nonatomic) NSDictionary *gameRanks;
+@property (strong, nonatomic) Profile *user;
+
+//Temporary API counter for now
+@property (nonatomic) NSUInteger counter;
 
 @end
 
@@ -36,7 +43,7 @@
     
     self.homeTableView.delegate = self;
     self.homeTableView.dataSource = self;
-    
+    [self setIsDataLoading:true];
     
     [self beginRefresh:(UIRefreshControl *)_refresh];
        self.refresh = [[UIRefreshControl alloc] init];
@@ -48,12 +55,11 @@
     
     [self.homeTableView reloadData];
     
-    
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [self.homeTableView reloadData];
+    // How to reload selected section after view controller is changed?
    // [self.homeTableView reloadSections:<#(nonnull NSIndexSet *)#> withRowAnimation:UITableViewRowAnimationFade]
 }
 - (void)pollCreated:(NSNotification *)notification{
@@ -82,8 +88,61 @@
             // handle errors
         }
     }];
+    
 }
 
+#pragma mark - RAWG API
+/*
+- (void)initApiWithCompletionBlock:(void(^)(BOOL completed))completion {
+    // Probably not able to just dump the API
+    //NSURL *url = [NSURL URLWithString:@"https://rawg.io/api/games"];
+    NSURL *url = [NSURL URLWithString:@"https://api.rawg.io/api/games?dates=2015-01-01,2020-07-17&ordering=-added"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:10.0];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (error != nil) {
+        NSLog(@"%@", [error localizedDescription]);
+
+    } else {
+    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        self.gameArray = dataDictionary[@"results"];
+        self.nextPage = dataDictionary[@"next"]; 
+    }
+        
+    }];
+    [task resume];
+}
+
+- (void)loadMoreData{
+    
+    if(self.isDataLoading){
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.nextPage] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:10.0];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session  = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (error != nil) {
+        NSLog(@"%@", [error localizedDescription]);
+
+    } else {
+    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        self.queuedGames = dataDictionary[@"results"];
+        [self.gameArray addObjectsFromArray:self.queuedGames];
+        self.nextPage = dataDictionary[@"next"];
+        
+        self.counter++;
+        //self.isDataLoading = false;
+        if(self.counter == 9){
+            [self setIsDataLoading:false];
+        }
+    }
+        
+    }];
+    [task resume];
+    }
+}
+*/
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -91,13 +150,11 @@
     if([[segue identifier] isEqualToString:@"showPopular"]){
         PopularGamesViewController *popular;
         popular = [segue destinationViewController];
-    } else {
-        
-    PollDetailViewController *details = [segue destinationViewController];
-    NSIndexPath *index = [self.homeTableView indexPathForSelectedRow];
-    Poll *selectedPoll = self.polls[index.section];
-    details.chosenPoll = selectedPoll;
-    
+    } else if([[segue identifier] isEqualToString:@"showPollDetail"]) {
+        PollDetailViewController *details = [segue destinationViewController];
+        NSIndexPath *index = [self.homeTableView indexPathForSelectedRow];
+        Poll *selectedPoll = self.polls[index.section];
+        details.chosenPoll = selectedPoll;
     }
 
     
@@ -175,7 +232,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     [self performSegueWithIdentifier:@"showPollDetail" sender:self];
 }
 

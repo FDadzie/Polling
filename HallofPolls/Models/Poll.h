@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-@class UserModel;
+@class Profile;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFUser *pollCreator;
 @property (nonatomic, strong) NSMutableArray *voteArray;
 @property (nonatomic, strong) NSString *pollDescription;
+@property (nonatomic, strong) NSString *authorId;
 
 
 + (void) postPoll : (NSArray * _Nullable)pollOptions withQuestion: (NSString * _Nullable)question withDescription: (NSString * _Nullable )description withCompletion :(PFBooleanResultBlock _Nullable)completion ;

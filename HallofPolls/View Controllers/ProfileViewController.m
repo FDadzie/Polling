@@ -33,7 +33,14 @@
     self.profileTableView.delegate = self;
     self.profileTableView.dataSource = self;
     
-  //  [self makeUserQuery];
+    if(self.currentUser == nil) {
+        [self makeUserQuery];
+    } else {
+        
+    }
+}
+
+-(void) makeUserQuery{
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId = [c] %@",[PFUser currentUser].objectId];
     PFQuery *query = [PFQuery queryWithClassName:@"Profile" predicate:predicate];
     [query includeKey:@"userId"];
@@ -56,15 +63,6 @@
             game.favGame.text = self.currentUser.favGame;
         }
         
-    }];
-}
-
--(void) makeUserQuery{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId = [c] %@",[PFUser currentUser].objectId];
-    PFQuery *query = [PFQuery queryWithClassName:@"Profile" predicate:predicate];
-    [query includeKey:@"userId"];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        self.currentUser = (Profile *)object;
     }];
 }
 
@@ -139,7 +137,7 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
         if(indexPath.row == 0){
-            return 220;
+            return 270;
         }
     }
     return 43.5;

@@ -34,6 +34,7 @@
     
     [self anotherQuery];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hasVoted:) name:@"VotingNotification" object:nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -60,11 +61,17 @@
         }
     }];
 }
+
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
     [self anotherQuery];
     [self.pollTableView reloadData];
     [refreshControl endRefreshing];
+}
+
+- (void)hasVoted:(NSNotification *)notification{
+    [self anotherQuery];
+    [self.pollTableView reloadData];
 }
 #pragma mark - Table view data source
 
@@ -171,6 +178,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     PollCreationViewController *pc = [segue destinationViewController];
+    //pc.gameList = self.gameList;
     pc.pollDelegate = self;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

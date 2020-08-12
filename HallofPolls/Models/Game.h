@@ -23,12 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *genres;
 @property (nonatomic, strong) NSMutableArray *poll;
 
-//@property (nonatomic, strong) NSArray *incPolls;
-
-
-// - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
-// + (instancetype)shared;
 
 // + (void)storeGames;
 

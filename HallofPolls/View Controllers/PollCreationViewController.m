@@ -138,11 +138,12 @@
  - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  if([[segue identifier] isEqualToString:@"showPicker"]) {
  
- [self.tableView reloadData];
+     [self.tableView reloadData];
  
- // Get destination view
- GamePickerViewController *vc = [segue destinationViewController];
- vc.delegate = self;
+     // Get destination view
+     GamePickerViewController *vc = [segue destinationViewController];
+     vc.delegate = self;
+     //vc.fetchedGames = self.gameList;
     }
  }
 

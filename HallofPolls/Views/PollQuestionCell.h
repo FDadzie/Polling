@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *totalVotes;
 @property (weak, nonatomic) IBOutlet UILabel *pollAuthor;
 @property (weak, nonatomic) IBOutlet UILabel *homeTotalVotes;
+@property (weak, nonatomic) IBOutlet UIImageView *authorImage;
 
 @end
 
