@@ -168,7 +168,8 @@
             
             profile.profileImage.layer.cornerRadius = profile.profileImage.frame.size.height/2;
             profile.profileImage.layer.masksToBounds = YES;
-            profile.profileImage.layer.borderWidth = 0;
+            profile.profileImage.layer.borderWidth = 2.5;
+            profile.profileImage.layer.borderColor = UIColor.blackColor.CGColor;
             profile.profileUser.text = [PFUser currentUser].username;
             return profile;
         } else if(indexPath.row == 1){
