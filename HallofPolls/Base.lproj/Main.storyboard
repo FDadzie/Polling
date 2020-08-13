@@ -750,7 +750,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRy-PL-Dho">
-                                                    <rect key="frame" x="20" y="0.0" width="308" height="62"/>
+                                                    <rect key="frame" x="20" y="15" width="308" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -766,8 +766,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="oRy-PL-Dho" firstAttribute="top" secondItem="jq2-Jf-l3q" secondAttribute="top" id="BZe-fm-kDE"/>
-                                                <constraint firstAttribute="bottom" secondItem="oRy-PL-Dho" secondAttribute="bottom" id="FR5-HP-qC3"/>
+                                                <constraint firstItem="oRy-PL-Dho" firstAttribute="top" secondItem="jq2-Jf-l3q" secondAttribute="top" constant="15" id="BZe-fm-kDE"/>
+                                                <constraint firstAttribute="bottom" secondItem="oRy-PL-Dho" secondAttribute="bottom" constant="15" id="FR5-HP-qC3"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZkY-1r-bSO" secondAttribute="trailing" constant="20" id="OUH-qU-Vjs"/>
                                                 <constraint firstItem="ZkY-1r-bSO" firstAttribute="leading" secondItem="oRy-PL-Dho" secondAttribute="trailing" constant="8" id="SIy-Wb-YLQ"/>
                                                 <constraint firstItem="oRy-PL-Dho" firstAttribute="leading" secondItem="jq2-Jf-l3q" secondAttribute="leading" constant="20" id="edz-vN-DvY"/>
@@ -788,8 +788,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfu-81-RO4">
-                                                    <rect key="frame" x="20" y="11" width="374" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfu-81-RO4">
+                                                    <rect key="frame" x="20" y="11" width="374" height="191"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                         <bool key="isElement" value="NO"/>
@@ -799,11 +800,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="dfu-81-RO4" firstAttribute="leading" secondItem="BHz-On-GtC" secondAttribute="leadingMargin" id="1QD-TU-apb"/>
-                                                <constraint firstItem="dfu-81-RO4" firstAttribute="trailing" secondItem="BHz-On-GtC" secondAttribute="trailingMargin" id="MkU-21-136"/>
-                                                <constraint firstItem="dfu-81-RO4" firstAttribute="top" secondItem="BHz-On-GtC" secondAttribute="topMargin" id="rIY-jn-MtU"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>

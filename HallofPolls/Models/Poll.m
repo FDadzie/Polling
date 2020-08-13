@@ -31,11 +31,12 @@
     NSMutableArray *voteArray = [[NSMutableArray alloc] initWithCapacity:[pollOptions count]];
     newPoll.pollDescription = description;
     
+    newPoll.voteArray = voteArray;
+
     for(int i = 0; i < [newPoll.options count]; i++){
         [newPoll.voteArray insertObject:[NSMutableArray array] atIndex:i];
     }
     
-    newPoll.voteArray = voteArray;
     [newPoll saveInBackgroundWithBlock:completion];
         
 }

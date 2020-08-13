@@ -27,8 +27,10 @@
     self.detailTableView.delegate = self;
     self.detailTableView.dataSource = self;
     
-    self.detailTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    //self.detailTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    self.detailTableView.estimatedRowHeight = 230;
+    self.detailTableView.rowHeight = UITableViewAutomaticDimension;
     
     self.pendingVotes = self.chosenPoll.voteArray;
     

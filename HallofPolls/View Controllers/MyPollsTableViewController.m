@@ -114,6 +114,15 @@
         OptionsPreviewCell *optionCell = [self.pollTableView dequeueReusableCellWithIdentifier:@"MyPollsOptionsCell" forIndexPath:indexPath];
         NSArray *accessArray = accessPoll.options;
         
+        /*
+        if(indexPath.row < [accessPoll.voteArray count]){
+            NSArray *voters = [accessPoll.voteArray objectAtIndex:indexPath.row - 1];
+            
+            optionCell.optionName.text = [accessPoll.options objectAtIndex:indexPath.row - 1];
+            optionCell.optionVotes.text = [NSString stringWithFormat:@"%ld", (long)[voters count]];
+        }
+         */
+        
         if(indexPath.row <= accessArray.count){
         NSArray *accessVotes = [accessPoll.voteArray objectAtIndex:indexPath.row - 1];
             optionCell.myOptionName.text = [accessArray objectAtIndex:indexPath.row - 1];

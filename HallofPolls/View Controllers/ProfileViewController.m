@@ -81,6 +81,7 @@
         }];
     } else {
         //update the object instead
+        
     }
         
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Saved User" message:@"User profile was saved" preferredStyle:(UIAlertControllerStyleAlert)];
@@ -121,7 +122,7 @@
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     ProfilePictureCell *userImage = [self.profileTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     userImage.profileImage.image = editedImage;

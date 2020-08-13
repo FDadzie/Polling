@@ -180,8 +180,8 @@ static CGFloat _defaultHeight = 60.0;
     if (searchText.length != 0) {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS [c] %@", searchText];
-        self.filteredGames = [self.fetchedGames filteredArrayUsingPredicate:predicate];
         
+        self.filteredGames = [self.fetchedGames filteredArrayUsingPredicate:predicate];
     }
     else {
         self.filteredGames = self.fetchedGames;
